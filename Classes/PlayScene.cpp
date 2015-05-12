@@ -54,6 +54,7 @@ bool PlayScene::init()
 }
 
 void PlayScene::beginNewGame(){
+    defen = 0;
     ballList.clear();
     selectedBalls.clear();
     for (int i = 0; i<5; i++) {
@@ -61,48 +62,58 @@ void PlayScene::beginNewGame(){
     }
     addEdges();
     AddBalls();
-    this->schedule(schedule_selector(PlayScene::dingshiqi), 2);
+    //this->schedule(schedule_selector(PlayScene::dingshiqi), 2);
+    //this->schedule(schedule_selector(PlayScene::dingshiqi2), 2);
 }
-//定时器,判断结束游戏的条件
-void  PlayScene::dingshiqi(float dt){
-    
-    for (int i = 0; i< ballList.size(); i++) {
-        if (ballList.at(i)->getPhysicsBody()->isResting()) {
-            return;
-        }
-    }
-    
-    bool lost = false;
-//    for (int i = 0; i<5; i++) {
-//        if (colorCount[i] > 1) {
-//            lost = true;
+
+//void PlayScene::dingshiqi2(float dt)
+//{
+//    for (int i = 0; i<ballList.size(); i++) {
+//        if (!ballList.at(i)->getPhysicsBody()->isDynamic()) {
+//            log("%d号球球，完全静止了！",i);
 //        }
 //    }
-    
-    for (int i = 0; i < ballList.size() - 1; i++)
-    {
-        for (int j = i+1; j<ballList.size(); j++)
-        {
-            if (lost) {
-                break;
-            }
-            if ((isNear(ballList.at(i), ballList.at(j)))) {
-                if (ballList.at(i)->getTag() == ballList.at(j)->getTag()) {
-                    lost = true;
-                    break;
-                }
-                
-                //break;
-            }
-        }
-    }
-
-    if (!lost) {
-        log("结束");
-        this->unschedule(schedule_selector(PlayScene::dingshiqi));
-    }
-    log("0:[%d],1:[%d],2:[%d],3:[%d],4:[%d]",colorCount[0],colorCount[1],colorCount[2],colorCount[3],colorCount[4]);
-}
+//}
+//定时器,判断结束游戏的条件
+//void  PlayScene::dingshiqi(float dt){
+//    
+//    for (int i = 0; i< ballList.size(); i++) {
+//        if (ballList.at(i)->getPhysicsBody()->isResting()) {
+//            return;
+//        }
+//    }
+//    
+//    bool lost = false;
+////    for (int i = 0; i<5; i++) {
+////        if (colorCount[i] > 1) {
+////            lost = true;
+////        }
+////    }
+//    
+//    for (int i = 0; i < ballList.size() - 1; i++)
+//    {
+//        for (int j = i+1; j<ballList.size(); j++)
+//        {
+//            if (lost) {
+//                break;
+//            }
+//            if ((isNear(ballList.at(i), ballList.at(j)))) {
+//                if (ballList.at(i)->getTag() == ballList.at(j)->getTag()) {
+//                    lost = true;
+//                    break;
+//                }
+//                
+//                //break;
+//            }
+//        }
+//    }
+//
+//    if (!lost) {
+//        log("结束");
+//        this->unschedule(schedule_selector(PlayScene::dingshiqi));
+//    }
+//    log("0:[%d],1:[%d],2:[%d],3:[%d],4:[%d]",colorCount[0],colorCount[1],colorCount[2],colorCount[3],colorCount[4]);
+//}
 
 bool PlayScene::touchIt(Touch* touch,Event* event){
     //Director::getInstance()->stopAnimation();
@@ -115,25 +126,29 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
         if (PlayScene::getjuli(clickLocation, tar->getPosition()) < tar->getContentSize().width/2)
         {
             chuliBall(tar);
-            if (selectedBalls.size()>1)
+            defen += selectedBalls.size() * selectedBalls.size() * 5;
+//            if (selectedBalls.size()>0)
+//            {
+            for (int i = 0; i<selectedBalls.size(); i++)
             {
-                for (int i = 0; i<selectedBalls.size(); i++)
-                {
-                    int ballTag = selectedBalls.at(i)->getTag();
-                    colorCount[ballTag]--;
-                    removeChild(selectedBalls.at(i));
-                    ballList.eraseObject(selectedBalls.at(i));
-                }
-                
+                int ballTag = selectedBalls.at(i)->getTag();
+                colorCount[ballTag]--;
+                removeChild(selectedBalls.at(i));
+                ballList.eraseObject(selectedBalls.at(i));
             }
+                
+//            }
             break;
             
         }
     }
     //Director::getInstance()->startAnimation();
     log("消除%zd个",selectedBalls.size());
-    log("还剩%zd个球球",ballList.size());
-    return true;
+    log("总分%zd",defen);
+    if (ballList.size()<1) {
+        log("结束游戏！");
+    }
+    return false;
 }
 
 void PlayScene::AddBalls(){
@@ -156,7 +171,10 @@ void PlayScene::addBall(float positionX, float positionY){
     newBall->setPosition(positionX,positionY);
     
     auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
+//    ballBody->setLinearDamping(1.0f);
+//    ballBody->setAngularDamping(1.0f);
     //ballBody->isResting()
+    //ballBody->setResting(true);
     ballBody->setVelocity(Vec2(0.0f,-100.0f));
     newBall->setPhysicsBody(ballBody);
     ballList.pushBack(newBall);

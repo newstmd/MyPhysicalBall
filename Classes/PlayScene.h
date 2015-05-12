@@ -2,11 +2,14 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include <Box2D/Box2D.h>
+
 USING_NS_CC;
 
 class PlayScene : public cocos2d::Layer
 {
 private:
+    int defen;
     Vector<Sprite*> ballList;
     Vector<Sprite*> selectedBalls;
     int colorCount[5];
@@ -22,7 +25,8 @@ private:
     float getjuli(Vec2 v1,Vec2 v2);
     void testIsNear();
     bool touchIt(Touch* touch,Event* event);
-    void dingshiqi(float dt);
+//    void dingshiqi(float dt);
+//    void dingshiqi2(float dt);
     
 public:
     static cocos2d::Scene* createScene();
