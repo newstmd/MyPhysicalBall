@@ -63,14 +63,33 @@ void HelloWorld::beginNewGame(){
     AddBalls();
     this->schedule(schedule_selector(HelloWorld::dingshiqi), 2);
 }
-//定时器
+//定时器,判断结束游戏的条件
 void  HelloWorld::dingshiqi(float dt){
     bool lost = false;
-    for (int i = 0; i<5; i++) {
-        if (colorCount[i] > 1) {
-            lost = true;
+//    for (int i = 0; i<5; i++) {
+//        if (colorCount[i] > 1) {
+//            lost = true;
+//        }
+//    }
+    
+    for (int i = 0; i < ballList.size() - 1; i++)
+    {
+        for (int j = i+1; j<ballList.size(); j++)
+        {
+            if (lost) {
+                break;
+            }
+            if ((isNear(ballList.at(i), ballList.at(j)))) {
+                if (ballList.at(i)->getTag() == ballList.at(j)->getTag()) {
+                    lost = true;
+                    break;
+                }
+                
+                //break;
+            }
         }
     }
+
     if (!lost) {
         log("结束");
         this->unschedule(schedule_selector(HelloWorld::dingshiqi));
