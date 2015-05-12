@@ -1,4 +1,4 @@
-#include "HelloWorldScene.h"
+#include "PlayScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 USING_NS_CC_MATH;
@@ -6,14 +6,14 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
-Scene* HelloWorld::createScene()
+Scene* PlayScene::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     scene->getPhysicsWorld()->setGravity(Vec2(0,-300));
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create();
+    auto layer = PlayScene::create();
     
     // add layer as a child to scene
     scene->addChild(layer);
@@ -23,7 +23,7 @@ Scene* HelloWorld::createScene()
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool PlayScene::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -43,17 +43,17 @@ bool HelloWorld::init()
     
     
     auto listener1 = EventListenerTouchOneByOne::create();
-    listener1->onTouchBegan = CC_CALLBACK_2(HelloWorld::touchIt,this);
+    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
     listener1->onTouchMoved = [](Touch* touch, Event* event){};
     listener1->onTouchEnded = [=](Touch* touch, Event* event){};
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
-    HelloWorld::beginNewGame();
+    PlayScene::beginNewGame();
     
     return true;
 }
 
-void HelloWorld::beginNewGame(){
+void PlayScene::beginNewGame(){
     ballList.clear();
     selectedBalls.clear();
     for (int i = 0; i<5; i++) {
@@ -61,10 +61,17 @@ void HelloWorld::beginNewGame(){
     }
     addEdges();
     AddBalls();
-    this->schedule(schedule_selector(HelloWorld::dingshiqi), 2);
+    this->schedule(schedule_selector(PlayScene::dingshiqi), 2);
 }
 //定时器,判断结束游戏的条件
-void  HelloWorld::dingshiqi(float dt){
+void  PlayScene::dingshiqi(float dt){
+    
+    for (int i = 0; i< ballList.size(); i++) {
+        if (ballList.at(i)->getPhysicsBody()->isResting()) {
+            return;
+        }
+    }
+    
     bool lost = false;
 //    for (int i = 0; i<5; i++) {
 //        if (colorCount[i] > 1) {
@@ -92,12 +99,12 @@ void  HelloWorld::dingshiqi(float dt){
 
     if (!lost) {
         log("结束");
-        this->unschedule(schedule_selector(HelloWorld::dingshiqi));
+        this->unschedule(schedule_selector(PlayScene::dingshiqi));
     }
     log("0:[%d],1:[%d],2:[%d],3:[%d],4:[%d]",colorCount[0],colorCount[1],colorCount[2],colorCount[3],colorCount[4]);
 }
 
-bool HelloWorld::touchIt(Touch* touch,Event* event){
+bool PlayScene::touchIt(Touch* touch,Event* event){
     //Director::getInstance()->stopAnimation();
     selectedBalls.clear();
     auto clickLocation = touch->getLocation();
@@ -105,7 +112,7 @@ bool HelloWorld::touchIt(Touch* touch,Event* event){
     for (int i = 0; i<ballList.size(); i++)
     {
         auto tar = ballList.at(i);
-        if (HelloWorld::getjuli(clickLocation, tar->getPosition()) < tar->getContentSize().width/2)
+        if (PlayScene::getjuli(clickLocation, tar->getPosition()) < tar->getContentSize().width/2)
         {
             chuliBall(tar);
             if (selectedBalls.size()>1)
@@ -129,18 +136,18 @@ bool HelloWorld::touchIt(Touch* touch,Event* event){
     return true;
 }
 
-void HelloWorld::AddBalls(){
+void PlayScene::AddBalls(){
     int positionX = 80;
     int positionY = 930;
     
     for (int y = 0; y<11; y++) {
         for (int x = 0; x<9; x++) {
-            HelloWorld::addBall(positionX+60*x, positionY-60*y);
+            PlayScene::addBall(positionX+60*x, positionY-60*y);
         }
     }
 }
 
-void HelloWorld::addBall(float positionX, float positionY){
+void PlayScene::addBall(float positionX, float positionY){
     int rand = arc4random() % 5 ;
     std::string imageName = imageNames.at(rand);
     
@@ -149,15 +156,16 @@ void HelloWorld::addBall(float positionX, float positionY){
     newBall->setPosition(positionX,positionY);
     
     auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
+    //ballBody->isResting()
     ballBody->setVelocity(Vec2(0.0f,-100.0f));
     newBall->setPhysicsBody(ballBody);
     ballList.pushBack(newBall);
     colorCount[rand]++;
     addChild(newBall);
-    
+        
 }
 
-void HelloWorld::addEdges(){
+void PlayScene::addEdges(){
     auto edges = PhysicsBody::createEdgeBox(winSize);
     auto node = Node::create();
     node->setPhysicsBody(edges);
@@ -187,7 +195,7 @@ void HelloWorld::addEdges(){
     
 }
 
-bool HelloWorld::isNear(cocos2d::Sprite *s1, cocos2d::Sprite *s2){
+bool PlayScene::isNear(cocos2d::Sprite *s1, cocos2d::Sprite *s2){
     float x1 = s1->getPosition().x;
     float x2 = s2->getPosition().x;
     float y1 = s1->getPosition().y;
@@ -198,7 +206,7 @@ bool HelloWorld::isNear(cocos2d::Sprite *s1, cocos2d::Sprite *s2){
     }
     return true;
 }
-float HelloWorld::getjuli(Vec2 v1,Vec2 v2){
+float PlayScene::getjuli(Vec2 v1,Vec2 v2){
     float x1 = v1.x;
     float x2 = v2.x;
     float y1 = v1.y;
@@ -206,19 +214,19 @@ float HelloWorld::getjuli(Vec2 v1,Vec2 v2){
     return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 }
 
-void HelloWorld::testIsNear(){
+void PlayScene::testIsNear(){
     auto s1 = ballList.at(0);
     auto s2 = ballList.at(2);
     isNear(s1, s2);
 }
 
-void HelloWorld::chuliBall(cocos2d::Sprite *sp){
+void PlayScene::chuliBall(cocos2d::Sprite *sp){
     for (int i = 0; i<ballList.size(); i++) {
         if (!selectedBalls.contains(ballList.at(i))) {//检查是否重复
             if (sp->getTag() == ballList.at(i)->getTag()) {//检查颜色是否一样
                 if (isNear(sp, ballList.at(i))) {//检查是否触碰
                     selectedBalls.pushBack(ballList.at(i));
-                    HelloWorld::chuliBall(ballList.at(i));
+                    PlayScene::chuliBall(ballList.at(i));
                 }
             }
         }

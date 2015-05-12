@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-class HelloWorld : public cocos2d::Layer
+class PlayScene : public cocos2d::Layer
 {
 private:
     Vector<Sprite*> ballList;
@@ -27,7 +27,7 @@ private:
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(PlayScene);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
