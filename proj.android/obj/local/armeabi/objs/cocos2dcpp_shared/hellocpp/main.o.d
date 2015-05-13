@@ -1,4 +1,4 @@
-obj/local/armeabi/objs-debug/cocos2dcpp_shared/hellocpp/main.o: \
+obj/local/armeabi/objs/cocos2dcpp_shared/hellocpp/main.o: \
  jni/hellocpp/main.cpp jni/../../Classes/AppDelegate.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../cocos2d.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/ccConfig.h \
@@ -8,65 +8,65 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/hellocpp/main.o: \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/ccConfig.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/CCPlatformDefine.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/android/CCPlatformDefine-android.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/log.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/log.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCRefPtr.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCRef.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/ccMacros.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCConsole.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/select.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/api-level.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/time.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdint.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/_types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/time.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/signal.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/limits.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/limits.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/limits.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/limits.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/page.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/string.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/malloc.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/signal.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/siginfo.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/ucontext.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/user.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/thread \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/vector \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/map \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/mutex \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/select.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/api-level.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/time.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdint.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/_types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/time.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/signal.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/limits.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/limits.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/limits.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/limits.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/page.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/string.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/malloc.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/signal.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/siginfo.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/ucontext.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/user.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/thread \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/vector \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/map \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/mutex \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/CCStdC.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/android/CCStdC-android.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/math.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdlib.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/alloca.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/strings.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/memory.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/cassert \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/math.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdlib.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/alloca.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/strings.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/memory.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/cassert \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/ccRandom.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/random \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/random \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCVector.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/algorithm \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/algorithm \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCMap.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCAutoreleasePool.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCNS.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../math/CCGeometry.h \
@@ -92,10 +92,10 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/hellocpp/main.o: \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/ccTypes.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/CCGL.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/android/CCGL-android.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2platform.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/KHR/khrplatform.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2ext.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2platform.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/KHR/khrplatform.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2ext.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCConfiguration.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCValue.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../3d/CCAnimate3D.h \
@@ -119,23 +119,23 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/hellocpp/main.o: \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCEventTouch.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCEvent.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCEventKeyboard.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/list \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/list \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../math/CCAffineTransform.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCDirector.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/stack \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/stack \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../2d/CCScene.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/CCGLView.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCScheduler.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/set \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/set \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/uthash.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/inttypes.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/inttypes.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/base64.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/ZipUtils.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/android/CCFileUtils-android.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/CCFileUtils.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCData.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/jni.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/asset_manager.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/jni.h \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/asset_manager.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCProfiling.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCMap.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCConsole.h \
@@ -260,8 +260,8 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/hellocpp/main.o: \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/ccShaders.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/CCTexture2D.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/CCTextureCache.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/condition_variable \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/queue \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/condition_variable \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/queue \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/CCVertexIndexBuffer.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/CCVertexIndexData.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/CCPrimitive.h \
@@ -348,7 +348,7 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/hellocpp/main.o: \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../deprecated/CCArray.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCDataVisitor.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../deprecated/CCString.h \
- /Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/sstream \
+ /Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/sstream \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../deprecated/CCArray.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../deprecated/CCSet.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../deprecated/CCInteger.h \
@@ -378,7 +378,7 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/android/CCPlatformDefine-android.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/log.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/log.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCRefPtr.h:
 
@@ -388,113 +388,113 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCConsole.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/select.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/select.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/api-level.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/api-level.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/time.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/time.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdint.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdint.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/_types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/_types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/posix_types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/posix_types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/stddef.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/stddef.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/compiler.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/compiler.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/posix_types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/posix_types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/kernel.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/kernel.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/time.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/time.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/signal.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/signal.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/limits.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/limits.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/limits.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/limits.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/limits.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/linux/limits.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/internal_types.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/internal_types.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/limits.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/machine/limits.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/syslimits.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/syslimits.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/page.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/page.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/string.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/string.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/malloc.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/malloc.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/signal.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/signal.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/siginfo.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm/siginfo.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/ucontext.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/ucontext.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/user.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/sys/user.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/thread:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/thread:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/vector:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/vector:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/map:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/map:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/mutex:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/mutex:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/CCStdC.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/android/CCStdC-android.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/math.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/math.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdlib.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/stdlib.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/alloca.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/alloca.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/strings.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/strings.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/memory.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/memory.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/cassert:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/cassert:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/ccRandom.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/random:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/random:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCVector.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/algorithm:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/algorithm:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCMap.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCAutoreleasePool.h:
 
@@ -546,13 +546,13 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../platform/android/CCGL-android.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2platform.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2platform.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/KHR/khrplatform.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/KHR/khrplatform.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2ext.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/GLES2/gl2ext.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCConfiguration.h:
 
@@ -600,13 +600,13 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCEventKeyboard.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/list:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/list:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../math/CCAffineTransform.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCDirector.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/stack:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/stack:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../2d/CCScene.h:
 
@@ -614,11 +614,11 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCScheduler.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/set:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/set:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/uthash.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/inttypes.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/inttypes.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/base64.h:
 
@@ -630,9 +630,9 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCData.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/jni.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/jni.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/asset_manager.h:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/platforms/android-9/arch-arm/usr/include/android/asset_manager.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../base/CCProfiling.h:
 
@@ -882,9 +882,9 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/CCTextureCache.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/condition_variable:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/condition_variable:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/queue:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/queue:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../renderer/CCVertexIndexBuffer.h:
 
@@ -1058,7 +1058,7 @@ jni/../../Classes/AppDelegate.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../deprecated/CCString.h:
 
-/Volumes/Tools/CocosTools/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/sstream:
+/Users/tangxin/Desktop/MyCodes/android-ndk-r10c/sources/cxx-stl/gnu-libstdc++/4.9/include/sstream:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../deprecated/CCArray.h:
 
