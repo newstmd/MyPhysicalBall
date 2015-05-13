@@ -32,7 +32,7 @@ bool PlayScene::init()
         return false;
     }
     //auto rootNode = CSLoader::createNode("MainScene.csb");
-    imageNames.push_back("ball1.png");
+    imageNames.push_back("ball.png");
     imageNames.push_back("ball2.png");
     imageNames.push_back("ball3.png");
     imageNames.push_back("ball4.png");
@@ -171,11 +171,11 @@ void PlayScene::addBall(float positionX, float positionY){
     newBall->setPosition(positionX,positionY);
     
     auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
-//    ballBody->setLinearDamping(1.0f);
-//    ballBody->setAngularDamping(1.0f);
-    //ballBody->isResting()
-    //ballBody->setResting(true);
     ballBody->setVelocity(Vec2(0.0f,-100.0f));
+    ballBody->getFirstShape()->setDensity(1.0f);
+    ballBody->getFirstShape()->setFriction(0.05f);
+    ballBody->getFirstShape()->setRestitution(0.0f);
+    
     newBall->setPhysicsBody(ballBody);
     ballList.pushBack(newBall);
     colorCount[rand]++;
