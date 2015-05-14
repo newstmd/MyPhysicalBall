@@ -41,8 +41,8 @@ bool PlayScene::init()
     
     winSize = Director::getInstance()->getVisibleSize();
     
-    auto backGround = CSLoader::createNode("MainScene.csb");
-    addChild(backGround);
+//    auto backGround = CSLoader::createNode("MainScene.csb");
+//    addChild(backGround);
     
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
@@ -175,7 +175,7 @@ void PlayScene::addBall(float positionX, float positionY){
     auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
     ballBody->setVelocity(Vec2(0.0f,-100.0f));
     ballBody->getFirstShape()->setDensity(0.3f);
-    ballBody->getFirstShape()->setFriction(0.1f);
+    ballBody->getFirstShape()->setFriction(0.3f);
     ballBody->getFirstShape()->setRestitution(0.0f);
     
     newBall->setPhysicsBody(ballBody);
