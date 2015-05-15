@@ -17,30 +17,20 @@
             <FileData Type="Normal" Path="bg.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Button_1" ActionTag="-644347829" Tag="3" IconVisible="False" LeftMargin="576.7399" RightMargin="17.2601" TopMargin="13.6210" BottomMargin="1086.3790" TouchEnable="True" FontSize="14" ButtonText="新游戏" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
-            <Size X="46.0000" Y="36.0000" />
+          <AbstractNodeData Name="Button_1" ActionTag="-644347829" Tag="3" IconVisible="False" LeftMargin="461.4749" RightMargin="-77.4749" TopMargin="-80.9761" BottomMargin="960.9761" TouchEnable="True" FontSize="20" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="234" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+            <Size X="256.0000" Y="256.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="599.7399" Y="1104.3790" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position X="589.4749" Y="1088.9761" />
+            <Scale ScaleX="0.3000" ScaleY="0.3000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9371" Y="0.9722" />
-            <PreSize />
+            <PrePosition X="0.9211" Y="0.9586" />
+            <PreSize X="0.4000" Y="0.2254" />
             <TextColor A="255" R="65" G="65" B="70" />
-            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <DisabledFileData Type="Normal" Path="a56fd6c0840699fe67cd6a9992b31868.png" Plist="" />
+            <PressedFileData Type="Normal" Path="a56fd6c0840699fe67cd6a9992b31868.png" Plist="" />
+            <NormalFileData Type="Normal" Path="a56fd6c0840699fe67cd6a9992b31868.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="BitmapFontLabel_1" ActionTag="1890633981" Tag="4" IconVisible="False" LeftMargin="239.0000" RightMargin="239.0000" TopMargin="18.7660" BottomMargin="1081.2340" LabelText="123456" ctype="TextBMFontObjectData">
-            <Size X="84.0000" Y="36.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="320.0000" Y="1099.2340" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="0" B="0" />
-            <PrePosition X="0.5000" Y="0.9676" />
-            <PreSize />
-            <LabelBMFontFile_CNB Type="Default" Path="Default/defaultBMFont.fnt" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

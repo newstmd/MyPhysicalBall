@@ -2,14 +2,15 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
-#include <Box2D/Box2D.h>
+//#include <Box2D/Box2D.h>
+#include "ui/CocosGUI.h"
 
 USING_NS_CC;
 
 class PlayScene : public cocos2d::Layer
 {
 private:
-    
+    Label* scoreLabel;
     int defen;
     Vector<Sprite*> ballList;
     Vector<Sprite*> selectedBalls;
@@ -27,6 +28,7 @@ private:
     void testIsNear();
     bool touchIt(Touch* touch,Event* event);
     void refreshScore();
+    //void touchNewGame(Ref* target,ui::Widget::TouchEventType type);
 //    void dingshiqi(float dt);
 //    void dingshiqi2(float dt);
     

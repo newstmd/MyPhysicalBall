@@ -43,6 +43,12 @@ bool PlayScene::init()
     
     auto backGround = CSLoader::createNode("MainScene.csb");
     addChild(backGround);
+    auto newGameButton = backGround->getChildByName<cocos2d::ui::Button*>("Button_1");
+    newGameButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            PlayScene::beginNewGame();
+        }
+    });
     
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
@@ -50,13 +56,32 @@ bool PlayScene::init()
     listener1->onTouchEnded = [=](Touch* touch, Event* event){};
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
+    scoreLabel = Label::create();
+    //scoreLabel->set
+    scoreLabel->setTextColor(Color4B::RED);
+    scoreLabel->setSystemFontSize(40);
+    scoreLabel->setString("得分：0");
+    scoreLabel->setPosition(winSize.width/2, 1100);
+    addChild(scoreLabel,999);
+//    scoreLabel->set
+    
     PlayScene::beginNewGame();
     
     return true;
 }
 
+
+
 void PlayScene::beginNewGame(){
+    
     defen = 0;
+    
+    if (ballList.size()>0) {
+        for (int i = 0; i<ballList.size(); i++) {
+            removeChild(ballList.at(i));
+        }
+    }
+    
     ballList.clear();
     selectedBalls.clear();
     for (int i = 0; i<5; i++) {
@@ -92,9 +117,12 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
     }
     log("消除%zd个,还剩%zd个",selectedBalls.size(),ballList.size());
     log("总分%zd",defen);
+    
+    //scoreLabel->setString();
     if (ballList.size()<1) {
         log("结束游戏！");
     }
+    
     return false;
 }
 
@@ -122,7 +150,7 @@ void PlayScene::addBall(float positionX, float positionY){
     newBall->setPosition(positionX,positionY);
     
     auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
-    ballBody->setVelocity(Vec2(0.0f,-100.0f));
+    //ballBody->setVelocity(Vec2(0.0f,-100.0f));
     ballBody->getFirstShape()->setDensity(8.0f);
     ballBody->getFirstShape()->setFriction(0.5f);
     ballBody->getFirstShape()->setRestitution(0.0f);
@@ -140,11 +168,11 @@ void PlayScene::addEdges(){
     node->setPhysicsBody(edges);
     node->setPosition(winSize/2);
     
-    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 200));
+    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 220));
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
     
-    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 200));
+    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 220));
     auto node3 = Node::create();
     node3->setPhysicsBody(edges3);
     

@@ -6,6 +6,7 @@
         <Project Name="MainScene.csd" Type="Scene" />
         <Image Name="HelloWorld.png" />
         <Image Name="bg.jpg" />
+        <Image Name="a56fd6c0840699fe67cd6a9992b31868.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
