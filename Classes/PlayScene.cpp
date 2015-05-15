@@ -64,61 +64,10 @@ void PlayScene::beginNewGame(){
     }
     addEdges();
     AddBalls();
-    //this->schedule(schedule_selector(PlayScene::dingshiqi), 2);
-    //this->schedule(schedule_selector(PlayScene::dingshiqi2), 2);
-}
+    }
 
-//void PlayScene::dingshiqi2(float dt)
-//{
-//    for (int i = 0; i<ballList.size(); i++) {
-//        if (!ballList.at(i)->getPhysicsBody()->isDynamic()) {
-//            log("%d号球球，完全静止了！",i);
-//        }
-//    }
-//}
-//定时器,判断结束游戏的条件
-//void  PlayScene::dingshiqi(float dt){
-//    
-//    for (int i = 0; i< ballList.size(); i++) {
-//        if (ballList.at(i)->getPhysicsBody()->isResting()) {
-//            return;
-//        }
-//    }
-//    
-//    bool lost = false;
-////    for (int i = 0; i<5; i++) {
-////        if (colorCount[i] > 1) {
-////            lost = true;
-////        }
-////    }
-//    
-//    for (int i = 0; i < ballList.size() - 1; i++)
-//    {
-//        for (int j = i+1; j<ballList.size(); j++)
-//        {
-//            if (lost) {
-//                break;
-//            }
-//            if ((isNear(ballList.at(i), ballList.at(j)))) {
-//                if (ballList.at(i)->getTag() == ballList.at(j)->getTag()) {
-//                    lost = true;
-//                    break;
-//                }
-//                
-//                //break;
-//            }
-//        }
-//    }
-//
-//    if (!lost) {
-//        log("结束");
-//        this->unschedule(schedule_selector(PlayScene::dingshiqi));
-//    }
-//    log("0:[%d],1:[%d],2:[%d],3:[%d],4:[%d]",colorCount[0],colorCount[1],colorCount[2],colorCount[3],colorCount[4]);
-//}
 
 bool PlayScene::touchIt(Touch* touch,Event* event){
-    //Director::getInstance()->stopAnimation();
     selectedBalls.clear();
     auto clickLocation = touch->getLocation();
     
@@ -129,8 +78,7 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
         {
             chuliBall(tar);
             defen += selectedBalls.size() * selectedBalls.size() * 5;
-//            if (selectedBalls.size()>0)
-//            {
+
             for (int i = 0; i<selectedBalls.size(); i++)
             {
                 int ballTag = selectedBalls.at(i)->getTag();
@@ -138,13 +86,10 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
                 removeChild(selectedBalls.at(i));
                 ballList.eraseObject(selectedBalls.at(i));
             }
-                
-//            }
             break;
             
         }
     }
-    //Director::getInstance()->startAnimation();
     log("消除%zd个,还剩%zd个",selectedBalls.size(),ballList.size());
     log("总分%zd",defen);
     if (ballList.size()<1) {
@@ -257,7 +202,10 @@ void PlayScene::chuliBall(cocos2d::Sprite *sp){
     }
 }
 
-
+void PlayScene::refreshScore()
+{
+    
+}
 
 
 

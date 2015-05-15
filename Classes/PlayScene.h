@@ -9,6 +9,7 @@ USING_NS_CC;
 class PlayScene : public cocos2d::Layer
 {
 private:
+    
     int defen;
     Vector<Sprite*> ballList;
     Vector<Sprite*> selectedBalls;
@@ -25,6 +26,7 @@ private:
     float getjuli(Vec2 v1,Vec2 v2);
     void testIsNear();
     bool touchIt(Touch* touch,Event* event);
+    void refreshScore();
 //    void dingshiqi(float dt);
 //    void dingshiqi2(float dt);
     
