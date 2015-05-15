@@ -9,7 +9,7 @@
         <AndroidkeyStore Value="" />
         <AndroidVersion Value="android-10" />
         <iOS_Target Value="MyPhysicalBall iOS" />
-        <iOS_BundleID Value="" />
+        <iOS_BundleID Value="iPhone Developer: xin tang (U334P5EC54)" />
         <Platform Value="Android" />
         <FrameworkVersion Value="cocos2d-x-3.6" />
         <IsDebugKeystore Value="True" />
@@ -25,14 +25,6 @@
         <LastPublishType Value="Resource" />
         <IsLastPublish Value="True" />
         <LastRunType Value="Android" />
-      </Value>
-    </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="MainScene.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="MainScene.csd" />
       </Value>
     </Item>
   </Properties>

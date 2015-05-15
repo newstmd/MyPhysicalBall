@@ -11,7 +11,7 @@ Scene* PlayScene::createScene()
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    scene->getPhysicsWorld()->setGravity(Vec2(0,-300));
+    scene->getPhysicsWorld()->setGravity(Vec2(0,-1000));
     // 'layer' is an autorelease object
     auto layer = PlayScene::create();
     
@@ -41,8 +41,8 @@ bool PlayScene::init()
     
     winSize = Director::getInstance()->getVisibleSize();
     
-//    auto backGround = CSLoader::createNode("MainScene.csb");
-//    addChild(backGround);
+    auto backGround = CSLoader::createNode("MainScene.csb");
+    addChild(backGround);
     
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
@@ -145,7 +145,7 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
         }
     }
     //Director::getInstance()->startAnimation();
-    log("消除%zd个",selectedBalls.size());
+    log("消除%zd个,还剩%zd个",selectedBalls.size(),ballList.size());
     log("总分%zd",defen);
     if (ballList.size()<1) {
         log("结束游戏！");
@@ -155,13 +155,17 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
 
 void PlayScene::AddBalls(){
     int positionX = 80;
-    int positionY = 930;
+    int positionY = 1090;
     
-    for (int y = 0; y<11; y++) {
-        for (int x = 0; x<9; x++) {
-            PlayScene::addBall(positionX+60*x, positionY-60*y);
+    for (int y = 0; y<12; y++) {
+        for (int x = 0; x<7; x++) {
+            PlayScene::addBall(positionX+80*x, positionY-80*y);
         }
     }
+    PlayScene::addBall(320, 130);
+    PlayScene::addBall(240, 130);
+    PlayScene::addBall(400, 130);
+    PlayScene::addBall(320, 50);
 }
 
 void PlayScene::addBall(float positionX, float positionY){
@@ -174,8 +178,8 @@ void PlayScene::addBall(float positionX, float positionY){
     
     auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
     ballBody->setVelocity(Vec2(0.0f,-100.0f));
-    ballBody->getFirstShape()->setDensity(0.3f);
-    ballBody->getFirstShape()->setFriction(0.3f);
+    ballBody->getFirstShape()->setDensity(8.0f);
+    ballBody->getFirstShape()->setFriction(0.5f);
     ballBody->getFirstShape()->setRestitution(0.0f);
     
     newBall->setPhysicsBody(ballBody);
@@ -191,19 +195,19 @@ void PlayScene::addEdges(){
     node->setPhysicsBody(edges);
     node->setPosition(winSize/2);
     
-    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 50), Vec2(0, 350));
+    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 200));
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
     
-    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 50), Vec2(winSize.width, 350));
+    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 200));
     auto node3 = Node::create();
     node3->setPhysicsBody(edges3);
     
-    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(50,0), Vec2(50,winSize.height));
+    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(20,0), Vec2(20,winSize.height));
     auto node4 = Node::create();
     node4->setPhysicsBody(edgeLeft);
     
-    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(winSize.width-50,0), Vec2(winSize.width-50,winSize.height));
+    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(winSize.width-20,0), Vec2(winSize.width-20,winSize.height));
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     
@@ -221,7 +225,7 @@ bool PlayScene::isNear(cocos2d::Sprite *s1, cocos2d::Sprite *s2){
     float y1 = s1->getPosition().y;
     float y2 = s2->getPosition().y;
     float juli = sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
-    if (juli > (s1->getContentSize().width+1)) {
+    if (juli > (s1->getContentSize().width+2)) {
         return false;
     }
     return true;
