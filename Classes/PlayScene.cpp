@@ -11,7 +11,7 @@ Scene* PlayScene::createScene()
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    scene->getPhysicsWorld()->setGravity(Vec2(0,-1000));
+    scene->getPhysicsWorld()->setGravity(Vec2(0,-500));
     // 'layer' is an autorelease object
     auto layer = PlayScene::create();
     
@@ -130,11 +130,17 @@ void PlayScene::AddBalls(){
     int positionX = 80;
     int positionY = 1090;
     
-    for (int y = 0; y<12; y++) {
+    for (int y = 0; y<11; y++) {
         for (int x = 0; x<7; x++) {
             PlayScene::addBall(positionX+80*x, positionY-80*y);
         }
     }
+    PlayScene::addBall(320, 210);
+    PlayScene::addBall(240, 210);
+    PlayScene::addBall(400, 210);
+    PlayScene::addBall(480, 210);
+    PlayScene::addBall(160, 210);
+    
     PlayScene::addBall(320, 130);
     PlayScene::addBall(240, 130);
     PlayScene::addBall(400, 130);
@@ -150,9 +156,9 @@ void PlayScene::addBall(float positionX, float positionY){
     newBall->setPosition(positionX,positionY);
     
     auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
-    //ballBody->setVelocity(Vec2(0.0f,-100.0f));
+    ballBody->setVelocity(Vec2(0.0f,-100.0f));
     ballBody->getFirstShape()->setDensity(8.0f);
-    ballBody->getFirstShape()->setFriction(0.5f);
+    ballBody->getFirstShape()->setFriction(0.1f);
     ballBody->getFirstShape()->setRestitution(0.0f);
     
     newBall->setPhysicsBody(ballBody);
@@ -168,19 +174,19 @@ void PlayScene::addEdges(){
     node->setPhysicsBody(edges);
     node->setPosition(winSize/2);
     
-    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 220));
+    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 300));
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
     
-    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 220));
+    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 300));
     auto node3 = Node::create();
     node3->setPhysicsBody(edges3);
     
-    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(20,0), Vec2(20,winSize.height));
+    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(10,0), Vec2(10,winSize.height));
     auto node4 = Node::create();
     node4->setPhysicsBody(edgeLeft);
     
-    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(winSize.width-20,0), Vec2(winSize.width-20,winSize.height));
+    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(winSize.width-10,0), Vec2(winSize.width-10,winSize.height));
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     
