@@ -6,15 +6,15 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="640.0000" Y="1136.0000" />
         <Children>
-          <AbstractNodeData Name="bg_4" ActionTag="-439586175" Tag="6" IconVisible="False" ctype="SpriteObjectData">
-            <Size X="640.0000" Y="1136.0000" />
+          <AbstractNodeData Name="BackGround_1" ActionTag="-71099403" Tag="4" IconVisible="False" LeftMargin="-250.6096" RightMargin="-245.3904" TopMargin="0.0039" BottomMargin="-0.0039" ctype="SpriteObjectData">
+            <Size X="1136.0000" Y="1136.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="320.0000" Y="568.0000" />
+            <Position X="317.3904" Y="567.9961" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.5000" />
+            <PrePosition X="0.4959" Y="0.5000" />
             <PreSize />
-            <FileData Type="Normal" Path="bg.jpg" Plist="" />
+            <FileData Type="Normal" Path="BackGround.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Button_1" ActionTag="-644347829" Tag="3" IconVisible="False" LeftMargin="461.4749" RightMargin="-77.4749" TopMargin="-80.9761" BottomMargin="960.9761" TouchEnable="True" FontSize="20" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="226" Scale9Height="234" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
