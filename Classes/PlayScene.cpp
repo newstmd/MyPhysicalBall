@@ -11,7 +11,7 @@ Scene* PlayScene::createScene()
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    scene->getPhysicsWorld()->setGravity(Vec2(0,-500));
+    scene->getPhysicsWorld()->setGravity(Vec2(0,-800));
     // 'layer' is an autorelease object
     auto layer = PlayScene::create();
     
