@@ -127,24 +127,24 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
 }
 
 void PlayScene::AddBalls(){
-    int positionX = 80;
-    int positionY = 1090;
+    int positionX = 70;
+    int positionY = winSize.height - 40;
     
     for (int y = 0; y<11; y++) {
-        for (int x = 0; x<7; x++) {
-            PlayScene::addBall(positionX+80*x, positionY-80*y);
+        for (int x = 0; x<8; x++) {
+            PlayScene::addBall(positionX+70*x, positionY-70*y);
         }
     }
-    PlayScene::addBall(320, 210);
-    PlayScene::addBall(240, 210);
-    PlayScene::addBall(400, 210);
-    PlayScene::addBall(480, 210);
-    PlayScene::addBall(160, 210);
-    
-    PlayScene::addBall(320, 130);
-    PlayScene::addBall(240, 130);
-    PlayScene::addBall(400, 130);
-    PlayScene::addBall(320, 50);
+//    PlayScene::addBall(320, 210);
+//    PlayScene::addBall(240, 210);
+//    PlayScene::addBall(400, 210);
+//    PlayScene::addBall(480, 210);
+//    PlayScene::addBall(160, 210);
+//    
+//    PlayScene::addBall(320, 130);
+//    PlayScene::addBall(240, 130);
+//    PlayScene::addBall(400, 130);
+//    PlayScene::addBall(320, 50);
 }
 
 void PlayScene::addBall(float positionX, float positionY){
@@ -174,19 +174,19 @@ void PlayScene::addEdges(){
     node->setPhysicsBody(edges);
     node->setPosition(winSize/2);
     
-    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 300));
+    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 300),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
     
-    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 300));
+    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 300),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node3 = Node::create();
     node3->setPhysicsBody(edges3);
     
-    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(10,0), Vec2(10,winSize.height));
+    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(10,0), Vec2(10,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node4 = Node::create();
     node4->setPhysicsBody(edgeLeft);
     
-    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(winSize.width-10,0), Vec2(winSize.width-10,winSize.height));
+    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(winSize.width-10,0), Vec2(winSize.width-10,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     
