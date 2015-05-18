@@ -39,6 +39,9 @@ bool PlayScene::init()
     imageNames.push_back("ball4.png");
     imageNames.push_back("ball5.png");
     
+    Director::getInstance()->getTextureCache()->addImage("ball1.png");
+    //Director::getInstance()->getTextureCache()->
+    
     
     winSize = Director::getInstance()->getVisibleSize();
     MiddleX = winSize.width / 2;
@@ -74,9 +77,11 @@ bool PlayScene::init()
 //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
     scoreLabel = Label::create();
+//    scoreLabel->setSystemFontName("defaultBMFont.fnt");
     //scoreLabel->set
     scoreLabel->setTextColor(Color4B::RED);
     scoreLabel->setSystemFontSize(40);
+    //scoreLabel->setSystemFontName("fzhp.ttf");
     scoreLabel->setString("得分：0");
     scoreLabel->setPosition(winSize.width/2, 1100);
     addChild(scoreLabel,999);
@@ -148,7 +153,7 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
     //scoreLabel->setString();
     if ((ballList.size()<1) ) {
         log("结束游戏！");
-//        UserDefault
+        //        UserDefault
     }
     
     return false;
@@ -187,6 +192,18 @@ void PlayScene::addBall(float positionX, float positionY){
 }
 
 void PlayScene::deleteBall(cocos2d::Sprite *ball){
+    auto fire = ParticleExplosion::create();
+    fire->setTexture(Director::getInstance()->getTextureCache()->addImage("ball1.png"));
+    fire->setPosition(ball->getPosition());
+    fire->setGravity(Vec2(0,-800));
+    fire->setTotalParticles(500);
+    fire->setAutoRemoveOnFinish(true);
+    fire->setStartColor(Color4F::RED);
+    fire->setEndColor(Color4F::RED);
+    //fire->setLife(1.0f);
+    //        fire.
+    addChild(fire);
+
     int ballTag = ball->getTag();
     colorCount[ballTag]--;
     removeChild(ball);
@@ -269,8 +286,9 @@ void PlayScene::chuliBall(cocos2d::Sprite *sp)
 
 void PlayScene::refreshScore()
 {
-    cocos2d::String* s = String::createWithFormat("分数：%d",defen);
-    scoreLabel->setString(s->_string);
+    char c_char[10];
+    sprintf(c_char, "分数：%d",defen);
+    scoreLabel->setString(c_char);
 }
 
 
