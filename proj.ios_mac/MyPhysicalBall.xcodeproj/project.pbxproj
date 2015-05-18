@@ -15,6 +15,8 @@
 		069E33AE1B0969E100D5253A /* ball5.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A91B0969E100D5253A /* ball5.png */; };
 		069E33B01B097B8700D5253A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069E33AF1B097B8700D5253A /* Images.xcassets */; };
 		06D287B71B008C9A00CDF00C /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D287B11B008C9A00CDF00C /* ball.png */; };
+		06DCA8251B09C9C600AA2175 /* BeginGameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8241B09C9C600AA2175 /* BeginGameButton.png */; };
+		06DCA8271B09CD1700AA2175 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8261B09CD1700AA2175 /* back.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -79,6 +81,8 @@
 		069E33A91B0969E100D5253A /* ball5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball5.png; sourceTree = "<group>"; };
 		069E33AF1B097B8700D5253A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MyPhysicalBall iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		06D287B11B008C9A00CDF00C /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		06DCA8241B09C9C600AA2175 /* BeginGameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeginGameButton.png; sourceTree = "<group>"; };
+		06DCA8261B09CD1700AA2175 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyPhysicalBall iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyPhysicalBall iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				069E33AF1B097B8700D5253A /* Images.xcassets */,
+				06DCA8261B09CD1700AA2175 /* back.png */,
+				06DCA8241B09C9C600AA2175 /* BeginGameButton.png */,
 				069E33A51B0969E100D5253A /* ball4.png */,
 				069E33A61B0969E100D5253A /* ball3.png */,
 				069E33A71B0969E100D5253A /* ball1.png */,
@@ -412,6 +418,7 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				069E33AC1B0969E100D5253A /* ball1.png in Resources */,
 				069E33B01B097B8700D5253A /* Images.xcassets in Resources */,
+				06DCA8271B09CD1700AA2175 /* back.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				069E33AB1B0969E100D5253A /* ball3.png in Resources */,
@@ -423,6 +430,7 @@
 				06D287B71B008C9A00CDF00C /* ball.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				06DCA8251B09C9C600AA2175 /* BeginGameButton.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,

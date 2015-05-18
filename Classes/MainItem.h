@@ -21,6 +21,7 @@ private:
     //void newGameCallBack(cocos2d::Ref* pSender);
     
 public:
+    
     static cocos2d::Scene* createScene();
     virtual bool init();
     CREATE_FUNC(MainItemScene);

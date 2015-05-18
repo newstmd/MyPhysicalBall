@@ -10,6 +10,7 @@ USING_NS_CC;
 class PlayScene : public cocos2d::Layer
 {
 private:
+    int currentRate = 1;
     Label* scoreLabel;
     int defen;
     Vector<Sprite*> ballList;
@@ -21,6 +22,7 @@ private:
     void beginNewGame();
     void addEdges();
     void AddBalls();
+    void deleteBall(Sprite* ball);
     void addBall(float positionX,float positionY);
     void chuliBall(Sprite* sp);
     void clickItEnd(Touch* touch,Event* event);
@@ -29,6 +31,7 @@ private:
     void testIsNear();
     bool touchIt(Touch* touch,Event* event);
     void refreshScore();
+    
     //void touchNewGame(Ref* target,ui::Widget::TouchEventType type);
 //    void dingshiqi(float dt);
 //    void dingshiqi2(float dt);

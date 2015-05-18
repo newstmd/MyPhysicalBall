@@ -1,6 +1,7 @@
 #include "PlayScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "MainItem.h"
 USING_NS_CC_MATH;
 USING_NS_CC;
 
@@ -52,6 +53,20 @@ bool PlayScene::init()
         }
     });
     
+    //临时返回的button
+    auto backButton = cocos2d::ui::Button::create("back.png");
+    backButton->setAnchorPoint(Vec2(0.5,0.5));
+    backButton->setPosition(Vec2(MiddleX - 260,Director::getInstance()->getWinSize().height - 80));
+    addChild(backButton);
+    backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            Director::getInstance()->replaceScene(MainItemScene::createScene());
+        }
+        
+    });
+
+    
+    
 //    auto listener1 = EventListenerTouchOneByOne::create();
 //    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
 //    listener1->onTouchMoved = [](Touch* touch, Event* event){};
@@ -68,6 +83,7 @@ bool PlayScene::init()
 //    scoreLabel->set
     
     //PlayScene::beginNewGame();
+//    int temp = UserDefault::getInstance()->getIntegerForKey("haha");
     
     return true;
 }
@@ -115,10 +131,11 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
 
             for (int i = 0; i<selectedBalls.size(); i++)
             {
-                int ballTag = selectedBalls.at(i)->getTag();
-                colorCount[ballTag]--;
-                removeChild(selectedBalls.at(i));
-                ballList.eraseObject(selectedBalls.at(i));
+                deleteBall(selectedBalls.at(i));
+//                int ballTag = selectedBalls.at(i)->getTag();
+//                colorCount[ballTag]--;
+//                removeChild(selectedBalls.at(i));
+//                ballList.eraseObject(selectedBalls.at(i));
                 
             }
             break;
@@ -129,8 +146,9 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
 //    log("总分%zd",defen);
     refreshScore();
     //scoreLabel->setString();
-    if (ballList.size()<1) {
+    if ((ballList.size()<1) ) {
         log("结束游戏！");
+//        UserDefault
     }
     
     return false;
@@ -166,6 +184,14 @@ void PlayScene::addBall(float positionX, float positionY){
     colorCount[rand]++;
     addChild(newBall);
         
+}
+
+void PlayScene::deleteBall(cocos2d::Sprite *ball){
+    int ballTag = ball->getTag();
+    colorCount[ballTag]--;
+    removeChild(ball);
+    ballList.eraseObject(ball);
+
 }
 
 void PlayScene::addEdges(){
