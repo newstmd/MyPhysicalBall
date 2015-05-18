@@ -17,6 +17,7 @@ private:
     int colorCount[5];
     std::vector<std::string> imageNames;
     cocos2d::Size winSize;
+    float MiddleX,MiddleY;
     void beginNewGame();
     void addEdges();
     void AddBalls();

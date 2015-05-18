@@ -40,6 +40,8 @@ bool PlayScene::init()
     
     
     winSize = Director::getInstance()->getVisibleSize();
+    MiddleX = winSize.width / 2;
+    MiddleY = winSize.height / 2;
     
     auto backGround = CSLoader::createNode("MainScene.csb");
     addChild(backGround);
@@ -50,11 +52,11 @@ bool PlayScene::init()
         }
     });
     
-    auto listener1 = EventListenerTouchOneByOne::create();
-    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
-    listener1->onTouchMoved = [](Touch* touch, Event* event){};
-    listener1->onTouchEnded = [=](Touch* touch, Event* event){};
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+//    auto listener1 = EventListenerTouchOneByOne::create();
+//    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
+//    listener1->onTouchMoved = [](Touch* touch, Event* event){};
+//    listener1->onTouchEnded = [=](Touch* touch, Event* event){};
+//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
     scoreLabel = Label::create();
     //scoreLabel->set
@@ -65,7 +67,7 @@ bool PlayScene::init()
     addChild(scoreLabel,999);
 //    scoreLabel->set
     
-    PlayScene::beginNewGame();
+    //PlayScene::beginNewGame();
     
     return true;
 }
@@ -74,8 +76,15 @@ bool PlayScene::init()
 
 void PlayScene::beginNewGame(){
     
-    defen = 0;
+    auto listener1 = EventListenerTouchOneByOne::create();
+    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
+//    listener1->onTouchMoved = [](Touch* touch, Event* event){};
+//    listener1->onTouchEnded = [=](Touch* touch, Event* event){};
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
+    
+    defen = 0;
+    refreshScore();
     if (ballList.size()>0) {
         for (int i = 0; i<ballList.size(); i++) {
             removeChild(ballList.at(i));
@@ -110,14 +119,15 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
                 colorCount[ballTag]--;
                 removeChild(selectedBalls.at(i));
                 ballList.eraseObject(selectedBalls.at(i));
+                
             }
             break;
             
         }
     }
-    log("消除%zd个,还剩%zd个",selectedBalls.size(),ballList.size());
-    log("总分%zd",defen);
-    
+//    log("消除%zd个,还剩%zd个",selectedBalls.size(),ballList.size());
+//    log("总分%zd",defen);
+    refreshScore();
     //scoreLabel->setString();
     if (ballList.size()<1) {
         log("结束游戏！");
@@ -127,7 +137,7 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
 }
 
 void PlayScene::AddBalls(){
-    int positionX = 70;
+    int positionX = MiddleX -250;
     int positionY = winSize.height - 40;
     
     for (int y = 0; y<11; y++) {
@@ -135,16 +145,6 @@ void PlayScene::AddBalls(){
             PlayScene::addBall(positionX+70*x, positionY-70*y);
         }
     }
-//    PlayScene::addBall(320, 210);
-//    PlayScene::addBall(240, 210);
-//    PlayScene::addBall(400, 210);
-//    PlayScene::addBall(480, 210);
-//    PlayScene::addBall(160, 210);
-//    
-//    PlayScene::addBall(320, 130);
-//    PlayScene::addBall(240, 130);
-//    PlayScene::addBall(400, 130);
-//    PlayScene::addBall(320, 50);
 }
 
 void PlayScene::addBall(float positionX, float positionY){
@@ -155,7 +155,7 @@ void PlayScene::addBall(float positionX, float positionY){
     newBall->setTag(rand);
     newBall->setPosition(positionX,positionY);
     
-    auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2);
+    auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2 );
     ballBody->setVelocity(Vec2(0.0f,-100.0f));
     ballBody->getFirstShape()->setDensity(8.0f);
     ballBody->getFirstShape()->setFriction(0.1f);
@@ -174,19 +174,19 @@ void PlayScene::addEdges(){
     node->setPhysicsBody(edges);
     node->setPosition(winSize/2);
     
-    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(0, 300),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX-310, 410),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
     
-    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(winSize.width/2, 0), Vec2(winSize.width, 300),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX+310, 410),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node3 = Node::create();
     node3->setPhysicsBody(edges3);
     
-    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(10,0), Vec2(10,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(MiddleX-310,0), Vec2(MiddleX-310,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node4 = Node::create();
     node4->setPhysicsBody(edgeLeft);
     
-    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(winSize.width-10,0), Vec2(winSize.width-10,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(MiddleX+310,0), Vec2(MiddleX+310,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     
@@ -217,17 +217,22 @@ float PlayScene::getjuli(Vec2 v1,Vec2 v2){
     return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 }
 
-void PlayScene::testIsNear(){
-    auto s1 = ballList.at(0);
-    auto s2 = ballList.at(2);
-    isNear(s1, s2);
-}
+//void PlayScene::testIsNear(){
+//    auto s1 = ballList.at(0);
+//    auto s2 = ballList.at(2);
+//    isNear(s1, s2);
+//}
 
-void PlayScene::chuliBall(cocos2d::Sprite *sp){
-    for (int i = 0; i<ballList.size(); i++) {
-        if (!selectedBalls.contains(ballList.at(i))) {//检查是否重复
-            if (sp->getTag() == ballList.at(i)->getTag()) {//检查颜色是否一样
-                if (isNear(sp, ballList.at(i))) {//检查是否触碰
+void PlayScene::chuliBall(cocos2d::Sprite *sp)
+{
+    for (int i = 0; i<ballList.size(); i++)
+    {
+        if (!selectedBalls.contains(ballList.at(i)))
+        {//检查是否重复
+            if (sp->getTag() == ballList.at(i)->getTag())
+            {//检查颜色是否一样
+                if (isNear(sp, ballList.at(i)))
+                {//检查是否触碰
                     selectedBalls.pushBack(ballList.at(i));
                     PlayScene::chuliBall(ballList.at(i));
                 }
@@ -238,7 +243,8 @@ void PlayScene::chuliBall(cocos2d::Sprite *sp){
 
 void PlayScene::refreshScore()
 {
-    
+    cocos2d::String* s = String::createWithFormat("分数：%d",defen);
+    scoreLabel->setString(s->_string);
 }
 
 
