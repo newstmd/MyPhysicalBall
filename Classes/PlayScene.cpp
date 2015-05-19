@@ -111,10 +111,13 @@ void PlayScene::initShuJu()
 
 
 void PlayScene::beginNewGame(){
+    if (UserDefault::getInstance()->getIntegerForKey("TotalRate") == 0) {
+        UserDefault::getInstance()->setIntegerForKey("TotalRate", 1);
+    }
     defen = 0;
-    int guanka = UserDefault::getInstance()->getIntegerForKey("TotalRate");
-    UserDefault::getInstance()->setIntegerForKey("TotalRate", guanka+1);
-    UserDefault::getInstance()->flush();
+//    int guanka = UserDefault::getInstance()->getIntegerForKey("TotalRate");
+//    UserDefault::getInstance()->setIntegerForKey("TotalRate", guanka+1);
+//    UserDefault::getInstance()->flush();
     refreshScore();
     if (ballList.size()>0) {
         for (int i = 0; i<ballList.size(); i++) {
@@ -177,10 +180,11 @@ void PlayScene::refreshRate()
         UserDefault::getInstance()->flush();
     }else{
         //成功，进入下一关
-        //UserDefault::getInstance()->setIntegerForKey("TotalRate", guankashu +1);
+        UserDefault::getInstance()->setIntegerForKey("TotalRate", guankashu +1);
         
         UserDefault::getInstance()->setIntegerForKey("TotalScore", zongfen + defen);
         UserDefault::getInstance()->flush();
+        beginNewGame();
     }
     
     
