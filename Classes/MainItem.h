@@ -9,10 +9,12 @@
 #ifndef __MyPhysicalBall__MainItem__
 #define __MyPhysicalBall__MainItem__
 
+
 #include <stdio.h>
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "SimpleAudioEngine.h"
 USING_NS_CC;
 
 class MainItemScene :public cocos2d::Layer

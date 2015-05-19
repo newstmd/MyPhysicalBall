@@ -2,6 +2,9 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "MainItem.h"
+#include "SimpleAudioEngine.h"
+
+
 USING_NS_CC_MATH;
 USING_NS_CC;
 
@@ -33,19 +36,10 @@ bool PlayScene::init()
         return false;
     }
     //auto rootNode = CSLoader::createNode("MainScene.csb");
-    imageNames.push_back("ball1.png");
-    imageNames.push_back("ball2.png");
-    imageNames.push_back("ball3.png");
-    imageNames.push_back("ball4.png");
-    imageNames.push_back("ball5.png");
-    
-    Director::getInstance()->getTextureCache()->addImage("ball1.png");
-    //Director::getInstance()->getTextureCache()->
     
     
-    winSize = Director::getInstance()->getVisibleSize();
-    MiddleX = winSize.width / 2;
-    MiddleY = winSize.height / 2;
+    initShuJu();
+    
     
     auto backGround = CSLoader::createNode("MainScene.csb");
     addChild(backGround);
@@ -59,7 +53,7 @@ bool PlayScene::init()
     //临时返回的button
     auto backButton = cocos2d::ui::Button::create("back.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(MiddleX - 260,Director::getInstance()->getWinSize().height - 80));
+    backButton->setPosition(Vec2(MiddleX - 260,Director::getInstance()->getWinSize().height - 160));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -68,43 +62,59 @@ bool PlayScene::init()
         
     });
 
-    
-    
-//    auto listener1 = EventListenerTouchOneByOne::create();
-//    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
-//    listener1->onTouchMoved = [](Touch* touch, Event* event){};
-//    listener1->onTouchEnded = [=](Touch* touch, Event* event){};
-//    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+    auto listener1 = EventListenerTouchOneByOne::create();
+    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+
     
     scoreLabel = Label::create();
-//    scoreLabel->setSystemFontName("defaultBMFont.fnt");
-    //scoreLabel->set
-    scoreLabel->setTextColor(Color4B::RED);
+    scoreLabel->setTextColor(Color4B::WHITE);
     scoreLabel->setSystemFontSize(40);
-    //scoreLabel->setSystemFontName("fzhp.ttf");
     scoreLabel->setString("得分：0");
-    scoreLabel->setPosition(winSize.width/2, 1100);
+    scoreLabel->setPosition(winSize.width/2, 1000);
     addChild(scoreLabel,999);
-//    scoreLabel->set
     
-    //PlayScene::beginNewGame();
-//    int temp = UserDefault::getInstance()->getIntegerForKey("haha");
+    mubiaoLabel = Label::create();
+    mubiaoLabel->setTextColor(Color4B::WHITE);
+    mubiaoLabel->setSystemFontSize(40);
+    mubiaoLabel->setString("目标：");
+    mubiaoLabel->setPosition(winSize.width/2 , 1100);
+    addChild(mubiaoLabel,999);
     
+    rateLabel = Label::create();
+    rateLabel->setTextColor(Color4B::WHITE);
+    rateLabel->setSystemFontSize(40);
+    rateLabel->setString("关卡数");
+    rateLabel->setPosition(winSize.width/2 - 220, 1100);
+    addChild(rateLabel,999);
     return true;
 }
 
+void PlayScene::initShuJu()
+{
+    imageNames.push_back("ball1.png");
+    imageNames.push_back("ball2.png");
+    imageNames.push_back("ball3.png");
+    imageNames.push_back("ball4.png");
+    imageNames.push_back("ball5.png");
+    
+    
+    winSize = Director::getInstance()->getVisibleSize();
+    MiddleX = winSize.width / 2;
+    MiddleY = winSize.height / 2;
+    
+    for (int i = 1; i<100; i++) {
+        guanka[i] = guanka[i-1] + 1000 + 500*(i-1);
+    }
+    return;
+}
 
 
 void PlayScene::beginNewGame(){
-    
-    auto listener1 = EventListenerTouchOneByOne::create();
-    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
-//    listener1->onTouchMoved = [](Touch* touch, Event* event){};
-//    listener1->onTouchEnded = [=](Touch* touch, Event* event){};
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
-    
-    
     defen = 0;
+    int guanka = UserDefault::getInstance()->getIntegerForKey("TotalRate");
+    UserDefault::getInstance()->setIntegerForKey("TotalRate", guanka+1);
+    UserDefault::getInstance()->flush();
     refreshScore();
     if (ballList.size()>0) {
         for (int i = 0; i<ballList.size(); i++) {
@@ -137,26 +147,43 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
             for (int i = 0; i<selectedBalls.size(); i++)
             {
                 deleteBall(selectedBalls.at(i));
-//                int ballTag = selectedBalls.at(i)->getTag();
-//                colorCount[ballTag]--;
-//                removeChild(selectedBalls.at(i));
-//                ballList.eraseObject(selectedBalls.at(i));
-                
+               
+            }
+            if ((ballList.size()<1) ) {
+                log("结束游戏！");
+                refreshRate();
+                //        UserDefault
             }
             break;
             
         }
     }
-//    log("消除%zd个,还剩%zd个",selectedBalls.size(),ballList.size());
-//    log("总分%zd",defen);
+
     refreshScore();
-    //scoreLabel->setString();
-    if ((ballList.size()<1) ) {
-        log("结束游戏！");
-        //        UserDefault
-    }
     
     return false;
+}
+
+void PlayScene::refreshRate()
+{
+    int guankashu = UserDefault::getInstance()->getIntegerForKey("TotalRate");
+    int zongfen =UserDefault::getInstance()->getIntegerForKey("TotalScore");
+    
+    if ((zongfen+ defen) < guanka[guankashu]) {
+        //游戏失败，清零！
+        UserDefault::getInstance()->setIntegerForKey("TotalRate", 0);
+        
+        UserDefault::getInstance()->setIntegerForKey("TotalScore", 0);
+        UserDefault::getInstance()->flush();
+    }else{
+        //成功，进入下一关
+        //UserDefault::getInstance()->setIntegerForKey("TotalRate", guankashu +1);
+        
+        UserDefault::getInstance()->setIntegerForKey("TotalScore", zongfen + defen);
+        UserDefault::getInstance()->flush();
+    }
+    
+    
 }
 
 void PlayScene::AddBalls(){
@@ -192,17 +219,31 @@ void PlayScene::addBall(float positionX, float positionY){
 }
 
 void PlayScene::deleteBall(cocos2d::Sprite *ball){
-    auto fire = ParticleExplosion::create();
-    fire->setTexture(Director::getInstance()->getTextureCache()->addImage("ball1.png"));
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("mofa.wav");
+    auto fire = ParticleSystemQuad::create("lizi.plist");
+    switch (ball->getTag()) {
+        case 0:
+            fire->setTexture(Director::getInstance()->getTextureCache()->addImage("lizihuang.png"));
+            break;
+        case 1:
+            fire->setTexture(Director::getInstance()->getTextureCache()->addImage("lizilan.png"));
+            break;
+        case 2:
+            fire->setTexture(Director::getInstance()->getTextureCache()->addImage("lizizi.png"));
+            break;
+        case 3:
+            fire->setTexture(Director::getInstance()->getTextureCache()->addImage("lizihong.png"));
+            break;
+        case 4:
+            fire->setTexture(Director::getInstance()->getTextureCache()->addImage("lizilv.png"));
+            break;
+        default:
+            break;
+    }
+    
     fire->setPosition(ball->getPosition());
-    fire->setGravity(Vec2(0,-800));
-    fire->setTotalParticles(500);
     fire->setAutoRemoveOnFinish(true);
-    fire->setStartColor(Color4F::RED);
-    fire->setEndColor(Color4F::RED);
-    //fire->setLife(1.0f);
-    //        fire.
-    addChild(fire);
+    addChild(fire,99);
 
     int ballTag = ball->getTag();
     colorCount[ballTag]--;
@@ -260,11 +301,6 @@ float PlayScene::getjuli(Vec2 v1,Vec2 v2){
     return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 }
 
-//void PlayScene::testIsNear(){
-//    auto s1 = ballList.at(0);
-//    auto s2 = ballList.at(2);
-//    isNear(s1, s2);
-//}
 
 void PlayScene::chuliBall(cocos2d::Sprite *sp)
 {
@@ -286,8 +322,18 @@ void PlayScene::chuliBall(cocos2d::Sprite *sp)
 
 void PlayScene::refreshScore()
 {
+    int guankashu = UserDefault::getInstance()->getIntegerForKey("TotalRate");
+    char c_guanka[10];
+    sprintf(c_guanka, "第%d关",guankashu);
+    rateLabel->setString(c_guanka);
+    
+    char c_mubiao[10];
+    sprintf(c_mubiao, "目标：%d",guanka[guankashu]);
+    mubiaoLabel->setString(c_mubiao);
+    
+    int totaldefen = UserDefault::getInstance()->getIntegerForKey("TotalScore");
     char c_char[10];
-    sprintf(c_char, "分数：%d",defen);
+    sprintf(c_char, "分数：%d",defen + totaldefen);
     scoreLabel->setString(c_char);
 }
 

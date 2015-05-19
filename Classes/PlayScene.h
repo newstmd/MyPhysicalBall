@@ -10,8 +10,12 @@ USING_NS_CC;
 class PlayScene : public cocos2d::Layer
 {
 private:
+    int guanka[100];
+    void initShuJu();
     int currentRate = 1;
     Label* scoreLabel;
+    Label* rateLabel;
+    Label* mubiaoLabel;
     int defen;
     Vector<Sprite*> ballList;
     Vector<Sprite*> selectedBalls;
@@ -31,6 +35,7 @@ private:
     void testIsNear();
     bool touchIt(Touch* touch,Event* event);
     void refreshScore();
+    void refreshRate();
     
     //void touchNewGame(Ref* target,ui::Widget::TouchEventType type);
 //    void dingshiqi(float dt);

@@ -45,10 +45,25 @@ bool MainItemScene::init()
     addChild(beginButton);
     beginButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
+            
+            int guanka = UserDefault::getInstance()->getIntegerForKey("TotalGuanKa", 0);
+            if (guanka == 0) {
+                UserDefault::getInstance()->setIntegerForKey("Tatalscore", 0);
+                UserDefault::getInstance()->flush();
+                log("这是新游戏");
+            }else{
+                log("第%d关！",guanka);
+            }
+            
             Director::getInstance()->replaceScene(PlayScene::createScene());
         }
 
     });
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("nekomimi.mp3");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("mofa.wav");
+    //CocosDenshion::SimpleAudioEngine::getInstance()->rewindBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("nekomimi.mp3",true);
     
     
     
