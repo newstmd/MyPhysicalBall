@@ -38,6 +38,22 @@ bool MainItemScene::init()
     backGround->setAnchorPoint(Vec2(0.5,0.5));
     backGround->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);
     addChild(backGround, -1);
+    
+    auto guanghuan  = Sprite::create("guanghuan.png");
+    guanghuan->setAnchorPoint(Vec2(0.5,0.5));
+    guanghuan->setPosition(Director::getInstance()->getWinSize().width/2,Director::getInstance()->getWinSize().height * 0.66);
+    addChild(guanghuan);
+    
+    auto xuanzhuanaction = RotateBy::create(3, 10);
+    auto rep = RepeatForever::create(xuanzhuanaction);
+    guanghuan->runAction(rep);
+    
+    
+    auto logo  = Sprite::create("logo.png");
+    logo->setAnchorPoint(Vec2(0.5,0.5));
+    logo->setPosition(Director::getInstance()->getWinSize().width/2,Director::getInstance()->getWinSize().height * 0.66);
+    addChild(logo);
+    
     //添加开始按钮
     auto beginButton = cocos2d::ui::Button::create("BeginGameButton.png");
     beginButton->setAnchorPoint(Vec2(0.5,0.5));
@@ -50,15 +66,19 @@ bool MainItemScene::init()
             if (guanka == 0) {
                 UserDefault::getInstance()->setIntegerForKey("Tatalscore", 0);
                 UserDefault::getInstance()->flush();
-                log("这是新游戏");
+                //log("这是新游戏");
             }else{
-                log("第%d关！",guanka);
+                //log("第%d关！",guanka);
             }
             
             Director::getInstance()->replaceScene(PlayScene::createScene());
         }
 
     });
+    auto fangda = ScaleTo::create(0.5, 1.1);
+    auto suoxiao = ScaleTo::create(1,1.0);
+    auto ac = Sequence::create(fangda,suoxiao,NULL);
+    beginButton->runAction(RepeatForever::create(ac));
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("nekomimi.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("mofa.wav");

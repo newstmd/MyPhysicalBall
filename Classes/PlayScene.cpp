@@ -40,20 +40,27 @@ bool PlayScene::init()
     
     initShuJu();
     
+    auto backGround1 = Sprite::create("BackGround2.jpg");
+    backGround1->setAnchorPoint(Vec2(0.5,0.5));
+    backGround1->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);
+    addChild(backGround1, -1);
     
-    auto backGround = CSLoader::createNode("MainScene.csb");
-    addChild(backGround);
-    auto newGameButton = backGround->getChildByName<cocos2d::ui::Button*>("Button_1");
+//    auto backGround = CSLoader::createNode("MainScene.csb");
+//    addChild(backGround);
+    auto newGameButton = cocos2d::ui::Button::create("star.png");//backGround->getChildByName<cocos2d::ui::Button*>("Button_1");
+    newGameButton->setScale(0.3);
+    newGameButton->setPosition(Vec2(winSize.width - 100,winSize.height -100));
+    addChild(newGameButton);
     newGameButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
         if (type == ui::Widget::TouchEventType::ENDED) {
             PlayScene::beginNewGame();
         }
     });
-    
+    //newGameButton->setZOrder(2);
     //临时返回的button
     auto backButton = cocos2d::ui::Button::create("back.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(MiddleX - 260,Director::getInstance()->getWinSize().height - 160));
+    backButton->setPosition(Vec2(MiddleX - 260,Director::getInstance()->getWinSize().height - 140));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -153,7 +160,7 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
                
             }
             if ((ballList.size()<1) ) {
-                log("结束游戏！");
+                //log("结束游戏！");
                 refreshRate();
                 //        UserDefault
             }

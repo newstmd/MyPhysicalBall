@@ -14,6 +14,9 @@
 		069E33AD1B0969E100D5253A /* ball2.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A81B0969E100D5253A /* ball2.png */; };
 		069E33AE1B0969E100D5253A /* ball5.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A91B0969E100D5253A /* ball5.png */; };
 		069E33B01B097B8700D5253A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069E33AF1B097B8700D5253A /* Images.xcassets */; };
+		06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FDD1B0B781500F5BB21 /* guanghuan.png */; };
+		06B29FE21B0B7B0C00F5BB21 /* BackGround2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */; };
+		06B29FE41B0B86FA00F5BB21 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FE31B0B86FA00F5BB21 /* logo.png */; };
 		06D287B71B008C9A00CDF00C /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D287B11B008C9A00CDF00C /* ball.png */; };
 		06DCA8251B09C9C600AA2175 /* BeginGameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8241B09C9C600AA2175 /* BeginGameButton.png */; };
 		06DCA8271B09CD1700AA2175 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8261B09CD1700AA2175 /* back.png */; };
@@ -87,6 +90,9 @@
 		069E33A81B0969E100D5253A /* ball2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball2.png; sourceTree = "<group>"; };
 		069E33A91B0969E100D5253A /* ball5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball5.png; sourceTree = "<group>"; };
 		069E33AF1B097B8700D5253A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MyPhysicalBall iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		06B29FDD1B0B781500F5BB21 /* guanghuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanghuan.png; sourceTree = "<group>"; };
+		06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BackGround2.jpg; sourceTree = "<group>"; };
+		06B29FE31B0B86FA00F5BB21 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		06D287B11B008C9A00CDF00C /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		06DCA8241B09C9C600AA2175 /* BeginGameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeginGameButton.png; sourceTree = "<group>"; };
 		06DCA8261B09CD1700AA2175 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -283,6 +289,9 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				06B29FE31B0B86FA00F5BB21 /* logo.png */,
+				06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */,
+				06B29FDD1B0B781500F5BB21 /* guanghuan.png */,
 				06DCE7341B0AE3BF00B17CA1 /* music */,
 				06DCE7291B0ACFD500B17CA1 /* lizi */,
 				06DCE7251B0AC0F000B17CA1 /* lizi.plist */,
@@ -467,6 +476,7 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				069E33AE1B0969E100D5253A /* ball5.png in Resources */,
+				06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */,
 				069E33AA1B0969E100D5253A /* ball4.png in Resources */,
 				06DCE7381B0AE9A500B17CA1 /* mofa.wav in Resources */,
 				069E33AD1B0969E100D5253A /* ball2.png in Resources */,
@@ -476,7 +486,9 @@
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				06DCA8251B09C9C600AA2175 /* BeginGameButton.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				06B29FE21B0B7B0C00F5BB21 /* BackGround2.jpg in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				06B29FE41B0B86FA00F5BB21 /* logo.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				06DCE7311B0AD00900B17CA1 /* lizilv.png in Resources */,
