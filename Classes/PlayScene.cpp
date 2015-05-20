@@ -12,6 +12,7 @@ using namespace cocostudio::timeline;
 
 Scene* PlayScene::createScene()
 {
+    
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
@@ -48,20 +49,20 @@ bool PlayScene::init()
     
 //    auto backGround = CSLoader::createNode("MainScene.csb");
 //    addChild(backGround);
-    auto newGameButton = cocos2d::ui::Button::create("star.png");//backGround->getChildByName<cocos2d::ui::Button*>("Button_1");
-    newGameButton->setScale(0.3);
-    newGameButton->setPosition(Vec2(winSize.width - 100,winSize.height -100));
-    addChild(newGameButton);
-    newGameButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
-        if (type == ui::Widget::TouchEventType::ENDED) {
-            PlayScene::beginNewGame();
-        }
-    });
+//    auto newGameButton = cocos2d::ui::Button::create("star.png");//backGround->getChildByName<cocos2d::ui::Button*>("Button_1");
+//    newGameButton->setScale(0.3);
+//    newGameButton->setPosition(Vec2(winSize.width - 100,winSize.height -100));
+//    addChild(newGameButton);
+//    newGameButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
+//        if (type == ui::Widget::TouchEventType::ENDED) {
+//            PlayScene::beginNewGame();
+//        }
+//    });
     //newGameButton->setZOrder(2);
     //临时返回的button
-    auto backButton = cocos2d::ui::Button::create("back.png");
+    auto backButton = cocos2d::ui::Button::create("pause.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(MiddleX - 260,Director::getInstance()->getWinSize().height - 140));
+    backButton->setPosition(Vec2(MiddleX - 230,1000));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -75,7 +76,7 @@ bool PlayScene::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
     messageLabel = Label::create();
-    
+    //messageLabel = Label::createWithTTF("", const std::string &fontFilePath, float fontSize)
     messageLabel->setTextColor(Color4B::WHITE);
     messageLabel->setSystemFontSize(60);
     messageLabel->setString("浮动信息");
@@ -83,30 +84,35 @@ bool PlayScene::init()
     messageLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
     messageLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
     addChild(messageLabel,99);
+    //messageLabel->autorelease();
 
 
     
     scoreLabel = Label::create();
-    scoreLabel->setTextColor(Color4B::WHITE);
+        scoreLabel->setTextColor(Color4B::WHITE);
     scoreLabel->setSystemFontSize(40);
+    scoreLabel->setSystemFontName("mnse.ttf");
     scoreLabel->setString("得分：0");
     scoreLabel->setPosition(winSize.width/2, 1000);
     addChild(scoreLabel,999);
-    
+    //scoreLabel->autorelease();
+
     mubiaoLabel = Label::create();
-    mubiaoLabel->setTextColor(Color4B::WHITE);
+        mubiaoLabel->setTextColor(Color4B::WHITE);
     mubiaoLabel->setSystemFontSize(40);
     mubiaoLabel->setString("目标：");
     mubiaoLabel->setPosition(winSize.width/2 , 1100);
     addChild(mubiaoLabel,999);
-    
+    //mubiaoLabel->autorelease();
+
     rateLabel = Label::create();
-    rateLabel->setTextColor(Color4B::WHITE);
+        rateLabel->setTextColor(Color4B::WHITE);
     rateLabel->setSystemFontSize(40);
     rateLabel->setString("关卡数");
     rateLabel->setPosition(winSize.width/2 - 220, 1100);
     addChild(rateLabel,999);
-    
+    //rateLabel->autorelease();
+
     
     beginNewGame();
     
