@@ -202,6 +202,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06C72BC01B0C30C7000D6BBB /* font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
 		06DCE7291B0ACFD500B17CA1 /* lizi */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +296,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				06C72BC01B0C30C7000D6BBB /* font */,
 				06B29FE31B0B86FA00F5BB21 /* logo.png */,
 				06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */,
 				06B29FDD1B0B781500F5BB21 /* guanghuan.png */,

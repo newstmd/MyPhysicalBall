@@ -75,6 +75,7 @@ bool PlayScene::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
     
     messageLabel = Label::create();
+    
     messageLabel->setTextColor(Color4B::WHITE);
     messageLabel->setSystemFontSize(60);
     messageLabel->setString("浮动信息");
@@ -158,14 +159,15 @@ void PlayScene::beginNewGame(){
     int tempguan = UserDefault::getInstance()->getIntegerForKey("TotalRate");
     sprintf(c_message, "第%d关\n目标：%d",tempguan,guanka[tempguan]);
     messageLabel->setString(c_message);
-    auto jin = MoveTo::create(0.5, winSize/2);
-    auto ting = DelayTime::create(1);
-    auto chu = MoveTo::create(0.5, Vec2(-200,winSize.height/2));
-    auto hecheng =Sequence::create(jin,ting,chu, NULL);
+    auto jin = MoveTo::create(0.3, winSize/2);
+    auto ting = DelayTime::create(1.5);
+    auto chu = MoveTo::create(0.3, Vec2(-200,winSize.height/2));
+    auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::AddBalls, this));
+    auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
     messageLabel->setVisible(true);
     messageLabel->runAction(hecheng);
     
-    AddBalls();
+    //AddBalls();
     }
 
 
@@ -183,6 +185,7 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
 
             for (int i = 0; i<selectedBalls.size(); i++)
             {
+                //auto callfunc = CallFunc::create(CC_CALLBACK_1(PlayScene::deleteBall,this,selectedBalls.at(i)));
                 deleteBall(selectedBalls.at(i));
                
             }
@@ -280,16 +283,14 @@ void PlayScene::deleteBall(cocos2d::Sprite *ball){
         default:
             break;
     }
-    
     fire->setPosition(ball->getPosition());
     fire->setAutoRemoveOnFinish(true);
     addChild(fire,99);
-
+    
     int ballTag = ball->getTag();
     colorCount[ballTag]--;
     removeChild(ball);
     ballList.eraseObject(ball);
-
 }
 
 void PlayScene::addEdges(){
