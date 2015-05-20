@@ -13,6 +13,7 @@ private:
     int guanka[100];
     void initShuJu();
     int currentRate = 1;
+    Label* messageLabel;
     Label* scoreLabel;
     Label* rateLabel;
     Label* mubiaoLabel;

@@ -39,6 +39,7 @@ bool PlayScene::init()
     
     
     initShuJu();
+    addEdges();
     
     auto backGround1 = Sprite::create("BackGround2.jpg");
     backGround1->setAnchorPoint(Vec2(0.5,0.5));
@@ -72,6 +73,16 @@ bool PlayScene::init()
     auto listener1 = EventListenerTouchOneByOne::create();
     listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+    
+    messageLabel = Label::create();
+    messageLabel->setTextColor(Color4B::WHITE);
+    messageLabel->setSystemFontSize(60);
+    messageLabel->setString("浮动信息");
+    messageLabel->setVisible(false);
+    messageLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
+    messageLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
+    addChild(messageLabel,99);
+
 
     
     scoreLabel = Label::create();
@@ -94,6 +105,10 @@ bool PlayScene::init()
     rateLabel->setString("关卡数");
     rateLabel->setPosition(winSize.width/2 - 220, 1100);
     addChild(rateLabel,999);
+    
+    
+    beginNewGame();
+    
     return true;
 }
 
@@ -137,7 +152,19 @@ void PlayScene::beginNewGame(){
     for (int i = 0; i<5; i++) {
         colorCount[i] = 0;
     }
-    addEdges();
+    
+    messageLabel->setPosition(Vec2(winSize.width+100,winSize.height/2));
+    char c_message[50];
+    int tempguan = UserDefault::getInstance()->getIntegerForKey("TotalRate");
+    sprintf(c_message, "第%d关\n目标：%d",tempguan,guanka[tempguan]);
+    messageLabel->setString(c_message);
+    auto jin = MoveTo::create(0.5, winSize/2);
+    auto ting = DelayTime::create(1);
+    auto chu = MoveTo::create(0.5, Vec2(-200,winSize.height/2));
+    auto hecheng =Sequence::create(jin,ting,chu, NULL);
+    messageLabel->setVisible(true);
+    messageLabel->runAction(hecheng);
+    
     AddBalls();
     }
 
@@ -185,6 +212,8 @@ void PlayScene::refreshRate()
         
         UserDefault::getInstance()->setIntegerForKey("TotalScore", 0);
         UserDefault::getInstance()->flush();
+        
+        Director::getInstance()->replaceScene(MainItemScene::createScene());
     }else{
         //成功，进入下一关
         UserDefault::getInstance()->setIntegerForKey("TotalRate", guankashu +1);
