@@ -1,5 +1,8 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __MyPhysicalBall_SCENE_H__
+#define __MyPhysicalBall_SCENE_H__
+
+#define Key_TotalRate "TotalRate"
+#define Key_TotalScore "TotalScore"
 
 #include "cocos2d.h"
 //#include <Box2D/Box2D.h>
@@ -48,4 +51,4 @@ public:
     CREATE_FUNC(PlayScene);
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __MyPhysicalBall_SCENE_H__

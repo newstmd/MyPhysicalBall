@@ -3,6 +3,9 @@
 #include "ui/CocosGUI.h"
 #include "MainItem.h"
 #include "SimpleAudioEngine.h"
+#include "PauseScene.h"
+
+
 
 
 USING_NS_CC_MATH;
@@ -60,13 +63,13 @@ bool PlayScene::init()
 //    });
     //newGameButton->setZOrder(2);
     //临时返回的button
-    auto backButton = cocos2d::ui::Button::create("pause.png");
-    backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(MiddleX - 230,1000));
-    addChild(backButton);
-    backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+    auto pauseButton = cocos2d::ui::Button::create("pause.png");
+    pauseButton->setAnchorPoint(Vec2(0.5,0.5));
+    pauseButton->setPosition(Vec2(MiddleX - 230,1000));
+    addChild(pauseButton);
+    pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
-            Director::getInstance()->replaceScene(MainItemScene::createScene());
+            Director::getInstance()->pushScene(PauseScene::createScene());
         }
         
     });
@@ -140,10 +143,11 @@ void PlayScene::initShuJu()
 
 
 void PlayScene::beginNewGame(){
-    if (UserDefault::getInstance()->getIntegerForKey("TotalRate") == 0) {
-        UserDefault::getInstance()->setIntegerForKey("TotalRate", 1);
+    if (UserDefault::getInstance()->getIntegerForKey(Key_TotalRate) == 0) {
+        UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 1);
     }
     defen = 0;
+    scoreLabel->setTextColor(Color4B::WHITE);
 //    int guanka = UserDefault::getInstance()->getIntegerForKey("TotalRate");
 //    UserDefault::getInstance()->setIntegerForKey("TotalRate", guanka+1);
 //    UserDefault::getInstance()->flush();
@@ -162,8 +166,10 @@ void PlayScene::beginNewGame(){
     
     messageLabel->setPosition(Vec2(winSize.width+100,winSize.height/2));
     char c_message[50];
-    int tempguan = UserDefault::getInstance()->getIntegerForKey("TotalRate");
+    int tempguan = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate);
     sprintf(c_message, "第%d关\n目标：%d",tempguan,guanka[tempguan]);
+    
+    messageLabel->setPosition(winSize.width+200, MiddleY);
     messageLabel->setString(c_message);
     auto jin = MoveTo::create(0.3, winSize/2);
     auto ting = DelayTime::create(1.5);
@@ -195,9 +201,11 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
                 deleteBall(selectedBalls.at(i));
                
             }
+            refreshScore();
             if ((ballList.size()<1) ) {
                 //log("结束游戏！");
                 refreshRate();
+                //return false;
                 //        UserDefault
             }
             break;
@@ -205,31 +213,41 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
         }
     }
 
-    refreshScore();
+    
     
     return false;
 }
 
 void PlayScene::refreshRate()
 {
-    int guankashu = UserDefault::getInstance()->getIntegerForKey("TotalRate");
-    int zongfen =UserDefault::getInstance()->getIntegerForKey("TotalScore");
+    int guankashu = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate);
+    int zongfen =UserDefault::getInstance()->getIntegerForKey(Key_TotalScore);
     
     if ((zongfen+ defen) < guanka[guankashu]) {
         //游戏失败，清零！
-        UserDefault::getInstance()->setIntegerForKey("TotalRate", 0);
+        UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
         
-        UserDefault::getInstance()->setIntegerForKey("TotalScore", 0);
+        UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
         UserDefault::getInstance()->flush();
         
         Director::getInstance()->replaceScene(MainItemScene::createScene());
     }else{
         //成功，进入下一关
-        UserDefault::getInstance()->setIntegerForKey("TotalRate", guankashu +1);
+        UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, guankashu +1);
         
-        UserDefault::getInstance()->setIntegerForKey("TotalScore", zongfen + defen);
+        UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, zongfen + defen);
         UserDefault::getInstance()->flush();
-        beginNewGame();
+        messageLabel->setPosition(winSize.width+200, MiddleY);
+        
+        messageLabel->setString(StringUtils::format("过关\n%d",UserDefault::getInstance()->getIntegerForKey(Key_TotalScore)));
+        auto jin = MoveTo::create(0.3, winSize/2);
+        auto ting = DelayTime::create(1.5);
+        auto chu = MoveTo::create(0.3, Vec2(-200,winSize.height/2));
+        auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::beginNewGame, this));
+        auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
+        messageLabel->setVisible(true);
+        messageLabel->runAction(hecheng);
+        //beginNewGame();
     }
     
     
@@ -369,19 +387,28 @@ void PlayScene::chuliBall(cocos2d::Sprite *sp)
 
 void PlayScene::refreshScore()
 {
-    int guankashu = UserDefault::getInstance()->getIntegerForKey("TotalRate");
-    char c_guanka[10];
-    sprintf(c_guanka, "第%d关",guankashu);
-    rateLabel->setString(c_guanka);
+    int guankashu = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate);
     
-    char c_mubiao[10];
-    sprintf(c_mubiao, "目标：%d",guanka[guankashu]);
-    mubiaoLabel->setString(c_mubiao);
+    rateLabel->setString(StringUtils::format("第%d关",guankashu));
     
-    int totaldefen = UserDefault::getInstance()->getIntegerForKey("TotalScore");
-    char c_char[10];
-    sprintf(c_char, "分数：%d",defen + totaldefen);
-    scoreLabel->setString(c_char);
+    mubiaoLabel->setString(StringUtils::format("目标：%d",guanka[guankashu]));
+    
+    int totaldefen = UserDefault::getInstance()->getIntegerForKey(Key_TotalScore);
+    int currentScore = totaldefen + defen;
+    
+    scoreLabel->setString(StringUtils::format("分数：%d",currentScore));
+    if (scoreLabel->getTextColor() == Color4B::WHITE) {
+        if (currentScore >= guanka[guankashu]) {
+            scoreLabel->setTextColor(Color4B::GREEN);
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("wao.wav");
+            auto fangda = ScaleTo::create(0.3, 1.2);
+            auto huanyuan =ScaleTo::create(0.3, 1.0);
+            auto duilie = Sequence::create(fangda,huanyuan,fangda,huanyuan,fangda,huanyuan, NULL);
+            
+            scoreLabel->runAction(duilie);
+        }
+    }
+    
 }
 
 

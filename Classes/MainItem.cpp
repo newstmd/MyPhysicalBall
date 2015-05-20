@@ -71,7 +71,7 @@ bool MainItemScene::init()
                 //log("第%d关！",guanka);
             }
             
-            Director::getInstance()->replaceScene(PlayScene::createScene());
+            Director::getInstance()->pushScene(PlayScene::createScene());
         }
 
     });
@@ -82,8 +82,10 @@ bool MainItemScene::init()
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("nekomimi.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("mofa.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("wao.wav");
     //CocosDenshion::SimpleAudioEngine::getInstance()->rewindBackgroundMusic();
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("nekomimi.mp3",true);
+    
     
     
     

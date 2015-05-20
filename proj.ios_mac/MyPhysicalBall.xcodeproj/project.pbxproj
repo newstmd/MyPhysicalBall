@@ -18,6 +18,10 @@
 		06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FDD1B0B781500F5BB21 /* guanghuan.png */; };
 		06B29FE21B0B7B0C00F5BB21 /* BackGround2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */; };
 		06B29FE41B0B86FA00F5BB21 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FE31B0B86FA00F5BB21 /* logo.png */; };
+		06C6BCBB1B0CD01500D8B6D7 /* wao.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCBA1B0CD01500D8B6D7 /* wao.wav */; };
+		06C6BCBE1B0CD85100D8B6D7 /* PauseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C6BCBC1B0CD85100D8B6D7 /* PauseScene.cpp */; };
+		06C6BCC01B0CE28300D8B6D7 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCBF1B0CE28300D8B6D7 /* play.png */; };
+		06C6BCC21B0CE37100D8B6D7 /* backMain.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCC11B0CE37100D8B6D7 /* backMain.png */; };
 		06D287B71B008C9A00CDF00C /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D287B11B008C9A00CDF00C /* ball.png */; };
 		06DCA8251B09C9C600AA2175 /* BeginGameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8241B09C9C600AA2175 /* BeginGameButton.png */; };
 		06DCA8271B09CD1700AA2175 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8261B09CD1700AA2175 /* back.png */; };
@@ -96,6 +100,11 @@
 		06B29FDD1B0B781500F5BB21 /* guanghuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanghuan.png; sourceTree = "<group>"; };
 		06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BackGround2.jpg; sourceTree = "<group>"; };
 		06B29FE31B0B86FA00F5BB21 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		06C6BCBA1B0CD01500D8B6D7 /* wao.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wao.wav; sourceTree = "<group>"; };
+		06C6BCBC1B0CD85100D8B6D7 /* PauseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseScene.cpp; sourceTree = "<group>"; };
+		06C6BCBD1B0CD85100D8B6D7 /* PauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseScene.h; sourceTree = "<group>"; };
+		06C6BCBF1B0CE28300D8B6D7 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		06C6BCC11B0CE37100D8B6D7 /* backMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backMain.png; sourceTree = "<group>"; };
 		06D287B11B008C9A00CDF00C /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		06DCA8241B09C9C600AA2175 /* BeginGameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeginGameButton.png; sourceTree = "<group>"; };
 		06DCA8261B09CD1700AA2175 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -228,6 +237,7 @@
 		06DCE7341B0AE3BF00B17CA1 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				06C6BCBA1B0CD01500D8B6D7 /* wao.wav */,
 				06DCE7371B0AE9A500B17CA1 /* mofa.wav */,
 				06DCE7351B0AE3CC00B17CA1 /* nekomimi.mp3 */,
 			);
@@ -300,6 +310,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				06C6BCC11B0CE37100D8B6D7 /* backMain.png */,
+				06C6BCBF1B0CE28300D8B6D7 /* play.png */,
 				069AEE311B0C6A5C0067EBDD /* pause.png */,
 				06C72BC01B0C30C7000D6BBB /* fonts */,
 				06B29FE31B0B86FA00F5BB21 /* logo.png */,
@@ -332,6 +344,8 @@
 				46880B8719C43A87006E1F66 /* PlayScene.h */,
 				066BA00B1B01B5B900BF1D61 /* MainItem.cpp */,
 				066BA00C1B01B5B900BF1D61 /* MainItem.h */,
+				06C6BCBC1B0CD85100D8B6D7 /* PauseScene.cpp */,
+				06C6BCBD1B0CD85100D8B6D7 /* PauseScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -489,10 +503,12 @@
 				06DCE7331B0AD00900B17CA1 /* lizizi.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				06C6BCC21B0CE37100D8B6D7 /* backMain.png in Resources */,
 				069E33AE1B0969E100D5253A /* ball5.png in Resources */,
 				06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */,
 				069E33AA1B0969E100D5253A /* ball4.png in Resources */,
 				06DCE7381B0AE9A500B17CA1 /* mofa.wav in Resources */,
+				06C6BCBB1B0CD01500D8B6D7 /* wao.wav in Resources */,
 				069E33AD1B0969E100D5253A /* ball2.png in Resources */,
 				06DCE7261B0AC0F000B17CA1 /* lizi.plist in Resources */,
 				06D287B71B008C9A00CDF00C /* ball.png in Resources */,
@@ -509,6 +525,7 @@
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				06C6BCC01B0CE28300D8B6D7 /* play.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				06DCE72F1B0AD00900B17CA1 /* lizihong.png in Resources */,
@@ -540,6 +557,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				066BA00D1B01B5B900BF1D61 /* MainItem.cpp in Sources */,
+				06C6BCBE1B0CD85100D8B6D7 /* PauseScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
