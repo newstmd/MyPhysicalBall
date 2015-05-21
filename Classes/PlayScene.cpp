@@ -137,10 +137,12 @@ void PlayScene::jiankongBall(float dt)
     auto fanwei = Rect(MiddleX-310, 100, 620, 1036);
     for (int i = 0; i<ballList.size(); i++) {
         if (!fanwei.containsPoint(ballList.at(i)->getPosition())) {
-            removeChild(ballList.at(i));
-            ballList.erase(i);
+//            removeChild(ballList.at(i));
+//            ballList.erase(i);
             //auto shape = ballList.at(i)->getPhysicsBody()->getFirstShape()->set
-            log("修复！");
+            deleteBall(ballList.at(i));
+            addBall(MiddleX, 1000);
+            //log("修复！");
         }
     }
 }

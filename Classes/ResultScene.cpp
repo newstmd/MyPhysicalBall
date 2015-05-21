@@ -32,7 +32,7 @@ bool ResultScene::init()
     
     auto backButton = cocos2d::ui::Button::create("backMain.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(winSize.width/2 - 110,100));
+    backButton->setPosition(Vec2(winSize.width/2 - 110,300));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -43,17 +43,37 @@ bool ResultScene::init()
         
     });
     
+    auto guanghuan  = Sprite::create("guanghuan.png");
+    guanghuan->setAnchorPoint(Vec2(0.5,0.5));
+    guanghuan->setPosition(winSize/2);
+    addChild(guanghuan);
+    auto xuanzhuanaction = RotateBy::create(3, 10);
+    auto rep = RepeatForever::create(xuanzhuanaction);
+    guanghuan->runAction(rep);
     
+    auto logo  = Sprite::create("logo.png");
+    logo->setAnchorPoint(Vec2(0.5,0.5));
+    logo->setScale(0.7);
+    logo->setPosition(Director::getInstance()->getWinSize().width * 0.33,900);
+    addChild(logo);
+
     auto scoreLabel = Label::create();
     scoreLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
     scoreLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
     scoreLabel->setTextColor(Color4B::WHITE);
-    scoreLabel->setSystemFontSize(60);
-    scoreLabel->setSystemFontName("mnse.ttf");
-    scoreLabel->setString(StringUtils::format("通过%d关\n得分：%d",totalrate,totalscore));
+    scoreLabel->setSystemFontSize(100);
+    scoreLabel->setString(StringUtils::format("%d",totalscore));
     scoreLabel->setPosition(winSize/2);
-    
     addChild(scoreLabel,999);
+    
+    auto rateLabel = Label::create();
+    rateLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
+    rateLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
+    rateLabel->setTextColor(Color4B::WHITE);
+    rateLabel->setSystemFontSize(40);
+    rateLabel->setString(StringUtils::format("通关 - 第%d关",totalrate));
+    rateLabel->setPosition(winSize.width * 0.33,700);
+    addChild(rateLabel,999);
     
     
     
@@ -66,8 +86,3 @@ bool ResultScene::init()
     
 }
 
-void ResultScene::onEnter(){
-    Layer::onEnter();
-    
-    log("显示结果界面");
-}

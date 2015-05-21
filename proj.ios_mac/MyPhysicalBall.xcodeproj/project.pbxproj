@@ -34,6 +34,7 @@
 		06DCE7331B0AD00900B17CA1 /* lizizi.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCE72E1B0AD00900B17CA1 /* lizizi.png */; };
 		06DCE7361B0AE3CC00B17CA1 /* nekomimi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 06DCE7351B0AE3CC00B17CA1 /* nekomimi.mp3 */; };
 		06DCE7381B0AE9A500B17CA1 /* mofa.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06DCE7371B0AE9A500B17CA1 /* mofa.wav */; };
+		06E276AD1B0DEFF800EB34D4 /* pausebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 06E276AC1B0DEFF800EB34D4 /* pausebackground.png */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -119,6 +120,7 @@
 		06DCE72E1B0AD00900B17CA1 /* lizizi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lizizi.png; sourceTree = "<group>"; };
 		06DCE7351B0AE3CC00B17CA1 /* nekomimi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nekomimi.mp3; sourceTree = "<group>"; };
 		06DCE7371B0AE9A500B17CA1 /* mofa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mofa.wav; sourceTree = "<group>"; };
+		06E276AC1B0DEFF800EB34D4 /* pausebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebackground.png; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* MyPhysicalBall iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyPhysicalBall iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,7 @@
 		06CC17671B0D608C009E7F82 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				06E276AC1B0DEFF800EB34D4 /* pausebackground.png */,
 				06DCA8261B09CD1700AA2175 /* back.png */,
 				06DCA8241B09C9C600AA2175 /* BeginGameButton.png */,
 				069E33A51B0969E100D5253A /* ball4.png */,
@@ -519,6 +522,7 @@
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				069E33AB1B0969E100D5253A /* ball3.png in Resources */,
 				06DCE7331B0AD00900B17CA1 /* lizizi.png in Resources */,
+				06E276AD1B0DEFF800EB34D4 /* pausebackground.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				06C6BCC21B0CE37100D8B6D7 /* backMain.png in Resources */,

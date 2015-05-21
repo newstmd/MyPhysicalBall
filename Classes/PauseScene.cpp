@@ -31,7 +31,7 @@ bool PauseScene::init()
     }
     
     winSize = Director::getInstance()->getVisibleSize();
-    auto bg = Sprite::create("BackGround.jpg");
+    auto bg = Sprite::create("pausebackground.png");
     bg->setAnchorPoint(Vec2(0.5,0.5));
     bg->setPosition(winSize/2);
     addChild(bg);
@@ -39,7 +39,7 @@ bool PauseScene::init()
     
     auto pauseButton = cocos2d::ui::Button::create("play.png");
     pauseButton->setAnchorPoint(Vec2(0.5,0.5));
-    pauseButton->setPosition(Vec2(winSize.width/2 - 200,100));
+    pauseButton->setPosition(Vec2(winSize.width/2 - 200,200));
     addChild(pauseButton);
     pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -50,7 +50,7 @@ bool PauseScene::init()
     
     auto backButton = cocos2d::ui::Button::create("backMain.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(winSize.width/2 - 110,100));
+    backButton->setPosition(Vec2(winSize.width/2 - 60,200));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
