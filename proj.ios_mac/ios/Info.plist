@@ -28,8 +28,6 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>STHUPO.TTF</string>
-		<string>shaoer.ttf</string>
 		<string>RTWSYueGoTrial-Regular.otf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
