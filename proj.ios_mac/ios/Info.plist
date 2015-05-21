@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>拯救星星</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>拯救星星</string>
+	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -28,7 +28,9 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>JSaoEr.ttf</string>
+		<string>STHUPO.TTF</string>
+		<string>shaoer.ttf</string>
+		<string>RTWSYueGoTrial-Regular.otf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>

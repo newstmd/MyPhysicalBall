@@ -83,7 +83,6 @@ static AppDelegate s_sharedApplication;
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
-
     app->run();
 
     return YES;

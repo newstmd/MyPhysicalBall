@@ -6,7 +6,7 @@
 #include "PauseScene.h"
 #include "ResultScene.h"
 
-#define font_type "Arial Rounded MT Bold"
+#define font_type "RTWSYueGoTrial-Regular"
 
 
 USING_NS_CC_MATH;
@@ -47,7 +47,7 @@ bool PlayScene::init()
     initShuJu();
     addEdges();
     
-    auto backGround1 = Sprite::create("BackGround2.jpg");
+    auto backGround1 = Sprite::create("PlayGround.jpg");
     backGround1->setAnchorPoint(Vec2(0.5,0.5));
     backGround1->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);
     addChild(backGround1, -1);
@@ -87,6 +87,7 @@ bool PlayScene::init()
     messageLabel->setTextColor(Color4B::WHITE);
     messageLabel->setSystemFontSize(60);
     messageLabel->setString("浮动信息");
+    messageLabel->setSystemFontName(font_type);
     messageLabel->setVisible(false);
     messageLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
     messageLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
@@ -99,7 +100,8 @@ bool PlayScene::init()
     //scoreLabel = Label::createWithTTF("", "STHeitiSC-Light", 40);
     scoreLabel->setTextColor(Color4B::WHITE);
     scoreLabel->setSystemFontSize(40);
-    
+    //log("%s",scoreLabel->getSystemFontName().c_str());
+    //scoreLabel->setColor(Color3B::WHITE);
     scoreLabel->setSystemFontName(font_type);
     
     scoreLabel->setString("得分：0");
@@ -117,7 +119,10 @@ bool PlayScene::init()
     //mubiaoLabel->autorelease();
 
     rateLabel = Label::create();
-        rateLabel->setTextColor(Color4B::WHITE);
+    
+    //log("%s",rateLabel->getFontName().c_str());
+    //rateLabel->setFontName(;)
+    rateLabel->setTextColor(Color4B::WHITE);
     rateLabel->setSystemFontSize(40);
     rateLabel->setString("关卡数");
     rateLabel->setSystemFontName(font_type);
@@ -364,11 +369,11 @@ void PlayScene::addEdges(){
     auto node3 = Node::create();
     node3->setPhysicsBody(edges3);
     
-    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(MiddleX-310,0), Vec2(MiddleX-310,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(MiddleX-300,0), Vec2(MiddleX-300,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node4 = Node::create();
     node4->setPhysicsBody(edgeLeft);
     
-    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(MiddleX+310,0), Vec2(MiddleX+310,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(MiddleX+300,0), Vec2(MiddleX+300,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     

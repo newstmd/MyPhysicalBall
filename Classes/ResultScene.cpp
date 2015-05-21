@@ -7,7 +7,7 @@
 //
 
 #include "ResultScene.h"
-
+#define font_type "RTWSYueGoTrial-Regular"
 
 Scene* ResultScene::createScene()
 {
@@ -63,6 +63,7 @@ bool ResultScene::init()
     scoreLabel->setTextColor(Color4B::WHITE);
     scoreLabel->setSystemFontSize(100);
     scoreLabel->setString(StringUtils::format("%d",totalscore));
+    scoreLabel->setSystemFontName(font_type);
     scoreLabel->setPosition(winSize/2);
     addChild(scoreLabel,999);
     
@@ -72,10 +73,9 @@ bool ResultScene::init()
     rateLabel->setTextColor(Color4B::WHITE);
     rateLabel->setSystemFontSize(40);
     rateLabel->setString(StringUtils::format("通关 - 第%d关",totalrate));
+    rateLabel->setSystemFontName(font_type);
     rateLabel->setPosition(winSize.width * 0.33,700);
     addChild(rateLabel,999);
-    
-    
     
     //清除关卡数据
     UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
