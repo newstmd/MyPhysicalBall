@@ -1,13 +1,13 @@
 //
-//  PauseScene.h
+//  ResultScene.h
 //  MyPhysicalBall
 //
-//  Created by 唐鑫 on 15/5/20.
+//  Created by 唐鑫 on 15/5/21.
 //
 //
 
-#ifndef __MyPhysicalBall__PauseScene__
-#define __MyPhysicalBall__PauseScene__
+#ifndef __MyPhysicalBall__ResultScene__
+#define __MyPhysicalBall__ResultScene__
 
 #define Key_TotalRate "TotalRate"
 #define Key_TotalScore "TotalScore"
@@ -18,7 +18,7 @@
 #include "ui/CocosGUI.h"
 #include "SimpleAudioEngine.h"
 USING_NS_CC;
-class PauseScene :public cocos2d::Layer{
+class ResultScene :public cocos2d::Layer{
     
 private:
     cocos2d::Size winSize;
@@ -27,8 +27,9 @@ public:
     
     static cocos2d::Scene* createScene();
     virtual bool init();
-    CREATE_FUNC(PauseScene);
+    virtual void onEnter();
+    CREATE_FUNC(ResultScene);
 };
 
 
-#endif /* defined(__MyPhysicalBall__PauseScene__) */
+#endif /* defined(__MyPhysicalBall__ResultScene__) */

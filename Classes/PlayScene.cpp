@@ -4,8 +4,9 @@
 #include "MainItem.h"
 #include "SimpleAudioEngine.h"
 #include "PauseScene.h"
+#include "ResultScene.h"
 
-
+#define font_type "Arial Rounded MT Bold"
 
 
 USING_NS_CC_MATH;
@@ -42,6 +43,7 @@ bool PlayScene::init()
     //auto rootNode = CSLoader::createNode("MainScene.csb");
     
     
+    
     initShuJu();
     addEdges();
     
@@ -64,12 +66,14 @@ bool PlayScene::init()
     //newGameButton->setZOrder(2);
     //临时返回的button
     auto pauseButton = cocos2d::ui::Button::create("pause.png");
+    //pauseButton->setScale(0.8);
     pauseButton->setAnchorPoint(Vec2(0.5,0.5));
     pauseButton->setPosition(Vec2(MiddleX - 230,1000));
     addChild(pauseButton);
     pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
-            Director::getInstance()->pushScene(PauseScene::createScene());
+            auto fade = TransitionMoveInT::create(0.3, PauseScene::createScene());
+            Director::getInstance()->pushScene(fade);
         }
         
     });
@@ -92,9 +96,12 @@ bool PlayScene::init()
 
     
     scoreLabel = Label::create();
-        scoreLabel->setTextColor(Color4B::WHITE);
+    //scoreLabel = Label::createWithTTF("", "STHeitiSC-Light", 40);
+    scoreLabel->setTextColor(Color4B::WHITE);
     scoreLabel->setSystemFontSize(40);
-    scoreLabel->setSystemFontName("mnse.ttf");
+    
+    scoreLabel->setSystemFontName(font_type);
+    
     scoreLabel->setString("得分：0");
     scoreLabel->setPosition(winSize.width/2, 1000);
     addChild(scoreLabel,999);
@@ -104,7 +111,8 @@ bool PlayScene::init()
         mubiaoLabel->setTextColor(Color4B::WHITE);
     mubiaoLabel->setSystemFontSize(40);
     mubiaoLabel->setString("目标：");
-    mubiaoLabel->setPosition(winSize.width/2 , 1100);
+    mubiaoLabel->setSystemFontName(font_type);
+    mubiaoLabel->setPosition(winSize.width/2 , 1080);
     addChild(mubiaoLabel,999);
     //mubiaoLabel->autorelease();
 
@@ -112,15 +120,36 @@ bool PlayScene::init()
         rateLabel->setTextColor(Color4B::WHITE);
     rateLabel->setSystemFontSize(40);
     rateLabel->setString("关卡数");
-    rateLabel->setPosition(winSize.width/2 - 220, 1100);
+    rateLabel->setSystemFontName(font_type);
+    rateLabel->setPosition(winSize.width/2 - 220, 1080);
     addChild(rateLabel,999);
     //rateLabel->autorelease();
 
+    schedule(schedule_selector(PlayScene::jiankongBall), 1.0f/10, kRepeatForever, 0);
+    
     
     beginNewGame();
-    
     return true;
 }
+
+void PlayScene::jiankongBall(float dt)
+{
+    auto fanwei = Rect(MiddleX-310, 100, 620, 1036);
+    for (int i = 0; i<ballList.size(); i++) {
+        if (!fanwei.containsPoint(ballList.at(i)->getPosition())) {
+            removeChild(ballList.at(i));
+            ballList.erase(i);
+            //auto shape = ballList.at(i)->getPhysicsBody()->getFirstShape()->set
+            log("修复！");
+        }
+    }
+}
+
+//void PlayScene::onEnter(){
+//    Layer::onEnter();
+//    
+//
+//}
 
 void PlayScene::initShuJu()
 {
@@ -134,9 +163,11 @@ void PlayScene::initShuJu()
     winSize = Director::getInstance()->getVisibleSize();
     MiddleX = winSize.width / 2;
     MiddleY = winSize.height / 2;
-    
-    for (int i = 1; i<100; i++) {
-        guanka[i] = guanka[i-1] + 1000 + 500*(i-1);
+    guanka[1] = 1000;
+    guanka[2] = 2500;
+    guanka[3] = 4500;
+    for (int i = 4; i<100; i++) {
+        guanka[i] = guanka[i-1] + 2000 + 20*(i-3);
     }
     return;
 }
@@ -225,12 +256,12 @@ void PlayScene::refreshRate()
     
     if ((zongfen+ defen) < guanka[guankashu]) {
         //游戏失败，清零！
-        UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
-        
-        UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
-        UserDefault::getInstance()->flush();
-        
-        Director::getInstance()->replaceScene(MainItemScene::createScene());
+//        UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
+//        
+        UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, zongfen+defen);
+//        UserDefault::getInstance()->flush();
+        auto huadong = TransitionMoveInR::create(0.5, ResultScene::createScene());
+        Director::getInstance()->pushScene(huadong);
     }else{
         //成功，进入下一关
         UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, guankashu +1);
@@ -339,6 +370,8 @@ void PlayScene::addEdges(){
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     
+    
+    
     addChild(node);
     addChild(node2);
     addChild(node3);
@@ -397,6 +430,7 @@ void PlayScene::refreshScore()
     int currentScore = totaldefen + defen;
     
     scoreLabel->setString(StringUtils::format("分数：%d",currentScore));
+    //scoreLabel->setSystemFontName("SiCChaoCuHei-M10S");
     if (scoreLabel->getTextColor() == Color4B::WHITE) {
         if (currentScore >= guanka[guankashu]) {
             scoreLabel->setTextColor(Color4B::GREEN);

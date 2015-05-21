@@ -40,7 +40,7 @@ private:
     bool touchIt(Touch* touch,Event* event);
     void refreshScore();
     void refreshRate();
-    
+    void jiankongBall(float dt);
     //void touchNewGame(Ref* target,ui::Widget::TouchEventType type);
 //    void dingshiqi(float dt);
 //    void dingshiqi2(float dt);
@@ -48,6 +48,7 @@ private:
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
+    //virtual void onEnter();
     CREATE_FUNC(PlayScene);
 };
 

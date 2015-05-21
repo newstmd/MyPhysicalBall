@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>拯救星星</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -28,7 +28,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>mnse.ttf</string>
+		<string>JSaoEr.ttf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>

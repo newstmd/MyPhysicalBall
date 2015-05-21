@@ -22,6 +22,7 @@
 		06C6BCBE1B0CD85100D8B6D7 /* PauseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C6BCBC1B0CD85100D8B6D7 /* PauseScene.cpp */; };
 		06C6BCC01B0CE28300D8B6D7 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCBF1B0CE28300D8B6D7 /* play.png */; };
 		06C6BCC21B0CE37100D8B6D7 /* backMain.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCC11B0CE37100D8B6D7 /* backMain.png */; };
+		06CC176C1B0D6501009E7F82 /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06CC176A1B0D6501009E7F82 /* ResultScene.cpp */; };
 		06D287B71B008C9A00CDF00C /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D287B11B008C9A00CDF00C /* ball.png */; };
 		06DCA8251B09C9C600AA2175 /* BeginGameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8241B09C9C600AA2175 /* BeginGameButton.png */; };
 		06DCA8271B09CD1700AA2175 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DCA8261B09CD1700AA2175 /* back.png */; };
@@ -90,7 +91,7 @@
 		066BA00B1B01B5B900BF1D61 /* MainItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainItem.cpp; sourceTree = "<group>"; };
 		066BA00C1B01B5B900BF1D61 /* MainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainItem.h; sourceTree = "<group>"; };
 		069AEE311B0C6A5C0067EBDD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
-		069AEE331B0C6E760067EBDD /* mnse.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mnse.ttf; sourceTree = "<group>"; };
+		069AEE331B0C6E760067EBDD /* JSaoEr.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JSaoEr.ttf; sourceTree = "<group>"; };
 		069E33A51B0969E100D5253A /* ball4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball4.png; sourceTree = "<group>"; };
 		069E33A61B0969E100D5253A /* ball3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball3.png; sourceTree = "<group>"; };
 		069E33A71B0969E100D5253A /* ball1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball1.png; sourceTree = "<group>"; };
@@ -105,6 +106,8 @@
 		06C6BCBD1B0CD85100D8B6D7 /* PauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseScene.h; sourceTree = "<group>"; };
 		06C6BCBF1B0CE28300D8B6D7 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		06C6BCC11B0CE37100D8B6D7 /* backMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backMain.png; sourceTree = "<group>"; };
+		06CC176A1B0D6501009E7F82 /* ResultScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultScene.cpp; sourceTree = "<group>"; };
+		06CC176B1B0D6501009E7F82 /* ResultScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultScene.h; sourceTree = "<group>"; };
 		06D287B11B008C9A00CDF00C /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		06DCA8241B09C9C600AA2175 /* BeginGameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeginGameButton.png; sourceTree = "<group>"; };
 		06DCA8261B09CD1700AA2175 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -217,14 +220,36 @@
 		06C72BC01B0C30C7000D6BBB /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				069AEE331B0C6E760067EBDD /* mnse.ttf */,
+				069AEE331B0C6E760067EBDD /* JSaoEr.ttf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		06CC17671B0D608C009E7F82 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				06DCA8261B09CD1700AA2175 /* back.png */,
+				06DCA8241B09C9C600AA2175 /* BeginGameButton.png */,
+				069E33A51B0969E100D5253A /* ball4.png */,
+				069E33A61B0969E100D5253A /* ball3.png */,
+				069E33A71B0969E100D5253A /* ball1.png */,
+				069E33A81B0969E100D5253A /* ball2.png */,
+				069E33A91B0969E100D5253A /* ball5.png */,
+				06D287B11B008C9A00CDF00C /* ball.png */,
+				06B29FE31B0B86FA00F5BB21 /* logo.png */,
+				06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */,
+				06B29FDD1B0B781500F5BB21 /* guanghuan.png */,
+				06C6BCC11B0CE37100D8B6D7 /* backMain.png */,
+				06C6BCBF1B0CE28300D8B6D7 /* play.png */,
+				069AEE311B0C6A5C0067EBDD /* pause.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		06DCE7291B0ACFD500B17CA1 /* lizi */ = {
 			isa = PBXGroup;
 			children = (
+				06DCE7251B0AC0F000B17CA1 /* lizi.plist */,
 				06DCE72A1B0AD00900B17CA1 /* lizihong.png */,
 				06DCE72B1B0AD00900B17CA1 /* lizilan.png */,
 				06DCE72C1B0AD00900B17CA1 /* lizilv.png */,
@@ -310,25 +335,11 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				06C6BCC11B0CE37100D8B6D7 /* backMain.png */,
-				06C6BCBF1B0CE28300D8B6D7 /* play.png */,
-				069AEE311B0C6A5C0067EBDD /* pause.png */,
+				06CC17671B0D608C009E7F82 /* images */,
 				06C72BC01B0C30C7000D6BBB /* fonts */,
-				06B29FE31B0B86FA00F5BB21 /* logo.png */,
-				06B29FE11B0B7B0C00F5BB21 /* BackGround2.jpg */,
-				06B29FDD1B0B781500F5BB21 /* guanghuan.png */,
 				06DCE7341B0AE3BF00B17CA1 /* music */,
 				06DCE7291B0ACFD500B17CA1 /* lizi */,
-				06DCE7251B0AC0F000B17CA1 /* lizi.plist */,
 				069E33AF1B097B8700D5253A /* Images.xcassets */,
-				06DCA8261B09CD1700AA2175 /* back.png */,
-				06DCA8241B09C9C600AA2175 /* BeginGameButton.png */,
-				069E33A51B0969E100D5253A /* ball4.png */,
-				069E33A61B0969E100D5253A /* ball3.png */,
-				069E33A71B0969E100D5253A /* ball1.png */,
-				069E33A81B0969E100D5253A /* ball2.png */,
-				069E33A91B0969E100D5253A /* ball5.png */,
-				06D287B11B008C9A00CDF00C /* ball.png */,
 				FA144D09A52357282113E0F8 /* res */,
 			);
 			name = Resources;
@@ -346,6 +357,8 @@
 				066BA00C1B01B5B900BF1D61 /* MainItem.h */,
 				06C6BCBC1B0CD85100D8B6D7 /* PauseScene.cpp */,
 				06C6BCBD1B0CD85100D8B6D7 /* PauseScene.h */,
+				06CC176A1B0D6501009E7F82 /* ResultScene.cpp */,
+				06CC176B1B0D6501009E7F82 /* ResultScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -461,6 +474,11 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = CG7LCNA3DE;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -556,6 +574,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				06CC176C1B0D6501009E7F82 /* ResultScene.cpp in Sources */,
 				066BA00D1B01B5B900BF1D61 /* MainItem.cpp in Sources */,
 				06C6BCBE1B0CD85100D8B6D7 /* PauseScene.cpp in Sources */,
 			);
@@ -578,6 +597,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -602,6 +622,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -614,6 +635,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -636,6 +658,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

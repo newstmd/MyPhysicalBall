@@ -70,12 +70,14 @@ bool MainItemScene::init()
             }else{
                 //log("第%d关！",guanka);
             }
-            
-            Director::getInstance()->pushScene(PlayScene::createScene());
+            auto fade = TransitionMoveInR::create(0.3, PlayScene::createScene());
+            //auto scene = PlayScene::createScene();
+            //auto fade = TransitionMoveInR::initWithDuration(0.2, scene);
+            Director::getInstance()->pushScene(fade);
         }
 
     });
-    auto fangda = ScaleTo::create(0.5, 1.1);
+    auto fangda = ScaleTo::create(0.5, 1.2);
     auto suoxiao = ScaleTo::create(1,1.0);
     auto ac = Sequence::create(fangda,suoxiao,NULL);
     beginButton->runAction(RepeatForever::create(ac));

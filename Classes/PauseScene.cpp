@@ -33,7 +33,7 @@ bool PauseScene::init()
     winSize = Director::getInstance()->getVisibleSize();
     auto bg = Sprite::create("BackGround.jpg");
     bg->setAnchorPoint(Vec2(0.5,0.5));
-    bg->setPosition(Director::getInstance()->getWinSize()/2);
+    bg->setPosition(winSize/2);
     addChild(bg);
     
     
@@ -54,6 +54,9 @@ bool PauseScene::init()
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
+            UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
+            UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
+            UserDefault::getInstance()->flush();
             Director::getInstance()->popToRootScene();
             //Director::getInstance()->replaceScene(MainItemScene::createScene());
         }
