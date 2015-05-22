@@ -70,6 +70,19 @@ bool ResultScene::init()
         
     });
     
+    auto gameCenterButton = cocos2d::ui::Button::create("gameCenter.png");
+    gameCenterButton->setAnchorPoint(Vec2(0.5,0.5));
+    gameCenterButton->setPosition(Vec2(winSize.width/2 + 225,300));
+    addChild(gameCenterButton);
+    gameCenterButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            
+            //Director::getInstance()->popToRootScene();
+            
+        }
+        
+    });
+    
     auto guanghuan  = Sprite::create("guanghuan.png");
     guanghuan->setAnchorPoint(Vec2(0.5,0.5));
     guanghuan->setPosition(winSize/2);
@@ -105,9 +118,9 @@ bool ResultScene::init()
     addChild(rateLabel,999);
     
     //清除关卡数据
-    UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
-    UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
-    UserDefault::getInstance()->flush();
+//    UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
+//    UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
+//    UserDefault::getInstance()->flush();
     
 //    [[CSInterstitial sharedInterstitial] loadInterstitial];
 //    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];

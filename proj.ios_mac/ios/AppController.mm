@@ -96,13 +96,14 @@ static AppDelegate s_sharedApplication;
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
     app->run();
-    
-    CGRect frameBanner = CGRectMake(0, 0, 640, 100);
+    //glview->getVisibleOrigin().x;
+    CGRect frameBanner = CGRectMake(0, 0, 320, 50);
     CSBannerView * bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
     [bannerView loadRequest:[CSADRequest request]];
     bannerView.delegate = self;
     [window addSubview:bannerView];
     
+    [bannerView release];
     
 //CSBannerView
     return YES;

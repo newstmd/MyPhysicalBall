@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "MainItem.h"
-//#include "ResultScene.h"
+#include "ResultScene.h"
 //#include "ChanceAd.h"
 //#include ""
 #include "ChanceAd.h"
@@ -43,7 +43,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 60);
+    director->setAnimationInterval(1.0 / 180);
 
     FileUtils::getInstance()->addSearchPath("res");
 
