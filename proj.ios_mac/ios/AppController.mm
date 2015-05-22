@@ -28,12 +28,15 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "ChanceAd.h"
-#import "CSBannerView.h"
+//#import "CSBannerView.h"
 
-@interface AppController () <CSBannerViewDelegate> {
-    
-    CSBannerView *_bannerView;
-}
+//@interface AppController () <CSBannerViewDelegate> {
+//    
+//    CSBannerView *_bannerView;
+//}
+//
+//@end
+@interface AppController ()<CSBannerViewDelegate>
 
 @end
 
@@ -46,6 +49,7 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
+    [ChanceAd startSession:@"822624461-25B660-5B19-F375-3BFF61373"];//100032-4CE817-ABA2-5B48-14D009296720
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
     cocos2d::GLViewImpl::convertAttrs();
@@ -92,7 +96,13 @@ static AppDelegate s_sharedApplication;
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
     app->run();
-    [ChanceAd startSession:@"100032-4CE817-ABA2-5B48-14D009296720"];
+    
+    CGRect frameBanner = CGRectMake(0, 0, 640, 100);
+    CSBannerView * bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
+    [bannerView loadRequest:[CSADRequest request]];
+    bannerView.delegate = self;
+    [window addSubview:bannerView];
+    
     
 //CSBannerView
     return YES;
@@ -154,5 +164,33 @@ static AppDelegate s_sharedApplication;
     [super dealloc];
 }
 
+#pragma mark - CSBannerViewDelegate
+
+// 收到Banner广告
+- (void)csBannerViewDidReceiveAd:(CSBannerView *)csBannerView
+{
+    NSLog(@"----------%s", __PRETTY_FUNCTION__);
+}
+
+// Banner广告数据错误
+- (void)csBannerView:(CSBannerView *)csBannerView
+      receiveAdError:(CSRequestError *)requestError
+{
+    NSLog(@"----------%s  %ld", __PRETTY_FUNCTION__, (long)requestError.code);
+    
+    //requestError.localizedDescription
+}
+
+// 将要展示Banner广告
+- (void)csBannerViewWillPresentScreen:(CSBannerView *)csBannerView
+{
+    NSLog(@"----------%s", __PRETTY_FUNCTION__);
+}
+
+// 移除Banner广告
+- (void)csBannerViewDidDismissScreen:(CSBannerView *)csBannerView
+{
+    NSLog(@"----------%s", __PRETTY_FUNCTION__);
+}
 
 @end

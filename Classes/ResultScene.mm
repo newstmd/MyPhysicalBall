@@ -109,6 +109,12 @@ bool ResultScene::init()
     UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
     UserDefault::getInstance()->flush();
     
+//    [[CSInterstitial sharedInterstitial] loadInterstitial];
+//    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
+    [[CSMoreGame sharedMoreGame] loadMoreGame];
+    [[CSMoreGame sharedMoreGame] showMoreGameWithScale:0.9f];
+    
+    
     return true;
     
 }

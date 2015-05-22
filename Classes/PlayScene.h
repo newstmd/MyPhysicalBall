@@ -5,7 +5,8 @@
 #define Key_TotalScore "TotalScore"
 
 #include "cocos2d.h"
-//#include <Box2D/Box2D.h>
+#include "ChanceAd.h"
+
 #include "ui/CocosGUI.h"
 
 USING_NS_CC;

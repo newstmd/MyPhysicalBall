@@ -11,6 +11,7 @@
 #include "ui/CocosGUI.h"
 #include "PlayScene.h"
 #include "MainItem.h"
+#include "ChanceAd.h"
 USING_NS_CC_MATH;
 USING_NS_CC;
 
@@ -116,7 +117,9 @@ bool PauseScene::init()
             
         }
     });
-
+    
+    [[CSInterstitial sharedInterstitial] loadInterstitial];
+    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
     return true;
 }
 

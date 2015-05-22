@@ -41,6 +41,11 @@ bool PlayScene::init()
     {
         return false;
     }
+    
+//    CGRect frameBanner = CGRectMake(1, 0, 320, 50);
+//    CSBannerView * bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
+//    [bannerView loadRequest:[CSADRequest request]];
+    
     //auto rootNode = CSLoader::createNode("MainScene.csb");
 //    Director::getInstance()->getRunningScene()->getPhysicsWorld()->setAutoStep(false);
 //    scheduleUpdate();
@@ -138,6 +143,8 @@ bool PlayScene::init()
     //scheduleUpdate();
     
     beginNewGame();
+    
+    
     return true;
 }
 
@@ -155,7 +162,7 @@ bool PlayScene::init()
 
 void PlayScene::jiankongBall(float dt)
 {
-    auto fanwei = Rect(MiddleX-310, 100, 620, 1036);
+    auto fanwei =cocos2d::Rect(MiddleX-310, 100, 620, 1036);
     for (int i = 0; i<ballList.size(); i++) {
         if (!fanwei.containsPoint(ballList.at(i)->getPosition())) {
 //            removeChild(ballList.at(i));

@@ -1,9 +1,9 @@
 #include "AppDelegate.h"
 #include "MainItem.h"
-#include "ResultScene.h"
+//#include "ResultScene.h"
 //#include "ChanceAd.h"
 //#include ""
-
+#include "ChanceAd.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -27,10 +27,13 @@ void AppDelegate::initGLContextAttrs()
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
+    
+    
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("MyPhysicalBall", Rect(0, 0, 640, 1136));
+        //glview = GLViewImpl::createWithRect
+        glview = GLViewImpl::createWithRect("MyPhysicalBall", cocos2d::Rect(0, 0, 640, 1136));
         director->setOpenGLView(glview);
     }
 
@@ -49,6 +52,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     director->runWithScene(scene);
+//    CGRect frameBanner = CGRectMake(0.0f, 0.0f, 320.0f, 50.0f);
+//    CSBannerView *bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
+//    [bannerView loadRequest:[CSADRequest request]];
+//    scene->addChild(bannerView);
 
     return true;
 }
