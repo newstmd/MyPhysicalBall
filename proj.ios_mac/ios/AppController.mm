@@ -27,9 +27,17 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "ChanceAd.h"
+#import "CSBannerView.h"
+
+@interface AppController () <CSBannerViewDelegate> {
+    
+    CSBannerView *_bannerView;
+}
+
+@end
 
 @implementation AppController
-
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -84,7 +92,9 @@ static AppDelegate s_sharedApplication;
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
     app->run();
-
+    [ChanceAd startSession:@"100032-4CE817-ABA2-5B48-14D009296720"];
+    
+//CSBannerView
     return YES;
 }
 

@@ -15,6 +15,12 @@
 		061EF2F51B0EDE0B00689180 /* effectOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 061EF2F11B0EDE0B00689180 /* effectOpen.png */; };
 		061EF2F61B0EDE0B00689180 /* musicClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 061EF2F21B0EDE0B00689180 /* musicClose.png */; };
 		061EF2F71B0EDE0B00689180 /* musicOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 061EF2F31B0EDE0B00689180 /* musicOpen.png */; };
+		06630C2E1B0F29AF00CAD4F4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C2D1B0F29AF00CAD4F4 /* SystemConfiguration.framework */; };
+		06630C301B0F29C000CAD4F4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C2F1B0F29C000CAD4F4 /* StoreKit.framework */; };
+		06630C321B0F29CC00CAD4F4 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C311B0F29CC00CAD4F4 /* AdSupport.framework */; };
+		06630C341B0F29DA00CAD4F4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C331B0F29DA00CAD4F4 /* CoreTelephony.framework */; };
+		06630C411B0F2F8000CAD4F4 /* ChanceAdRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06630C391B0F2F8000CAD4F4 /* ChanceAdRes.bundle */; };
+		06630C421B0F2F8000CAD4F4 /* libChanceAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C401B0F2F8000CAD4F4 /* libChanceAd.a */; };
 		066BA00D1B01B5B900BF1D61 /* MainItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 066BA00B1B01B5B900BF1D61 /* MainItem.cpp */; };
 		069AEE321B0C6A5C0067EBDD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 069AEE311B0C6A5C0067EBDD /* pause.png */; };
 		069E33AA1B0969E100D5253A /* ball4.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A51B0969E100D5253A /* ball4.png */; };
@@ -106,6 +112,19 @@
 		061EF2F11B0EDE0B00689180 /* effectOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = effectOpen.png; sourceTree = "<group>"; };
 		061EF2F21B0EDE0B00689180 /* musicClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicClose.png; sourceTree = "<group>"; };
 		061EF2F31B0EDE0B00689180 /* musicOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicOpen.png; sourceTree = "<group>"; };
+		06630C2D1B0F29AF00CAD4F4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		06630C2F1B0F29C000CAD4F4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		06630C311B0F29CC00CAD4F4 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		06630C331B0F29DA00CAD4F4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		06630C381B0F2F8000CAD4F4 /* ChanceAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanceAd.h; sourceTree = "<group>"; };
+		06630C391B0F2F8000CAD4F4 /* ChanceAdRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChanceAdRes.bundle; sourceTree = "<group>"; };
+		06630C3A1B0F2F8000CAD4F4 /* CSADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSADRequest.h; sourceTree = "<group>"; };
+		06630C3B1B0F2F8000CAD4F4 /* CSBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBannerView.h; sourceTree = "<group>"; };
+		06630C3C1B0F2F8000CAD4F4 /* CSInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSInterstitial.h; sourceTree = "<group>"; };
+		06630C3D1B0F2F8000CAD4F4 /* CSMoreGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSMoreGame.h; sourceTree = "<group>"; };
+		06630C3E1B0F2F8000CAD4F4 /* CSNativeMoreGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSNativeMoreGame.h; sourceTree = "<group>"; };
+		06630C3F1B0F2F8000CAD4F4 /* CSRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRequestError.h; sourceTree = "<group>"; };
+		06630C401B0F2F8000CAD4F4 /* libChanceAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChanceAd.a; sourceTree = "<group>"; };
 		066BA00B1B01B5B900BF1D61 /* MainItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainItem.cpp; sourceTree = "<group>"; };
 		066BA00C1B01B5B900BF1D61 /* MainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainItem.h; sourceTree = "<group>"; };
 		069AEE311B0C6A5C0067EBDD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
@@ -200,7 +219,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06630C341B0F29DA00CAD4F4 /* CoreTelephony.framework in Frameworks */,
+				06630C321B0F29CC00CAD4F4 /* AdSupport.framework in Frameworks */,
+				06630C301B0F29C000CAD4F4 /* StoreKit.framework in Frameworks */,
+				06630C2E1B0F29AF00CAD4F4 /* SystemConfiguration.framework in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
+				06630C421B0F2F8000CAD4F4 /* libChanceAd.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -236,6 +260,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06630C371B0F2F8000CAD4F4 /* libChanceAd */ = {
+			isa = PBXGroup;
+			children = (
+				06630C381B0F2F8000CAD4F4 /* ChanceAd.h */,
+				06630C391B0F2F8000CAD4F4 /* ChanceAdRes.bundle */,
+				06630C3A1B0F2F8000CAD4F4 /* CSADRequest.h */,
+				06630C3B1B0F2F8000CAD4F4 /* CSBannerView.h */,
+				06630C3C1B0F2F8000CAD4F4 /* CSInterstitial.h */,
+				06630C3D1B0F2F8000CAD4F4 /* CSMoreGame.h */,
+				06630C3E1B0F2F8000CAD4F4 /* CSNativeMoreGame.h */,
+				06630C3F1B0F2F8000CAD4F4 /* CSRequestError.h */,
+				06630C401B0F2F8000CAD4F4 /* libChanceAd.a */,
+			);
+			name = libChanceAd;
+			path = ../proj.ios_mac/libChanceAd;
+			sourceTree = "<group>";
+		};
 		06C72BC01B0C30C7000D6BBB /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +380,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06630C331B0F29DA00CAD4F4 /* CoreTelephony.framework */,
+				06630C311B0F29CC00CAD4F4 /* AdSupport.framework */,
+				06630C2F1B0F29C000CAD4F4 /* StoreKit.framework */,
+				06630C2D1B0F29AF00CAD4F4 /* SystemConfiguration.framework */,
 				8262943D1AAF051F00CB7CF7 /* Security.framework */,
 				52B47A461A53D09B004E4C60 /* Security.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
@@ -377,6 +422,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				06630C371B0F2F8000CAD4F4 /* libChanceAd */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* PlayScene.cpp */,
@@ -556,6 +602,7 @@
 				06ABADDB1B0EFD1800C07169 /* backMain.png in Resources */,
 				069E33AE1B0969E100D5253A /* ball5.png in Resources */,
 				061A934D1B0E124E0046637B /* PlayGround.jpg in Resources */,
+				06630C411B0F2F8000CAD4F4 /* ChanceAdRes.bundle in Resources */,
 				061EF2EF1B0ED91100689180 /* pausebackground.png in Resources */,
 				06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */,
 				069E33AA1B0969E100D5253A /* ball4.png in Resources */,
@@ -655,7 +702,10 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios";
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
+					"$(PROJECT_DIR)/libChanceAd",
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -691,7 +741,10 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = " /Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios";
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
+					"$(PROJECT_DIR)/libChanceAd",
+				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",

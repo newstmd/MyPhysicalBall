@@ -1,6 +1,8 @@
 #include "AppDelegate.h"
 #include "MainItem.h"
 #include "ResultScene.h"
+//#include "ChanceAd.h"
+//#include ""
 
 USING_NS_CC;
 
