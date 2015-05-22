@@ -39,7 +39,7 @@ bool PauseScene::init()
     
     auto pauseButton = cocos2d::ui::Button::create("play.png");
     pauseButton->setAnchorPoint(Vec2(0.5,0.5));
-    pauseButton->setPosition(Vec2(winSize.width/2 - 200,200));
+    pauseButton->setPosition(Vec2(winSize.width/2 - 225,200));
     addChild(pauseButton);
     pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -50,7 +50,7 @@ bool PauseScene::init()
     
     auto backButton = cocos2d::ui::Button::create("backMain.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(winSize.width/2 - 60,200));
+    backButton->setPosition(Vec2(winSize.width/2 - 75,200));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -62,7 +62,57 @@ bool PauseScene::init()
         }
         
     });
+    auto effectFile = "effectOpen.png";
+    if (CocosDenshion::SimpleAudioEngine::getInstance()->getEffectsVolume() == 0.0f) {
+        effectFile = "effectClose.png";
+    }
+    
+    effectButton = cocos2d::ui::Button::create(effectFile);
+    effectButton->setAnchorPoint(Vec2(0.5,0.5));
+    effectButton->setPosition(Vec2(winSize.width/2 + 75,200));
+    addChild(effectButton);
+    effectButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+                 //CocosDenshion::SimpleAudioEngine::getInstance()->
+            if (CocosDenshion::SimpleAudioEngine::getInstance()->getEffectsVolume() == 1.0f) {
+                CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0.0f);
+                effectButton->loadTextures("effectClose.png", "effectClose.png");
+            }else{
+                CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+                effectButton->loadTextures("effectOpen.png", "effectOpen.png");
+            }
+            
+        }
+        
+    });
+    auto musicFile = "musicOpen.png";
+    if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
+        musicFile = "musicClose.png";
+    }
 
+    musicButton = cocos2d::ui::Button::create(musicFile);
+    musicButton->setAnchorPoint(Vec2(0.5,0.5));
+    musicButton->setPosition(Vec2(winSize.width/2 + 225,200));
+    addChild(musicButton);
+    //musicButton->loadTextures("musicClose.png", "musicClose.png");
+    musicButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying()) {
+                //auto temp = CocosDenshion::SimpleAudioEngine::getInstance();
+                //log("%f",temp->getEffectsVolume());
+                CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+                //musicButton->loadTextureNormal("musicClose.png");
+                musicButton->loadTextures("musicClose.png", "musicClose.png");
+            }
+            else{
+                CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+                musicButton->loadTextures("musicOpen.png", "musicOpen.png");
+            }
+
+            
+        }
+    });
 
     return true;
 }
+

@@ -7,7 +7,7 @@
 //
 
 #include "ResultScene.h"
-#define font_type "RTWSYueGoTrial-Regular"
+#define font_type "YuppySC-Regular"
 
 Scene* ResultScene::createScene()
 {
@@ -32,12 +32,38 @@ bool ResultScene::init()
     
     auto backButton = cocos2d::ui::Button::create("backMain.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(winSize.width/2 - 110,300));
+    backButton->setPosition(Vec2(winSize.width/2 - 225,300));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
             
             Director::getInstance()->popToRootScene();
+            
+        }
+        
+    });
+    
+    auto newGameButton = cocos2d::ui::Button::create("newGame.png");
+    newGameButton->setAnchorPoint(Vec2(0.5,0.5));
+    newGameButton->setPosition(Vec2(winSize.width/2 - 75,300));
+    addChild(newGameButton);
+    newGameButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            
+            //Director::getInstance()->popToRootScene();
+            
+        }
+        
+    });
+    
+    auto shareButton = cocos2d::ui::Button::create("share.png");
+    shareButton->setAnchorPoint(Vec2(0.5,0.5));
+    shareButton->setPosition(Vec2(winSize.width/2 + 75,300));
+    addChild(shareButton);
+    shareButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            
+            //Director::getInstance()->popToRootScene();
             
         }
         
@@ -54,7 +80,7 @@ bool ResultScene::init()
     auto logo  = Sprite::create("logo.png");
     logo->setAnchorPoint(Vec2(0.5,0.5));
     logo->setScale(0.7);
-    logo->setPosition(Director::getInstance()->getWinSize().width * 0.33,900);
+    logo->setPosition(winSize.width /2 - 80,900);
     addChild(logo);
 
     auto scoreLabel = Label::create();
@@ -72,9 +98,9 @@ bool ResultScene::init()
     rateLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
     rateLabel->setTextColor(Color4B::WHITE);
     rateLabel->setSystemFontSize(40);
-    rateLabel->setString(StringUtils::format("通关 - 第%d关",totalrate));
+    rateLabel->setString(StringUtils::format("游戏结束 - 第%d关",totalrate));
     rateLabel->setSystemFontName(font_type);
-    rateLabel->setPosition(winSize.width * 0.33,700);
+    rateLabel->setPosition(winSize.width /2 -80,700);
     addChild(rateLabel,999);
     
     //清除关卡数据

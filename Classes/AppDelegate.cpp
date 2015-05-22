@@ -1,6 +1,6 @@
 #include "AppDelegate.h"
 #include "MainItem.h"
-//#include "ResultScene.h"
+#include "ResultScene.h"
 
 USING_NS_CC;
 

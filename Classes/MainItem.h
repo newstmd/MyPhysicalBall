@@ -23,7 +23,8 @@ private:
     //void newGameCallBack(cocos2d::Ref* pSender);
     
 public:
-    
+    bool backGroundMusicIsOpen = true;
+    bool effectIsOpen = true;
     static cocos2d::Scene* createScene();
     virtual bool init();
     CREATE_FUNC(MainItemScene);
