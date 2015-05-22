@@ -48,6 +48,7 @@ private:
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
+    //virtual void update(float delta);
     //virtual void onEnter();
     CREATE_FUNC(PlayScene);
 };

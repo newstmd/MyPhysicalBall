@@ -37,16 +37,20 @@ bool PauseScene::init()
     addChild(bg);
     
     
-    auto pauseButton = cocos2d::ui::Button::create("play.png");
-    pauseButton->setAnchorPoint(Vec2(0.5,0.5));
-    pauseButton->setPosition(Vec2(winSize.width/2 - 225,200));
-    addChild(pauseButton);
-    pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+    auto playButton = cocos2d::ui::Button::create("play.png");
+    playButton->setAnchorPoint(Vec2(0.5,0.5));
+    playButton->setPosition(Vec2(winSize.width/2 - 225,200));
+    addChild(playButton);
+    playButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
             Director::getInstance()->popScene();
         }
         
     });
+    auto fangda = ScaleTo::create(0.5, 1.2);
+    auto suoxiao = ScaleTo::create(1,1.0);
+    auto ac = Sequence::create(fangda,suoxiao,NULL);
+    playButton->runAction(RepeatForever::create(ac));
     
     auto backButton = cocos2d::ui::Button::create("backMain.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));

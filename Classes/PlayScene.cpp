@@ -21,6 +21,7 @@ Scene* PlayScene::createScene()
     auto scene = Scene::createWithPhysics();
     //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     scene->getPhysicsWorld()->setGravity(Vec2(0,-800));
+    scene->getPhysicsWorld()->setAutoStep(true);
     // 'layer' is an autorelease object
     auto layer = PlayScene::create();
     
@@ -41,9 +42,11 @@ bool PlayScene::init()
         return false;
     }
     //auto rootNode = CSLoader::createNode("MainScene.csb");
-    
-    
-    
+//    Director::getInstance()->getRunningScene()->getPhysicsWorld()->setAutoStep(false);
+//    scheduleUpdate();
+    //Director::getInstance()->getRunningScene()->getPhysicsWorld()->setUpdateRate(3);
+    //this->getScene()->getPhysicsWorld()->setUpdateRate(2);
+    //getScene()->getPhysicsWorld()->setAutoStep(false);
     initShuJu();
     addEdges();
     
@@ -132,10 +135,23 @@ bool PlayScene::init()
 
     schedule(schedule_selector(PlayScene::jiankongBall), 1.0f/10, kRepeatForever, 0);
     
+    //scheduleUpdate();
     
     beginNewGame();
     return true;
 }
+
+//void PlayScene::update(float delta){
+//    for (int i = 0; i < 3; ++i)
+//        
+//    {
+//        
+//        //Director::getInstance()->getRunningScene()->getPhysicsWorld()->step(1/180.0f);
+//        //log("ok");
+//        getScene()->getPhysicsWorld()->step(1/180.0f);
+//        
+//    }
+//}
 
 void PlayScene::jiankongBall(float dt)
 {
@@ -167,7 +183,7 @@ void PlayScene::initShuJu()
     imageNames.push_back("ball5.png");
     
     
-    winSize = Director::getInstance()->getVisibleSize();
+    winSize = Director::getInstance()->getWinSize();
     MiddleX = winSize.width / 2;
     MiddleY = winSize.height / 2;
     guanka[1] = 1000;
@@ -181,6 +197,7 @@ void PlayScene::initShuJu()
 
 
 void PlayScene::beginNewGame(){
+    
     if (UserDefault::getInstance()->getIntegerForKey(Key_TotalRate) == 0) {
         UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 1);
     }
@@ -210,11 +227,12 @@ void PlayScene::beginNewGame(){
     messageLabel->setPosition(winSize.width+200, MiddleY);
     messageLabel->setString(c_message);
     auto jin = MoveTo::create(0.3, winSize/2);
-    auto ting = DelayTime::create(1.5);
+    auto ting = DelayTime::create(1);
     auto chu = MoveTo::create(0.3, Vec2(-200,winSize.height/2));
     auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::AddBalls, this));
     auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
     messageLabel->setVisible(true);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("readygo.wav");
     messageLabel->runAction(hecheng);
     
     //AddBalls();
@@ -284,6 +302,7 @@ void PlayScene::refreshRate()
         auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::beginNewGame, this));
         auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
         messageLabel->setVisible(true);
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("zhuan.wav");
         messageLabel->runAction(hecheng);
         //beginNewGame();
     }
@@ -356,14 +375,16 @@ void PlayScene::deleteBall(cocos2d::Sprite *ball){
 }
 
 void PlayScene::addEdges(){
-    auto edges = PhysicsBody::createEdgeBox(winSize);
-    auto node = Node::create();
-    node->setPhysicsBody(edges);
-    node->setPosition(winSize/2);
+//    auto edges = PhysicsBody::createEdgeBox(winSize);
+//    auto node = Node::create();
+//    node->setPhysicsBody(edges);
+//    node->setAnchorPoint(Vec2(0,0));
+//    node->setPosition(0, 0);
     
     auto edges2 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX-310, 410),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
+    //node2->setPosition(winSize/2);
     
     auto edges3 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX+310, 410),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node3 = Node::create();
@@ -377,9 +398,15 @@ void PlayScene::addEdges(){
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     
-    
-    
-    addChild(node);
+//    auto edgestest = PhysicsBody::createEdgeSegment(Vec2(100,100), Vec2(640, 1000));
+//    auto nodetest = Node::create();
+//    nodetest->setPhysicsBody(edgestest);
+//    log("%f,%f",edgestest->getPosition().x,edgestest->getPosition().y);
+//    log("%f,%f",nodetest->getPosition().x,nodetest->getPosition().y);
+//    
+//    addChild(nodetest);
+//    
+    //addChild(node);
     addChild(node2);
     addChild(node3);
     addChild(node4);

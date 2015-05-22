@@ -26,6 +26,8 @@
 		06ABADDB1B0EFD1800C07169 /* backMain.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDA1B0EFD1800C07169 /* backMain.png */; };
 		06ABADDE1B0EFD3F00C07169 /* newGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDC1B0EFD3F00C07169 /* newGame.png */; };
 		06ABADDF1B0EFD3F00C07169 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDD1B0EFD3F00C07169 /* share.png */; };
+		06ABADE11B0F1ED000C07169 /* readygo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE01B0F1ED000C07169 /* readygo.wav */; };
+		06ABADE31B0F22BA00C07169 /* zhuan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE21B0F22BA00C07169 /* zhuan.wav */; };
 		06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FDD1B0B781500F5BB21 /* guanghuan.png */; };
 		06C6BCBB1B0CD01500D8B6D7 /* wao.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCBA1B0CD01500D8B6D7 /* wao.wav */; };
 		06C6BCBE1B0CD85100D8B6D7 /* PauseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C6BCBC1B0CD85100D8B6D7 /* PauseScene.cpp */; };
@@ -116,6 +118,8 @@
 		06ABADDA1B0EFD1800C07169 /* backMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backMain.png; sourceTree = "<group>"; };
 		06ABADDC1B0EFD3F00C07169 /* newGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newGame.png; sourceTree = "<group>"; };
 		06ABADDD1B0EFD3F00C07169 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		06ABADE01B0F1ED000C07169 /* readygo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = readygo.wav; sourceTree = "<group>"; };
+		06ABADE21B0F22BA00C07169 /* zhuan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zhuan.wav; sourceTree = "<group>"; };
 		06B29FDD1B0B781500F5BB21 /* guanghuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanghuan.png; sourceTree = "<group>"; };
 		06C6BCBA1B0CD01500D8B6D7 /* wao.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wao.wav; sourceTree = "<group>"; };
 		06C6BCBC1B0CD85100D8B6D7 /* PauseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseScene.cpp; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 		06CC17671B0D608C009E7F82 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				06ABADE21B0F22BA00C07169 /* zhuan.wav */,
 				06ABADDC1B0EFD3F00C07169 /* newGame.png */,
 				06ABADDD1B0EFD3F00C07169 /* share.png */,
 				06ABADDA1B0EFD1800C07169 /* backMain.png */,
@@ -284,6 +289,7 @@
 		06DCE7341B0AE3BF00B17CA1 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				06ABADE01B0F1ED000C07169 /* readygo.wav */,
 				06C6BCBA1B0CD01500D8B6D7 /* wao.wav */,
 				06DCE7371B0AE9A500B17CA1 /* mofa.wav */,
 				06DCE7351B0AE3CC00B17CA1 /* nekomimi.mp3 */,
@@ -571,6 +577,8 @@
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				06C6BCC01B0CE28300D8B6D7 /* play.png in Resources */,
+				06ABADE31B0F22BA00C07169 /* zhuan.wav in Resources */,
+				06ABADE11B0F1ED000C07169 /* readygo.wav in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				061EF2F41B0EDE0B00689180 /* effectClose.png in Resources */,
 				061EF2EB1B0ECA2500689180 /* YuppySC-Regular.otf in Resources */,

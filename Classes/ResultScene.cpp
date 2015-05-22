@@ -7,6 +7,7 @@
 //
 
 #include "ResultScene.h"
+#include "PlayScene.h"
 #define font_type "YuppySC-Regular"
 
 Scene* ResultScene::createScene()
@@ -49,7 +50,7 @@ bool ResultScene::init()
     addChild(newGameButton);
     newGameButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
-            
+            Director::getInstance()->replaceScene(PlayScene::createScene());
             //Director::getInstance()->popToRootScene();
             
         }

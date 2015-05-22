@@ -84,6 +84,8 @@ bool MainItemScene::init()
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("nekomimi.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("mofa.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("zhuan.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("readygo.wav");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("wao.wav");
     //CocosDenshion::SimpleAudioEngine::getInstance()->rewindBackgroundMusic();
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("nekomimi.mp3",true);
