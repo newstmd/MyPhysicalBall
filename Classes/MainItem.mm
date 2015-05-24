@@ -75,10 +75,11 @@ bool MainItemScene::init()
             }else{
                 //log("第%d关！",guanka);
             }
-            auto fade = TransitionMoveInR::create(0.3, PlayScene::createScene());
+            //auto fade = TransitionMoveInR::create(0.3, PlayScene::createScene());
             //auto scene = PlayScene::createScene();
             //auto fade = TransitionMoveInR::initWithDuration(0.2, scene);
-            Director::getInstance()->pushScene(fade);
+            Director::getInstance()->pushScene(PlayScene::createScene());
+            //Director::getInstance()->pushScene(fade);
         }
 
     });

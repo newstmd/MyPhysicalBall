@@ -60,8 +60,8 @@ bool PlayScene::init()
     addChild(pauseButton);
     pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
-            auto fade = TransitionMoveInT::create(0.3, PauseScene::createScene());
-            Director::getInstance()->pushScene(fade);
+            //auto fade = TransitionMoveInT::create(0.3, PauseScene::createScene());
+            Director::getInstance()->pushScene(PauseScene::createScene());
         }
         
     });
@@ -119,7 +119,7 @@ bool PlayScene::init()
     //rateLabel->autorelease();
 
     //schedule(schedule_selector(PlayScene::jiankongBall), 1.0f/10, kRepeatForever, 0);
-    addEdges2();
+    addEdges();
 
     scheduleUpdate();
     
@@ -271,8 +271,8 @@ void PlayScene::refreshRate()
         
         UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, zongfen+defen);
         UserDefault::getInstance()->flush();
-        auto huadong = TransitionMoveInR::create(0.5, ResultScene::createScene());
-        Director::getInstance()->pushScene(huadong);
+        //auto huadong = TransitionMoveInR::create(0.5, ResultScene::createScene());
+        Director::getInstance()->pushScene(ResultScene::createScene());
     }else{
         //成功，进入下一关
         UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, guankashu +1);
@@ -300,7 +300,7 @@ void PlayScene::AddBalls(){
     int positionX = MiddleX -250;
     int positionY = winSize.height - 40;
     
-    for (int y = 0; y<11; y++) {
+    for (int y = 0; y<10; y++) {
         for (int x = 0; x<8; x++) {
             PlayScene::addBall(positionX+70*x, positionY-70*y);
         }
@@ -359,32 +359,32 @@ void PlayScene::deleteBall(cocos2d::Sprite *ball){
     removeChild(ball);
     ballList.eraseObject(ball);
 }
-void PlayScene::addEdges2(){
-    
-    auto node1 = Node::create();
-    node1->setPosition(-MiddleX,100);
-    auto edges1 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(500,510));
-    node1->setPhysicsBody(edges1);
-    addChild(node1);
-    
-    auto node2 = Node::create();
-    node2->setPosition(-MiddleX,100);
-    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(-500,520));
-    node2->setPhysicsBody(edges2);
-    addChild(node2);
-    
-    auto nodeLeft = Node::create();
-    nodeLeft->setPosition(Vec2(-MiddleX -300,0));
-    auto edgesLeft = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
-    nodeLeft->setPhysicsBody(edgesLeft);
-    addChild(nodeLeft);
-    
-    auto nodeRight = Node::create();
-    nodeRight->setPosition(Vec2(-MiddleX + 300,0));
-    auto edgesRight = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
-    nodeRight->setPhysicsBody(edgesRight);
-    addChild(nodeRight);
-}
+//void PlayScene::addEdges2(){
+//    
+//    auto node1 = Node::create();
+//    node1->setPosition(-MiddleX,100);
+//    auto edges1 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(500,510));
+//    node1->setPhysicsBody(edges1);
+//    addChild(node1);
+//    
+//    auto node2 = Node::create();
+//    node2->setPosition(-MiddleX,100);
+//    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(-500,520));
+//    node2->setPhysicsBody(edges2);
+//    addChild(node2);
+//    
+//    auto nodeLeft = Node::create();
+//    nodeLeft->setPosition(Vec2(-MiddleX -300,0));
+//    auto edgesLeft = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
+//    nodeLeft->setPhysicsBody(edgesLeft);
+//    addChild(nodeLeft);
+//    
+//    auto nodeRight = Node::create();
+//    nodeRight->setPosition(Vec2(-MiddleX + 300,0));
+//    auto edgesRight = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
+//    nodeRight->setPhysicsBody(edgesRight);
+//    addChild(nodeRight);
+//}
 void PlayScene::addEdges(){
 //    auto edges = PhysicsBody::createEdgeBox(winSize);
 //    auto node = Node::create();
@@ -392,32 +392,24 @@ void PlayScene::addEdges(){
 //    node->setAnchorPoint(Vec2(0,0));
 //    node->setPosition(0, 0);
     
-    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX-310, 410),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX-310, 420),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
     //node2->setPosition(winSize/2);
     
-    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX+310, 410),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edges3 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX+310, 416),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node3 = Node::create();
     node3->setPhysicsBody(edges3);
     
-    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(MiddleX-300,0), Vec2(MiddleX-300,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edgeLeft  = PhysicsBody::createEdgeSegment(Vec2(MiddleX-299,0), Vec2(MiddleX-299,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node4 = Node::create();
     node4->setPhysicsBody(edgeLeft);
     
-    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(MiddleX+300,0), Vec2(MiddleX+300,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
+    auto edgeRight  = PhysicsBody::createEdgeSegment(Vec2(MiddleX+302,0), Vec2(MiddleX+302,winSize.height),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node5 = Node::create();
     node5->setPhysicsBody(edgeRight);
     
-//    auto edgestest = PhysicsBody::createEdgeSegment(Vec2(100,100), Vec2(640, 1000));
-//    auto nodetest = Node::create();
-//    nodetest->setPhysicsBody(edgestest);
-//    log("%f,%f",edgestest->getPosition().x,edgestest->getPosition().y);
-//    log("%f,%f",nodetest->getPosition().x,nodetest->getPosition().y);
-//    
-//    addChild(nodetest);
-//    
-    //addChild(node);
+
     addChild(node2);
     addChild(node3);
     addChild(node4);
