@@ -10,6 +10,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "PlayScene.h"
+#include "PGStoreKitManager.h"
 USING_NS_CC_MATH;
 USING_NS_CC;
 
@@ -34,6 +35,10 @@ bool MainItemScene::init()
     //button_1.addTouchEventListener(cocos2d::ui::SEL_TouchEvent(newGameCallBack) );
     //addChild(rootNode);
     //添加背景
+    
+//    id auth = [PGStoreKitManager init];
+//    [auth authenticateLocalPlayer];
+    
     auto backGround = Sprite::create("BackGround.jpg");
     backGround->setAnchorPoint(Vec2(0.5,0.5));
     backGround->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);

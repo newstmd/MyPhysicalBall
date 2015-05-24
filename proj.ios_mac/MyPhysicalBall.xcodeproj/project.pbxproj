@@ -28,13 +28,15 @@
 		069E33AC1B0969E100D5253A /* ball1.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A71B0969E100D5253A /* ball1.png */; };
 		069E33AD1B0969E100D5253A /* ball2.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A81B0969E100D5253A /* ball2.png */; };
 		069E33AE1B0969E100D5253A /* ball5.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A91B0969E100D5253A /* ball5.png */; };
-		069E33B01B097B8700D5253A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069E33AF1B097B8700D5253A /* Images.xcassets */; };
 		06ABADDB1B0EFD1800C07169 /* backMain.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDA1B0EFD1800C07169 /* backMain.png */; };
 		06ABADDE1B0EFD3F00C07169 /* newGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDC1B0EFD3F00C07169 /* newGame.png */; };
 		06ABADDF1B0EFD3F00C07169 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDD1B0EFD3F00C07169 /* share.png */; };
 		06ABADE11B0F1ED000C07169 /* readygo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE01B0F1ED000C07169 /* readygo.wav */; };
 		06ABADE31B0F22BA00C07169 /* zhuan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE21B0F22BA00C07169 /* zhuan.wav */; };
 		06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FDD1B0B781500F5BB21 /* guanghuan.png */; };
+		06C19B801B1223ED00A6F7E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06C19B7F1B1223ED00A6F7E8 /* Images.xcassets */; };
+		06C19B821B12319F00A6F7E8 /* PGStoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C19B811B12319F00A6F7E8 /* PGStoreKitManager.m */; };
+		06C19B851B12344000A6F7E8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C19B841B12344000A6F7E8 /* GameKit.framework */; };
 		06C6BCBB1B0CD01500D8B6D7 /* wao.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCBA1B0CD01500D8B6D7 /* wao.wav */; };
 		06C6BCBE1B0CD85100D8B6D7 /* PauseScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 06C6BCBC1B0CD85100D8B6D7 /* PauseScene.mm */; };
 		06C6BCC01B0CE28300D8B6D7 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCBF1B0CE28300D8B6D7 /* play.png */; };
@@ -134,13 +136,16 @@
 		069E33A71B0969E100D5253A /* ball1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball1.png; sourceTree = "<group>"; };
 		069E33A81B0969E100D5253A /* ball2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball2.png; sourceTree = "<group>"; };
 		069E33A91B0969E100D5253A /* ball5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball5.png; sourceTree = "<group>"; };
-		069E33AF1B097B8700D5253A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MyPhysicalBall iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		06ABADDA1B0EFD1800C07169 /* backMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backMain.png; sourceTree = "<group>"; };
 		06ABADDC1B0EFD3F00C07169 /* newGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newGame.png; sourceTree = "<group>"; };
 		06ABADDD1B0EFD3F00C07169 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		06ABADE01B0F1ED000C07169 /* readygo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = readygo.wav; sourceTree = "<group>"; };
 		06ABADE21B0F22BA00C07169 /* zhuan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zhuan.wav; sourceTree = "<group>"; };
 		06B29FDD1B0B781500F5BB21 /* guanghuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanghuan.png; sourceTree = "<group>"; };
+		06C19B7F1B1223ED00A6F7E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MyPhysicalBall iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		06C19B811B12319F00A6F7E8 /* PGStoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGStoreKitManager.m; path = ios/PGStoreKitManager.m; sourceTree = SOURCE_ROOT; };
+		06C19B831B1231C600A6F7E8 /* PGStoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGStoreKitManager.h; path = ios/PGStoreKitManager.h; sourceTree = SOURCE_ROOT; };
+		06C19B841B12344000A6F7E8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		06C6BCBA1B0CD01500D8B6D7 /* wao.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wao.wav; sourceTree = "<group>"; };
 		06C6BCBC1B0CD85100D8B6D7 /* PauseScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PauseScene.mm; sourceTree = "<group>"; };
 		06C6BCBD1B0CD85100D8B6D7 /* PauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseScene.h; sourceTree = "<group>"; };
@@ -221,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C19B851B12344000A6F7E8 /* GameKit.framework in Frameworks */,
 				06630C341B0F29DA00CAD4F4 /* CoreTelephony.framework in Frameworks */,
 				06630C321B0F29CC00CAD4F4 /* AdSupport.framework in Frameworks */,
 				06630C301B0F29C000CAD4F4 /* StoreKit.framework in Frameworks */,
@@ -351,6 +357,8 @@
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
+				06C19B811B12319F00A6F7E8 /* PGStoreKitManager.m */,
+				06C19B831B1231C600A6F7E8 /* PGStoreKitManager.h */,
 			);
 			name = ios;
 			path = Classes;
@@ -383,6 +391,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06C19B841B12344000A6F7E8 /* GameKit.framework */,
 				06630C331B0F29DA00CAD4F4 /* CoreTelephony.framework */,
 				06630C311B0F29CC00CAD4F4 /* AdSupport.framework */,
 				06630C2F1B0F29C000CAD4F4 /* StoreKit.framework */,
@@ -411,11 +420,11 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				06C19B7F1B1223ED00A6F7E8 /* Images.xcassets */,
 				06CC17671B0D608C009E7F82 /* images */,
 				06C72BC01B0C30C7000D6BBB /* fonts */,
 				06DCE7341B0AE3BF00B17CA1 /* music */,
 				06DCE7291B0ACFD500B17CA1 /* lizi */,
-				069E33AF1B097B8700D5253A /* Images.xcassets */,
 				FA144D09A52357282113E0F8 /* res */,
 			);
 			name = Resources;
@@ -589,7 +598,6 @@
 				069AEE321B0C6A5C0067EBDD /* pause.png in Resources */,
 				06DCE7301B0AD00900B17CA1 /* lizilan.png in Resources */,
 				069E33AC1B0969E100D5253A /* ball1.png in Resources */,
-				069E33B01B097B8700D5253A /* Images.xcassets in Resources */,
 				06DCA8271B09CD1700AA2175 /* back.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				061EF2F61B0EDE0B00689180 /* musicClose.png in Resources */,
@@ -611,6 +619,7 @@
 				069E33AA1B0969E100D5253A /* ball4.png in Resources */,
 				06DCE7381B0AE9A500B17CA1 /* mofa.wav in Resources */,
 				06C6BCBB1B0CD01500D8B6D7 /* wao.wav in Resources */,
+				06C19B801B1223ED00A6F7E8 /* Images.xcassets in Resources */,
 				069E33AD1B0969E100D5253A /* ball2.png in Resources */,
 				06DCE7261B0AC0F000B17CA1 /* lizi.plist in Resources */,
 				06D287B71B008C9A00CDF00C /* ball.png in Resources */,
@@ -665,6 +674,7 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				06CC176C1B0D6501009E7F82 /* ResultScene.mm in Sources */,
 				066BA00D1B01B5B900BF1D61 /* MainItem.mm in Sources */,
+				06C19B821B12319F00A6F7E8 /* PGStoreKitManager.m in Sources */,
 				06C6BCBE1B0CD85100D8B6D7 /* PauseScene.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -726,6 +737,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
