@@ -32,8 +32,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        //glview = GLViewImpl::createWithRect
-        glview = GLViewImpl::createWithRect("MyPhysicalBall", cocos2d::Rect(0, 0, 640, 1136));
+                glview = GLViewImpl::createWithRect("MyPhysicalBall", cocos2d::Rect(0, 0, 640, 1136));
         director->setOpenGLView(glview);
     }
 
@@ -43,7 +42,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0 / 180);
+    director->setAnimationInterval(1.0 / 120);
 
     FileUtils::getInstance()->addSearchPath("res");
 
@@ -56,6 +55,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //    CSBannerView *bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
 //    [bannerView loadRequest:[CSADRequest request]];
 //    scene->addChild(bannerView);
+    //glview->get
 
     return true;
 }

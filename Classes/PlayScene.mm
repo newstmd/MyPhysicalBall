@@ -20,8 +20,8 @@ Scene* PlayScene::createScene()
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
     //scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    scene->getPhysicsWorld()->setGravity(Vec2(0,-800));
-    scene->getPhysicsWorld()->setAutoStep(true);
+    scene->getPhysicsWorld()->setGravity(Vec2(0,-1000));
+    scene->getPhysicsWorld()->setAutoStep(false);
     // 'layer' is an autorelease object
     auto layer = PlayScene::create();
     
@@ -42,37 +42,16 @@ bool PlayScene::init()
         return false;
     }
     
-//    CGRect frameBanner = CGRectMake(1, 0, 320, 50);
-//    CSBannerView * bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
-//    [bannerView loadRequest:[CSADRequest request]];
-    
-    //auto rootNode = CSLoader::createNode("MainScene.csb");
-//    Director::getInstance()->getRunningScene()->getPhysicsWorld()->setAutoStep(false);
-//    scheduleUpdate();
-    //Director::getInstance()->getRunningScene()->getPhysicsWorld()->setUpdateRate(3);
-    //this->getScene()->getPhysicsWorld()->setUpdateRate(2);
-    //getScene()->getPhysicsWorld()->setAutoStep(false);
+
     initShuJu();
-    addEdges();
     
     auto backGround1 = Sprite::create("PlayGround.jpg");
     backGround1->setAnchorPoint(Vec2(0.5,0.5));
     backGround1->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);
     addChild(backGround1, -1);
     
-//    auto backGround = CSLoader::createNode("MainScene.csb");
-//    addChild(backGround);
-//    auto newGameButton = cocos2d::ui::Button::create("star.png");//backGround->getChildByName<cocos2d::ui::Button*>("Button_1");
-//    newGameButton->setScale(0.3);
-//    newGameButton->setPosition(Vec2(winSize.width - 100,winSize.height -100));
-//    addChild(newGameButton);
-//    newGameButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
-//        if (type == ui::Widget::TouchEventType::ENDED) {
-//            PlayScene::beginNewGame();
-//        }
-//    });
-    //newGameButton->setZOrder(2);
-    //临时返回的button
+
+    //暂停的button
     auto pauseButton = cocos2d::ui::Button::create("pause.png");
     //pauseButton->setScale(0.8);
     pauseButton->setAnchorPoint(Vec2(0.5,0.5));
@@ -138,27 +117,28 @@ bool PlayScene::init()
     addChild(rateLabel,999);
     //rateLabel->autorelease();
 
-    schedule(schedule_selector(PlayScene::jiankongBall), 1.0f/10, kRepeatForever, 0);
-    
-    //scheduleUpdate();
+    //schedule(schedule_selector(PlayScene::jiankongBall), 1.0f/10, kRepeatForever, 0);
+    addEdges2();
+
+    scheduleUpdate();
     
     beginNewGame();
-    
+
     
     return true;
 }
 
-//void PlayScene::update(float delta){
-//    for (int i = 0; i < 3; ++i)
-//        
-//    {
-//        
-//        //Director::getInstance()->getRunningScene()->getPhysicsWorld()->step(1/180.0f);
-//        //log("ok");
-//        getScene()->getPhysicsWorld()->step(1/180.0f);
-//        
-//    }
-//}
+void PlayScene::update(float delta){
+    for (int i = 0; i < 3; ++i)
+        
+    {
+        
+        //Director::getInstance()->getRunningScene()->getPhysicsWorld()->step(1/180.0f);
+        //log("ok");
+        getScene()->getPhysicsWorld()->step(1/180.0f);
+        
+    }
+}
 
 void PlayScene::jiankongBall(float dt)
 {
@@ -190,14 +170,14 @@ void PlayScene::initShuJu()
     imageNames.push_back("ball5.png");
     
     
-    winSize = Director::getInstance()->getWinSize();
+    winSize = Director::getInstance()->getVisibleSize();
     MiddleX = winSize.width / 2;
     MiddleY = winSize.height / 2;
     guanka[1] = 1000;
     guanka[2] = 2500;
     guanka[3] = 4500;
     for (int i = 4; i<100; i++) {
-        guanka[i] = guanka[i-1] + 2000 + 20*(i-3);
+        guanka[i] = guanka[i-1] + 2000 + 50*(i-3);
     }
     return;
 }
@@ -210,9 +190,7 @@ void PlayScene::beginNewGame(){
     }
     defen = 0;
     scoreLabel->setTextColor(Color4B::WHITE);
-//    int guanka = UserDefault::getInstance()->getIntegerForKey("TotalRate");
-//    UserDefault::getInstance()->setIntegerForKey("TotalRate", guanka+1);
-//    UserDefault::getInstance()->flush();
+
     refreshScore();
     if (ballList.size()>0) {
         for (int i = 0; i<ballList.size(); i++) {
@@ -288,10 +266,10 @@ void PlayScene::refreshRate()
     
     if ((zongfen+ defen) < guanka[guankashu]) {
         //游戏失败，清零！
-//        UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
-//        
+        //UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
+        
         UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, zongfen+defen);
-//        UserDefault::getInstance()->flush();
+        UserDefault::getInstance()->flush();
         auto huadong = TransitionMoveInR::create(0.5, ResultScene::createScene());
         Director::getInstance()->pushScene(huadong);
     }else{
@@ -380,7 +358,32 @@ void PlayScene::deleteBall(cocos2d::Sprite *ball){
     removeChild(ball);
     ballList.eraseObject(ball);
 }
-
+void PlayScene::addEdges2(){
+    
+    auto node1 = Node::create();
+    node1->setPosition(-MiddleX,100);
+    auto edges1 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(500,510));
+    node1->setPhysicsBody(edges1);
+    addChild(node1);
+    
+    auto node2 = Node::create();
+    node2->setPosition(-MiddleX,100);
+    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(-500,520));
+    node2->setPhysicsBody(edges2);
+    addChild(node2);
+    
+    auto nodeLeft = Node::create();
+    nodeLeft->setPosition(Vec2(-MiddleX -300,0));
+    auto edgesLeft = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
+    nodeLeft->setPhysicsBody(edgesLeft);
+    addChild(nodeLeft);
+    
+    auto nodeRight = Node::create();
+    nodeRight->setPosition(Vec2(-MiddleX + 300,0));
+    auto edgesRight = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
+    nodeRight->setPhysicsBody(edgesRight);
+    addChild(nodeRight);
+}
 void PlayScene::addEdges(){
 //    auto edges = PhysicsBody::createEdgeBox(winSize);
 //    auto node = Node::create();

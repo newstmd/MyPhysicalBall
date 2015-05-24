@@ -30,6 +30,7 @@ private:
     float MiddleX,MiddleY;
     void beginNewGame();
     void addEdges();
+    void addEdges2();
     void AddBalls();
     void deleteBall(Sprite* ball);
     void addBall(float positionX,float positionY);
@@ -49,7 +50,7 @@ private:
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
-    //virtual void update(float delta);
+    virtual void update(float delta);
     //virtual void onEnter();
     CREATE_FUNC(PlayScene);
 };

@@ -118,9 +118,9 @@ bool ResultScene::init()
     addChild(rateLabel,999);
     
     //清除关卡数据
-//    UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
-//    UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
-//    UserDefault::getInstance()->flush();
+    UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
+    UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
+    UserDefault::getInstance()->flush();
     
 //    [[CSInterstitial sharedInterstitial] loadInterstitial];
 //    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
