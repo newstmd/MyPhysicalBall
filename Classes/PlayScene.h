@@ -5,8 +5,8 @@
 #define Key_TotalScore "TotalScore"
 
 #include "cocos2d.h"
-#include "ChanceAd.h"
-
+//#include "ChanceAd.h"
+#include "MobClickCpp.h"
 #include "ui/CocosGUI.h"
 
 USING_NS_CC;

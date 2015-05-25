@@ -27,7 +27,7 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
-#import "ChanceAd.h"
+//#import "ChanceAd.h"
 //#import "CSBannerView.h"
 
 //@interface AppController () <CSBannerViewDelegate> {
@@ -36,10 +36,6 @@
 //}
 //
 //@end
-@interface AppController ()<CSBannerViewDelegate>
-
-@end
-
 @implementation AppController
 #pragma mark -
 #pragma mark Application lifecycle
@@ -49,7 +45,7 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
-    [ChanceAd startSession:@"822624461-25B660-5B19-F375-3BFF61373"];//100032-4CE817-ABA2-5B48-14D009296720
+    //[ChanceAd startSession:@"822624461-25B660-5B19-F375-3BFF61373"];//100032-4CE817-ABA2-5B48-14D009296720
     //822624461-25B660-5B19-F375-3BFF61373
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
@@ -97,25 +93,21 @@ static AppDelegate s_sharedApplication;
     cocos2d::GLView *glview = cocos2d::GLViewImpl::createWithEAGLView(eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
     app->run();
-    //glview->getVisibleOrigin().x;
-    CGRect frameBanner = CGRectMake(0, 0, 320, 50);
-    CSBannerView * bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
-    [bannerView loadRequest:[CSADRequest request]];
-    bannerView.delegate = self;
-    
-    //NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-    
-    auto xx =  [[UIScreen mainScreen] bounds].size.width/2;
-    auto yy =[[UIScreen mainScreen] bounds].size.height -25;
-    if (xx > 321) {
-        yy =[[UIScreen mainScreen] bounds].size.height -45;
-    }
-    CGPoint cg = CGPointMake(xx, yy);
-    [bannerView setCenter:cg];
-    [window addSubview:bannerView];
-    
-    //bannerView
-    [bannerView release];
+//    CGRect frameBanner = CGRectMake(0, 0, 320, 50);
+//    CSBannerView * bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
+//    [bannerView loadRequest:[CSADRequest request]];
+//    bannerView.delegate = self;
+//    
+//    auto xx =  [[UIScreen mainScreen] bounds].size.width/2;
+//    auto yy =[[UIScreen mainScreen] bounds].size.height -25;
+//    if (xx > 321) {
+//        yy =[[UIScreen mainScreen] bounds].size.height -45;
+//    }
+//    CGPoint cg = CGPointMake(xx, yy);
+//    [bannerView setCenter:cg];
+//    [window addSubview:bannerView];
+//    
+//    [bannerView release];
     
 //CSBannerView
     return YES;
@@ -176,34 +168,4 @@ static AppDelegate s_sharedApplication;
     [window release];
     [super dealloc];
 }
-
-#pragma mark - CSBannerViewDelegate
-
-// 收到Banner广告
-- (void)csBannerViewDidReceiveAd:(CSBannerView *)csBannerView
-{
-    NSLog(@"----------%s", __PRETTY_FUNCTION__);
-}
-
-// Banner广告数据错误
-- (void)csBannerView:(CSBannerView *)csBannerView
-      receiveAdError:(CSRequestError *)requestError
-{
-    NSLog(@"----------%s  %ld", __PRETTY_FUNCTION__, (long)requestError.code);
-    
-    //requestError.localizedDescription
-}
-
-// 将要展示Banner广告
-- (void)csBannerViewWillPresentScreen:(CSBannerView *)csBannerView
-{
-    NSLog(@"----------%s", __PRETTY_FUNCTION__);
-}
-
-// 移除Banner广告
-- (void)csBannerViewDidDismissScreen:(CSBannerView *)csBannerView
-{
-    NSLog(@"----------%s", __PRETTY_FUNCTION__);
-}
-
 @end
