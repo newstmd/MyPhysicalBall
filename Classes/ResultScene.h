@@ -18,6 +18,7 @@
 #include "ui/CocosGUI.h"
 #include "SimpleAudioEngine.h"
 #include "MobClickCpp.h"
+#include "ChanceAd.h"
 USING_NS_CC;
 class ResultScene :public cocos2d::Layer{
     
