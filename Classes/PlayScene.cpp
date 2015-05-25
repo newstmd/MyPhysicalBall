@@ -9,6 +9,19 @@
 
 //#define font_type "RTWSYueGoTrial-Regular"
 #define font_type "YuppySC-Regular"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//iOS代码
+    #define EffectReadyGo "readygo.wav"
+    #define EffectWao "wao.wav"
+    #define EffectMoFa "mofa.wav"
+    #define EffectZhuan "zhuan.wav"
+#else
+//Android代码
+    #define EffectReadyGo ""
+    #define EffectWao ""
+    #define EffectMoFa ""
+    #define EffectZhuan ""
+#endif
 
 USING_NS_CC_MATH;
 USING_NS_CC;
@@ -218,7 +231,7 @@ void PlayScene::beginNewGame(){
     auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::AddBalls, this));
     auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
     messageLabel->setVisible(true);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("readygo.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectReadyGo);
     messageLabel->runAction(hecheng);
     
     umeng::MobClickCpp::startLevel(StringUtils::format("第%d关",tempguan).c_str());
@@ -290,7 +303,7 @@ void PlayScene::refreshRate()
         auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::beginNewGame, this));
         auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
         messageLabel->setVisible(true);
-        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("zhuan.wav");
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectZhuan);
         messageLabel->runAction(hecheng);
         //beginNewGame();
     }
@@ -331,7 +344,7 @@ void PlayScene::addBall(float positionX, float positionY){
 }
 
 void PlayScene::deleteBall(cocos2d::Sprite *ball){
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("mofa.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectMoFa);
     auto fire = ParticleSystemQuad::create("lizi.plist");
     switch (ball->getTag()) {
         case 0:
@@ -473,7 +486,7 @@ void PlayScene::refreshScore()
     if (scoreLabel->getTextColor() == Color4B::WHITE) {
         if (currentScore >= guanka[guankashu]) {
             scoreLabel->setTextColor(Color4B::GREEN);
-            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("wao.wav");
+            CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectWao);
             auto fangda = ScaleTo::create(0.3, 1.2);
             auto huanyuan =ScaleTo::create(0.3, 1.0);
             auto duilie = Sequence::create(fangda,huanyuan,fangda,huanyuan,fangda,huanyuan, NULL);

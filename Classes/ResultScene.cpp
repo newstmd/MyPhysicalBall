@@ -117,7 +117,7 @@ bool ResultScene::init()
     rateLabel->setPosition(winSize.width /2 -80,700);
     addChild(rateLabel,999);
     
-    umeng::MobClickCpp::finishLevel(StringUtils::format("游戏结束在第%d关，%d分！",totalrate,totalscore).c_str());
+    umeng::MobClickCpp::failLevel(StringUtils::format("游戏结束在第%d关，%d分！",totalrate,totalscore).c_str());
     //清除关卡数据
     UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
     UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);

@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "MainItem.h"
 #include "ResultScene.h"
+//#include "UMSocial.h"
 //#include "ChanceAd.h"
 //#include ""
 //#include "ChanceAd.h"
@@ -35,7 +36,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-                glview = GLViewImpl::createWithRect("MyPhysicalBall", Rect(0, 0, 640, 1136));
+                glview = GLViewImpl::createWithRect("MyPhysicalBall",cocos2d::Rect(0, 0, 640, 1136));
         director->setOpenGLView(glview);
     }
 
@@ -78,3 +79,4 @@ void AppDelegate::applicationWillEnterForeground() {
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
+

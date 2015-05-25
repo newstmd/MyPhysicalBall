@@ -10,6 +10,21 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "PlayScene.h"
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//iOS代码
+#define EffectReadyGo "readygo.wav"
+#define EffectWao "wao.wav"
+#define EffectMoFa "mofa.wav"
+#define EffectZhuan "zhuan.wav"
+#else
+//Android代码
+#define EffectReadyGo ""
+#define EffectWao ""
+#define EffectMoFa ""
+#define EffectZhuan ""
+#endif
+
 //#include "PGStoreKitManager.h"
 USING_NS_CC_MATH;
 USING_NS_CC;
@@ -89,10 +104,10 @@ bool MainItemScene::init()
     beginButton->runAction(RepeatForever::create(ac));
     
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("nekomimi.mp3");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("mofa.wav");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("zhuan.wav");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("readygo.wav");
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("wao.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(EffectMoFa);
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(EffectZhuan);
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(EffectReadyGo);
+    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(EffectWao);
     //CocosDenshion::SimpleAudioEngine::getInstance()->rewindBackgroundMusic();
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("nekomimi.mp3",true);
     
