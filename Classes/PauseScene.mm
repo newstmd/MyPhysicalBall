@@ -119,8 +119,15 @@ bool PauseScene::init()
         }
     });
     
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    //iOS代码
     [[CSInterstitial sharedInterstitial] loadInterstitial];
     [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
+
+#else
+    //Android代码
+#endif
+
     return true;
 }
 

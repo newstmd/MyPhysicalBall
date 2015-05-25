@@ -305,6 +305,17 @@ void PlayScene::refreshRate()
         messageLabel->setVisible(true);
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectZhuan);
         messageLabel->runAction(hecheng);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        //iOS代码
+        if (guankashu+1 % 4 == 0) {
+            [[CSInterstitial sharedInterstitial] loadInterstitial];
+            [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
+        }
+
+#else
+        //Android代码
+#endif
+
         //beginNewGame();
     }
     

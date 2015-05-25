@@ -124,9 +124,16 @@ bool ResultScene::init()
     UserDefault::getInstance()->flush();
     
 
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    //iOS代码
     [[CSMoreGame sharedMoreGame] loadMoreGame];
     [[CSMoreGame sharedMoreGame] showMoreGameWithScale:0.9f];
-    
+
+#else
+    //Android代码
+#endif
+
     
     return true;
     
