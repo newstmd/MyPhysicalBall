@@ -369,12 +369,14 @@
 				06E3AFF41B13159C00DD7DAE /* CSRequestError.h */,
 				06E3AFF51B13159C00DD7DAE /* libChanceAd.a */,
 			);
-			path = libChanceAd;
+			name = libChanceAd;
+			path = ../../Classes/libChanceAd;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				06E3AFEC1B13159C00DD7DAE /* libChanceAd */,
 				5087E77117EB970100C73F5D /* Icons */,
 				503AE0FA17EB989F00D1A890 /* AppController.h */,
 				503AE0FB17EB989F00D1A890 /* AppController.mm */,
@@ -461,7 +463,6 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				06E3AFEC1B13159C00DD7DAE /* libChanceAd */,
 				06E3AF561B12CD6F00DD7DAE /* umengshare */,
 				46880B8419C43A87006E1F66 /* AppDelegate.mm */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
@@ -731,10 +732,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -758,21 +756,6 @@
 					"$(PROJECT_DIR)/libChanceAd",
 					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes,
 					"$(PROJECT_DIR)",
-					"/Volumes/Tools/cocos2d-x-3.5/external/curl/prebuilt/ios",
-					/Users/tangxin/Downloads/UMCocos2dxAnalyticsNative/ios,
-					"/Volumes/Tools/cocos2d-x-3.6/external/curl/prebuilt/ios",
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/Frameworks_32/LaiWang,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/Frameworks_32/TencentWeibo,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_4.2,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Facebook,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Instagram,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Line,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Sina,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Twitter,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Wechat,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/YiXin,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/libChanceAd,
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -794,10 +777,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
@@ -819,21 +799,6 @@
 					"$(PROJECT_DIR)/libChanceAd",
 					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes,
 					"$(PROJECT_DIR)",
-					"/Volumes/Tools/cocos2d-x-3.5/external/curl/prebuilt/ios",
-					/Users/tangxin/Downloads/UMCocos2dxAnalyticsNative/ios,
-					"/Volumes/Tools/cocos2d-x-3.6/external/curl/prebuilt/ios",
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/Frameworks_32/LaiWang,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/Frameworks_32/TencentWeibo,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_4.2,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Facebook,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Instagram,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Line,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Sina,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Twitter,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/Wechat,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/iOS/UMSocial_Sdk_Extra_Frameworks/YiXin,
-					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/libChanceAd,
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
