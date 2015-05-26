@@ -47,6 +47,7 @@ static AppDelegate s_sharedApplication;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
     [ChanceAd startSession:@"822624461-25B660-5B19-F375-3BFF61373"];//100032-4CE817-ABA2-5B48-14D009296720
+    
     //822624461-25B660-5B19-F375-3BFF61373
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
