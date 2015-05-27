@@ -56,8 +56,8 @@
 		06E3AFDA1B12E04C00DD7DAE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3AFD91B12E04C00DD7DAE /* Social.framework */; };
 		06E3AFEB1B13052000DD7DAE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3AFDB1B12E05700DD7DAE /* Accounts.framework */; };
 		06E3AFF61B13159C00DD7DAE /* ChanceAdRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06E3AFEE1B13159C00DD7DAE /* ChanceAdRes.bundle */; };
-		06E3AFF71B13159C00DD7DAE /* libChanceAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3AFF51B13159C00DD7DAE /* libChanceAd.a */; };
 		06F27D641B0F89E000D5E35E /* gameCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F27D631B0F89E000D5E35E /* gameCenter.png */; };
+		06F83C111B1575BB00D66B29 /* libChanceAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3AFF51B13159C00DD7DAE /* libChanceAd.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -236,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F83C111B1575BB00D66B29 /* libChanceAd.a in Frameworks */,
 				06E3AFEB1B13052000DD7DAE /* Accounts.framework in Frameworks */,
 				06E3AFDA1B12E04C00DD7DAE /* Social.framework in Frameworks */,
 				06E3AFD81B12E03600DD7DAE /* libstdc++.dylib in Frameworks */,
@@ -246,7 +247,6 @@
 				06E3AF591B12CDBC00DD7DAE /* libMobClickCppWithLibCpp.a in Frameworks */,
 				06E3AF5B1B12CDFC00DD7DAE /* libcurl.a in Frameworks */,
 				06630C301B0F29C000CAD4F4 /* StoreKit.framework in Frameworks */,
-				06E3AFF71B13159C00DD7DAE /* libChanceAd.a in Frameworks */,
 				06630C2E1B0F29AF00CAD4F4 /* SystemConfiguration.framework in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
@@ -756,6 +756,7 @@
 					"$(PROJECT_DIR)/libChanceAd",
 					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes,
 					"$(PROJECT_DIR)",
+					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/libChanceAd,
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -799,6 +800,7 @@
 					"$(PROJECT_DIR)/libChanceAd",
 					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes,
 					"$(PROJECT_DIR)",
+					/Users/tangxin/Documents/CocosProjects/MyPhysicalBall/Classes/libChanceAd,
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
