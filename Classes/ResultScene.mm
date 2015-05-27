@@ -36,7 +36,7 @@ bool ResultScene::init()
     
     auto backButton = cocos2d::ui::Button::create("backMain.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(winSize.width/2 - 150,300));
+    backButton->setPosition(Vec2(winSize.width/2 - 200,300));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -49,7 +49,7 @@ bool ResultScene::init()
     
     auto newGameButton = cocos2d::ui::Button::create("newGame.png");
     newGameButton->setAnchorPoint(Vec2(0.5,0.5));
-    newGameButton->setPosition(Vec2(winSize.width/2 +150,300));
+    newGameButton->setPosition(Vec2(winSize.width/2,300));
     addChild(newGameButton);
     newGameButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -60,38 +60,7 @@ bool ResultScene::init()
         
     });
     
-//分享按钮代码
-    // 创建分享按钮, 参数1为按钮正常情况下的图片, 参数2为按钮选中时的图片,参数3为友盟appkey, 参数4为分享回调
-    
-    //UMShareButton *shareButton = UMShareButton::create("shareNormal.png","shareSelected.png", "你的友盟appkey", share_selector(shareCallback)) ;
-    
-    UMShareButton *shareButton = UMShareButton::create("share.png","share.png", "556279e967e58ebe7e004aee", NULL) ;
-     CCUMSocialSDK *sdk = shareButton->getSocialSDK();
-    // sdk->setQQAppIdAndAppKey("设置QQ的app id", "appkey");
-     sdk->setWeiXinAppInfo("wx79ed32927e487511","706a20ae37a78ec5f604f8ab3656146c");
-    // 显示在友盟分享面板上的平台
-    vector<int>* platforms = new vector<int>();
-    platforms->push_back(WEIXIN);
-    platforms->push_back(WEIXIN_CIRCLE);
-//    platforms->push_back(SINA);
-//    platforms->push_back(RENREN) ;
-//    platforms->push_back(DOUBAN) ;
-//    platforms->push_back(QZONE) ;
-//    platforms->push_back(QQ) ;
-    // 设置友盟分享面板上显示的平台
-    
-    shareButton->setPlatforms(platforms);
-    // 设置文本分享内容
-    shareButton->setShareContent("umeng social cocos2d-x sdk.") ;
-    // 设置要分享的图片, 图片支持本地图片和url图片, 但是url图片必须以http://或者https://开头
-    shareButton->setShareImage("/sdcard/header.jpeg") ;
-    // 设置按钮的位置
-    
-    shareButton->setPosition(ccp(150, 180));
-    // 然后开发者需要将该按钮添加到游戏场景中
-    CCMenu* pMenu = CCMenu::create(shareButton, NULL);
-    pMenu->setPosition(CCPointZero);
-    this->addChild(pMenu, 1);
+
     
 //    auto shareButton = cocos2d::ui::Button::create("share.png");
 //    shareButton->setAnchorPoint(Vec2(0.5,0.5));
@@ -159,6 +128,49 @@ bool ResultScene::init()
     UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
     UserDefault::getInstance()->flush();
     
+    //分享按钮代码
+    // 创建分享按钮, 参数1为按钮正常情况下的图片, 参数2为按钮选中时的图片,参数3为友盟appkey, 参数4为分享回调
+    
+    //UMShareButton *shareButton = UMShareButton::create("shareNormal.png","shareSelected.png", "你的友盟appkey", share_selector(shareCallback)) ;
+    
+    UMShareButton *shareButton = UMShareButton::create("share.png","share.png", "556279e967e58ebe7e004aee", NULL) ;
+    
+    CCUMSocialSDK *sdk = shareButton->getSocialSDK();
+    // sdk->setQQAppIdAndAppKey("设置QQ的app id", "appkey");
+    sdk->setTargetUrl("http://www.bashu.cn");
+    sdk->setWeiXinAppInfo("wx79ed32927e487511","706a20ae37a78ec5f604f8ab3656146c");
+    sdk->setQQAppIdAndAppKey("1104667164", "ZK9OLfLqaGPsrRW9");
+    sdk->setLogEnable(false);
+    // 显示在友盟分享面板上的平台
+    vector<int>* platforms = new vector<int>();
+    platforms->push_back(WEIXIN);
+    platforms->push_back(WEIXIN_CIRCLE);
+    platforms->push_back(QQ) ;
+    platforms->push_back(QZONE) ;
+    
+    platforms->push_back(SINA);
+    platforms->push_back(TENCENT_WEIBO) ;
+    platforms->push_back(RENREN) ;
+    platforms->push_back(DOUBAN) ;
+
+    platforms->push_back(SMS) ;
+    platforms->push_back(EMAIL) ;
+    // 设置友盟分享面板上显示的平台
+    sdk->setPlatforms(platforms);
+    shareButton->setPlatforms(platforms);
+    
+    // 设置文本分享内容
+    shareButton->setShareContent(StringUtils::format("根本停不下来！我正在玩「拯救星星」！成功攻克%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
+    // 设置要分享的图片, 图片支持本地图片和url图片, 但是url图片必须以http://或者https://开头
+    shareButton->setShareImage("shareImage.jpg") ;
+    // 设置按钮的位置
+    
+    shareButton->setPosition(ccp(winSize.width/2 + 200,300));
+    // 然后开发者需要将该按钮添加到游戏场景中
+    CCMenu* pMenu = CCMenu::create(shareButton, NULL);
+    pMenu->setPosition(CCPointZero);
+    this->addChild(pMenu, 1);
+    
 
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -174,4 +186,20 @@ bool ResultScene::init()
     
 }
 
-
+//void shareCallback(int platform, int stCode,string& errorMsg)
+//{
+//    if ( stCode == 100 )
+//    {
+//        CCLog("#### HelloWorld 开始分享");
+//    }
+//    else if ( stCode == 200 )
+//    {
+//        CCLog("#### HelloWorld 分享成功");
+//    }
+//    else
+//    {
+//        CCLog("#### HelloWorld 分享出错");
+//    }
+//    
+//    CCLog("platform num is : %d.", platform);
+//}

@@ -24,6 +24,7 @@ class ResultScene :public cocos2d::Layer{
     
 private:
     cocos2d::Size winSize;
+    //void shareCallback(int platform, int stCode,const string& errorMsg);
 public:
     
     static cocos2d::Scene* createScene();

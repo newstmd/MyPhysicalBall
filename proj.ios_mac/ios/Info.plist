@@ -41,5 +41,17 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.tangxin.MyPhysicalBall</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx79ed32927e487511</string>
+				<string>QQ41D7E21C</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

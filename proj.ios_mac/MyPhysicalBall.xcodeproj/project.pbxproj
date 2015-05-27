@@ -31,6 +31,7 @@
 		06ABADDF1B0EFD3F00C07169 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDD1B0EFD3F00C07169 /* share.png */; };
 		06ABADE11B0F1ED000C07169 /* readygo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE01B0F1ED000C07169 /* readygo.wav */; };
 		06ABADE31B0F22BA00C07169 /* zhuan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE21B0F22BA00C07169 /* zhuan.wav */; };
+		06B27BBE1B162AA700D6903F /* shareImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 06B27BBD1B162AA700D6903F /* shareImage.jpg */; };
 		06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FDD1B0B781500F5BB21 /* guanghuan.png */; };
 		06C19B801B1223ED00A6F7E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06C19B7F1B1223ED00A6F7E8 /* Images.xcassets */; };
 		06C6BCBB1B0CD01500D8B6D7 /* wao.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06C6BCBA1B0CD01500D8B6D7 /* wao.wav */; };
@@ -152,6 +153,7 @@
 		06ABADDD1B0EFD3F00C07169 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		06ABADE01B0F1ED000C07169 /* readygo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = readygo.wav; sourceTree = "<group>"; };
 		06ABADE21B0F22BA00C07169 /* zhuan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zhuan.wav; sourceTree = "<group>"; };
+		06B27BBD1B162AA700D6903F /* shareImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shareImage.jpg; sourceTree = "<group>"; };
 		06B29FDD1B0B781500F5BB21 /* guanghuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanghuan.png; sourceTree = "<group>"; };
 		06C19B7F1B1223ED00A6F7E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MyPhysicalBall iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		06C6BCBA1B0CD01500D8B6D7 /* wao.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wao.wav; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		06CC17671B0D608C009E7F82 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				06B27BBD1B162AA700D6903F /* shareImage.jpg */,
 				06F27D631B0F89E000D5E35E /* gameCenter.png */,
 				06ABADDC1B0EFD3F00C07169 /* newGame.png */,
 				06ABADDD1B0EFD3F00C07169 /* share.png */,
@@ -915,6 +918,7 @@
 				06F840811B15D14A00D66B29 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				06F840781B15D14A00D66B29 /* UMSnsAccountViewController.xib in Resources */,
 				06C6BCBB1B0CD01500D8B6D7 /* wao.wav in Resources */,
+				06B27BBE1B162AA700D6903F /* shareImage.jpg in Resources */,
 				06C19B801B1223ED00A6F7E8 /* Images.xcassets in Resources */,
 				069E33AD1B0969E100D5253A /* ball2.png in Resources */,
 				06DCE7261B0AC0F000B17CA1 /* lizi.plist in Resources */,
