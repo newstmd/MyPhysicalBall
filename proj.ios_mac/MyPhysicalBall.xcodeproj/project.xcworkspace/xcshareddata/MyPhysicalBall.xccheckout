@@ -12,6 +12,8 @@
 	<dict>
 		<key>75B13D870EBB8F3D57E4A7C0ECD50EFC6A9D0F02</key>
 		<string>https://github.com/newstmd/MyPhysicalBall.git</string>
+		<key>F0F3A11FE80094F6A3203D745EA35B6856191799</key>
+		<string>github.umeng.com:SDK/Social_Cocos2dx_SDK.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>proj.ios_mac/MyPhysicalBall.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>75B13D870EBB8F3D57E4A7C0ECD50EFC6A9D0F02</key>
 		<string>../../..</string>
+		<key>F0F3A11FE80094F6A3203D745EA35B6856191799</key>
+		<string>../../../proj.ios_mac/Social_Cocos2dx_SDK_V2.0%202/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/newstmd/MyPhysicalBall.git</string>
@@ -35,6 +39,14 @@
 			<string>75B13D870EBB8F3D57E4A7C0ECD50EFC6A9D0F02</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MyPhysicalBall</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F0F3A11FE80094F6A3203D745EA35B6856191799</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Social_Cocos2dx_SDK_V2.0%202</string>
 		</dict>
 	</array>
 </dict>

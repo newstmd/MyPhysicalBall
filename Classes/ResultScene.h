@@ -24,7 +24,6 @@ class ResultScene :public cocos2d::Layer{
     
 private:
     cocos2d::Size winSize;
-    
 public:
     
     static cocos2d::Scene* createScene();

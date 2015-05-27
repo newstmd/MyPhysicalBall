@@ -30,6 +30,7 @@
 //#import "NCSGameCenter.h"
 #import "ChanceAd.h"
 #import "CSBannerView.h"
+#import "UMSocial.h"
 
 @interface AppController () <CSBannerViewDelegate> {
     
@@ -169,5 +170,11 @@ static AppDelegate s_sharedApplication;
 - (void)dealloc {
     [window release];
     [super dealloc];
+}
+
+//友盟添加的回调方法
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [UMSocialSnsService handleOpenURL:url];
 }
 @end
