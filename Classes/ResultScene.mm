@@ -137,9 +137,10 @@ bool ResultScene::init()
     
     CCUMSocialSDK *sdk = shareButton->getSocialSDK();
     // sdk->setQQAppIdAndAppKey("设置QQ的app id", "appkey");
-    sdk->setTargetUrl("http://www.bashu.cn");
+    sdk->setTargetUrl("http://moodle.bashu.com.cn:12121/savestars.html");
     sdk->setWeiXinAppInfo("wx79ed32927e487511","706a20ae37a78ec5f604f8ab3656146c");
     sdk->setQQAppIdAndAppKey("1104667164", "ZK9OLfLqaGPsrRW9");
+    
     sdk->setLogEnable(false);
     // 显示在友盟分享面板上的平台
     vector<int>* platforms = new vector<int>();
@@ -160,7 +161,7 @@ bool ResultScene::init()
     shareButton->setPlatforms(platforms);
     
     // 设置文本分享内容
-    shareButton->setShareContent(StringUtils::format("根本停不下来！我正在玩「拯救星星」！成功攻克%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
+    shareButton->setShareContent(StringUtils::format("根本停不下来！我正在玩‘拯救星星’！成功攻克%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
     // 设置要分享的图片, 图片支持本地图片和url图片, 但是url图片必须以http://或者https://开头
     shareButton->setShareImage("shareImage.jpg") ;
     // 设置按钮的位置
