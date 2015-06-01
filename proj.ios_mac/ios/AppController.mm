@@ -111,6 +111,7 @@ static AppDelegate s_sharedApplication;
     [window addSubview:bannerView];
     [bannerView release];
     
+    
 //CSBannerView
     return YES;
 }

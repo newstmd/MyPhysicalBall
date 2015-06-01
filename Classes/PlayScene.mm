@@ -106,7 +106,7 @@ bool PlayScene::init()
     scoreLabel->setSystemFontName(font_type);
     
     scoreLabel->setString("得分：0");
-    scoreLabel->setPosition(winSize.width/2, 1000);
+    scoreLabel->setPosition(winSize.width/2, 1020);
     addChild(scoreLabel,999);
     //scoreLabel->autorelease();
 
@@ -130,6 +130,14 @@ bool PlayScene::init()
     rateLabel->setPosition(winSize.width/2 - 220, 1080);
     addChild(rateLabel,999);
     //rateLabel->autorelease();
+    
+    countLabel = Label::create();
+    countLabel->setTextColor(Color4B::WHITE);
+    countLabel->setSystemFontSize(30);
+    countLabel->setSystemFontName(font_type);
+    countLabel->setString("");
+    countLabel->setPosition(winSize.width/2, 960);
+    addChild(countLabel,999);
 
     //schedule(schedule_selector(PlayScene::jiankongBall), 1.0f/10, kRepeatForever, 0);
     addEdges();
@@ -198,7 +206,7 @@ void PlayScene::initShuJu()
 
 
 void PlayScene::beginNewGame(){
-    
+    countLabel->setString("");
     if (UserDefault::getInstance()->getIntegerForKey(Key_TotalRate) == 0) {
         UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 1);
     }
@@ -251,7 +259,7 @@ bool PlayScene::touchIt(Touch* touch,Event* event){
         {
             chuliBall(tar);
             defen += selectedBalls.size() * selectedBalls.size() * 5;
-
+            countLabel->setString(StringUtils::format("%zd个星星：%ld",selectedBalls.size(),selectedBalls.size() * selectedBalls.size() * 5));
             for (int i = 0; i<selectedBalls.size(); i++)
             {
                 //auto callfunc = CallFunc::create(CC_CALLBACK_1(PlayScene::deleteBall,this,selectedBalls.at(i)));

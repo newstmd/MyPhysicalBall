@@ -10,6 +10,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "PlayScene.h"
+#include "ChanceAd.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 //iOS代码
@@ -112,8 +113,10 @@ bool MainItemScene::init()
     //CocosDenshion::SimpleAudioEngine::getInstance()->rewindBackgroundMusic();
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("nekomimi.mp3",true);
     
-    
-    
+//    CGRect frameBanner = CGRectMake(0.0f, 0.0f, 320.0f, 50.0f);
+//    CSBannerView *bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
+//    [bannerView loadRequest:[CSADRequest request]];
+//    [bannerView setHidden:true];
     
     return true;
 }

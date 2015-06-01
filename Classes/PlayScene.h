@@ -21,6 +21,7 @@ private:
     Label* scoreLabel;
     Label* rateLabel;
     Label* mubiaoLabel;
+    Label* countLabel;
     int defen;
     Vector<Sprite*> ballList;
     Vector<Sprite*> selectedBalls;

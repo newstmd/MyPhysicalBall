@@ -10,6 +10,7 @@
 #include "PlayScene.h"
 #include "CCUMSocialSDK.h"
 #include "UMShareButton.h"
+#include "ChanceAd.h"
 #define font_type "YuppySC-Regular"
 
 USING_NS_UM_SOCIAL;
@@ -178,6 +179,9 @@ bool ResultScene::init()
     //iOS代码
     [[CSInterstitial sharedInterstitial] loadInterstitial];
     [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
+    //[ChanceAd removeBannerView];
+    //CSBannerView
+    //[CSInterstitial sharedInterstitial]
 #else
     //Android代码
 #endif
