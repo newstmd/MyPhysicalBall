@@ -418,39 +418,8 @@ void PlayScene::deleteBall(cocos2d::Sprite *ball){
     removeChild(ball);
     ballList.eraseObject(ball);
 }
-//void PlayScene::addEdges2(){
-//    
-//    auto node1 = Node::create();
-//    node1->setPosition(-MiddleX,100);
-//    auto edges1 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(500,510));
-//    node1->setPhysicsBody(edges1);
-//    addChild(node1);
-//    
-//    auto node2 = Node::create();
-//    node2->setPosition(-MiddleX,100);
-//    auto edges2 = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(-500,520));
-//    node2->setPhysicsBody(edges2);
-//    addChild(node2);
-//    
-//    auto nodeLeft = Node::create();
-//    nodeLeft->setPosition(Vec2(-MiddleX -300,0));
-//    auto edgesLeft = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
-//    nodeLeft->setPhysicsBody(edgesLeft);
-//    addChild(nodeLeft);
-//    
-//    auto nodeRight = Node::create();
-//    nodeRight->setPosition(Vec2(-MiddleX + 300,0));
-//    auto edgesRight = PhysicsBody::createEdgeSegment(Vec2(0,0), Vec2(0,1200));
-//    nodeRight->setPhysicsBody(edgesRight);
-//    addChild(nodeRight);
-//}
 void PlayScene::addEdges(){
-//    auto edges = PhysicsBody::createEdgeBox(winSize);
-//    auto node = Node::create();
-//    node->setPhysicsBody(edges);
-//    node->setAnchorPoint(Vec2(0,0));
-//    node->setPosition(0, 0);
-    
+
     auto edges2 = PhysicsBody::createEdgeSegment(Vec2(MiddleX, 100), Vec2(MiddleX-310, 420),PHYSICSBODY_MATERIAL_DEFAULT,1);
     auto node2 = Node::create();
     node2->setPhysicsBody(edges2);
