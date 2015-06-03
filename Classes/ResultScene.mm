@@ -61,34 +61,6 @@ bool ResultScene::init()
         
     });
     
-
-    
-//    auto shareButton = cocos2d::ui::Button::create("share.png");
-//    shareButton->setAnchorPoint(Vec2(0.5,0.5));
-//    shareButton->setPosition(Vec2(winSize.width/2 + 75,300));
-//    addChild(shareButton);
-//    shareButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
-//        if (type == ui::Widget::TouchEventType::ENDED) {
-//            
-//            //Director::getInstance()->popToRootScene();
-//            
-//        }
-//        
-//    });
-    
-//    auto gameCenterButton = cocos2d::ui::Button::create("gameCenter.png");
-//    gameCenterButton->setAnchorPoint(Vec2(0.5,0.5));
-//    gameCenterButton->setPosition(Vec2(winSize.width/2 + 225,300));
-//    addChild(gameCenterButton);
-//    gameCenterButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
-//        if (type == ui::Widget::TouchEventType::ENDED) {
-//            
-//            //Director::getInstance()->popToRootScene();
-//            
-//        }
-//        
-//    });
-    
     auto guanghuan  = Sprite::create("guanghuan.png");
     guanghuan->setAnchorPoint(Vec2(0.5,0.5));
     guanghuan->setPosition(winSize/2);
@@ -160,17 +132,21 @@ bool ResultScene::init()
     // 设置友盟分享面板上显示的平台
     sdk->setPlatforms(platforms);
     shareButton->setPlatforms(platforms);
+    //屏幕截图
+    //std::string imageFilePath = "shareImage.jpg";
+    shareButton->setShareImage("shareImage.jpg") ;
     
     // 设置文本分享内容
     shareButton->setShareContent(StringUtils::format("根本停不下来！我正在玩‘拯救星星’！成功攻克%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
     // 设置要分享的图片, 图片支持本地图片和url图片, 但是url图片必须以http://或者https://开头
-    shareButton->setShareImage("shareImage.jpg") ;
+    //shareButton->setShareImage(imageFilePath.c_str()) ;
     // 设置按钮的位置
-    
-    shareButton->setPosition(ccp(winSize.width/2 + 200,300));
+    shareButton->setPosition(Vec2(winSize.width/2 + 200,300));
+    //shareButton->setPosition(ccp(winSize.width/2 + 200,300));
     // 然后开发者需要将该按钮添加到游戏场景中
-    CCMenu* pMenu = CCMenu::create(shareButton, NULL);
-    pMenu->setPosition(CCPointZero);
+    
+    Menu* pMenu = Menu::create(shareButton, NULL);
+    pMenu->setPosition(Vec2::ZERO);
     this->addChild(pMenu, 1);
     
 
@@ -179,9 +155,6 @@ bool ResultScene::init()
     //iOS代码
     [[CSInterstitial sharedInterstitial] loadInterstitial];
     [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
-    //[ChanceAd removeBannerView];
-    //CSBannerView
-    //[CSInterstitial sharedInterstitial]
 #else
     //Android代码
 #endif
