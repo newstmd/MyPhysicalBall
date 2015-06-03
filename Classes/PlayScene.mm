@@ -242,7 +242,7 @@ void PlayScene::beginNewGame(){
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectReadyGo);
     messageLabel->runAction(hecheng);
     
-    umeng::MobClickCpp::startLevel(StringUtils::format("第%d关",tempguan).c_str());
+//    umeng::MobClickCpp::startLevel(StringUtils::format("第%d关",tempguan).c_str());
     
     //AddBalls();
     }
@@ -341,8 +341,8 @@ void PlayScene::refreshRate()
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         //iOS代码
         if (guankashu % 3 == 0) {
-            [[CSInterstitial sharedInterstitial] loadInterstitial];
-            [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
+//            [[CSInterstitial sharedInterstitial] loadInterstitial];
+//            [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
         }
 
 #else
