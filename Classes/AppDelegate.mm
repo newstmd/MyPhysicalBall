@@ -7,6 +7,7 @@
 //#include ""
 //#include "ChanceAd.h"
 
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {

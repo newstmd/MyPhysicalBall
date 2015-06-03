@@ -27,17 +27,9 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
-//#import "NCSGameCenter.h"
-//#import "ChanceAd.h"
-//#import "CSBannerView.h"
-//#import "UMSocial.h"
+#import "BaiduMobAdView.h"
+#define kAdViewPortraitRect CGRectMake(0, 0, kBaiduAdViewSizeDefaultWidth, kBaiduAdViewSizeDefaultHeight)
 
-//@interface AppController () <CSBannerViewDelegate> {
-//    
-//    CSBannerView *_bannerView;
-//}
-
-//@end
 @implementation AppController
 #pragma mark -
 #pragma mark Application lifecycle
@@ -47,9 +39,7 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
-//    [ChanceAd startSession:@"822624461-25B660-5B19-F375-3BFF61373"];//100032-4CE817-ABA2-5B48-14D009296720
-    //ChanceAd
-    //822624461-25B660-5B19-F375-3BFF61373
+
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
     cocos2d::GLViewImpl::convertAttrs();
@@ -110,6 +100,22 @@ static AppDelegate s_sharedApplication;
 //    [bannerView setCenter:cg];
 //    [window addSubview:bannerView];
 //    [bannerView release];
+    sharedAdView = [[BaiduMobAdView alloc] init];
+    //sharedAdView.AdUnitTag = @"myAdPlaceId1";
+    //此处为广告位id，可以不进行设置，如需设置，在百度移动联盟上设置广告位id，然后将得到的id填写到此处。
+    sharedAdView.AdType = BaiduMobAdViewTypeBanner;
+    sharedAdView.frame = kAdViewPortraitRect;
+    //sharedAdView.frame = kBaiduAdViewBanner468x60;
+    sharedAdView.delegate = self;
+    auto xx =  [[UIScreen mainScreen] bounds].size.width/2;
+    auto yy =[[UIScreen mainScreen] bounds].size.height -25;
+    if (xx > 321) {
+        yy =[[UIScreen mainScreen] bounds].size.height -45;
+    }
+    CGPoint cg = CGPointMake(xx, yy);
+    [sharedAdView setCenter:cg];
+    [window addSubview:sharedAdView];
+    [sharedAdView start];
     
     
 //CSBannerView
@@ -168,6 +174,7 @@ static AppDelegate s_sharedApplication;
 
 
 - (void)dealloc {
+    [sharedAdView release];
     [window release];
     [super dealloc];
 }
@@ -177,4 +184,10 @@ static AppDelegate s_sharedApplication;
 //{
 //    return [UMSocialSnsService handleOpenURL:url];
 //}
+
+
+- (NSString *)publisherId{
+    return @"d33a034";
+}
+
 @end

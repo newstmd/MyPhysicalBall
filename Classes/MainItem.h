@@ -15,6 +15,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "SimpleAudioEngine.h"
+#import "BaiduMobAdView.h"
 USING_NS_CC;
 
 class MainItemScene :public cocos2d::Layer
