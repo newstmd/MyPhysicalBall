@@ -8,12 +8,12 @@
 
 #include "ResultScene.h"
 #include "PlayScene.h"
-//#include "CCUMSocialSDK.h"
-//#include "UMShareButton.h"
-//#include "ChanceAd.h"
+#include "CCUMSocialSDK.h"
+#include "UMShareButton.h"
+#include "ChanceAd.h"
 #define font_type "YuppySC-Regular"
 
-//USING_NS_UM_SOCIAL;
+USING_NS_UM_SOCIAL;
 Scene* ResultScene::createScene()
 {
     auto scene = Scene::create();
@@ -95,7 +95,7 @@ bool ResultScene::init()
     rateLabel->setPosition(winSize.width /2 -80,700);
     addChild(rateLabel,999);
     
-//    umeng::MobClickCpp::failLevel(StringUtils::format("游戏结束在第%d关，%d分！",totalrate,totalscore).c_str());
+    umeng::MobClickCpp::failLevel(StringUtils::format("游戏结束在第%d关，%d分！",totalrate,totalscore).c_str());
     //清除关卡数据
     UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
     UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
@@ -106,55 +106,55 @@ bool ResultScene::init()
     
     //UMShareButton *shareButton = UMShareButton::create("shareNormal.png","shareSelected.png", "你的友盟appkey", share_selector(shareCallback)) ;
     
-//    UMShareButton *shareButton = UMShareButton::create("share.png","share.png", "556279e967e58ebe7e004aee", NULL) ;
+    UMShareButton *shareButton = UMShareButton::create("share.png","share.png", "556279e967e58ebe7e004aee", NULL) ;
     
-//    CCUMSocialSDK *sdk = shareButton->getSocialSDK();
+    CCUMSocialSDK *sdk = shareButton->getSocialSDK();
     // sdk->setQQAppIdAndAppKey("设置QQ的app id", "appkey");
-//    sdk->setTargetUrl("http://moodle.bashu.com.cn:12121/savestars.html");
-//    sdk->setWeiXinAppInfo("wx79ed32927e487511","706a20ae37a78ec5f604f8ab3656146c");
-//    sdk->setQQAppIdAndAppKey("1104667164", "ZK9OLfLqaGPsrRW9");
-//    
-//    sdk->setLogEnable(false);
+    sdk->setTargetUrl("http://moodle.bashu.com.cn:12121/savestars.html");
+    sdk->setWeiXinAppInfo("wx79ed32927e487511","706a20ae37a78ec5f604f8ab3656146c");
+    sdk->setQQAppIdAndAppKey("1104667164", "ZK9OLfLqaGPsrRW9");
+    
+    sdk->setLogEnable(false);
     // 显示在友盟分享面板上的平台
-//    vector<int>* platforms = new vector<int>();
-//    platforms->push_back(WEIXIN);
-//    platforms->push_back(WEIXIN_CIRCLE);
-//    platforms->push_back(QQ) ;
-//    platforms->push_back(QZONE) ;
-//    
-//    platforms->push_back(SINA);
-//    platforms->push_back(TENCENT_WEIBO) ;
-//    platforms->push_back(RENREN) ;
-//    platforms->push_back(DOUBAN) ;
-//
-//    platforms->push_back(SMS) ;
-//    platforms->push_back(EMAIL) ;
+    vector<int>* platforms = new vector<int>();
+    platforms->push_back(WEIXIN);
+    platforms->push_back(WEIXIN_CIRCLE);
+    platforms->push_back(QQ) ;
+    platforms->push_back(QZONE) ;
+    
+    platforms->push_back(SINA);
+    platforms->push_back(TENCENT_WEIBO) ;
+    platforms->push_back(RENREN) ;
+    platforms->push_back(DOUBAN) ;
+
+    platforms->push_back(SMS) ;
+    platforms->push_back(EMAIL) ;
     // 设置友盟分享面板上显示的平台
-//    sdk->setPlatforms(platforms);
-//    shareButton->setPlatforms(platforms);
+    sdk->setPlatforms(platforms);
+    shareButton->setPlatforms(platforms);
     //屏幕截图
     //std::string imageFilePath = "shareImage.jpg";
-//    shareButton->setShareImage("shareImage.jpg") ;
+    shareButton->setShareImage("shareImage.jpg") ;
     
     // 设置文本分享内容
-//    shareButton->setShareContent(StringUtils::format("根本停不下来！我正在玩‘拯救星星’！成功攻克%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
+    shareButton->setShareContent(StringUtils::format("根本停不下来！我正在玩‘拯救星星’！成功攻克%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
     // 设置要分享的图片, 图片支持本地图片和url图片, 但是url图片必须以http://或者https://开头
     //shareButton->setShareImage(imageFilePath.c_str()) ;
     // 设置按钮的位置
-//    shareButton->setPosition(Vec2(winSize.width/2 + 200,300));
+    shareButton->setPosition(Vec2(winSize.width/2 + 200,300));
     //shareButton->setPosition(ccp(winSize.width/2 + 200,300));
     // 然后开发者需要将该按钮添加到游戏场景中
     
-//    Menu* pMenu = Menu::create(shareButton, NULL);
-//    pMenu->setPosition(Vec2::ZERO);
-//    this->addChild(pMenu, 1);
+    Menu* pMenu = Menu::create(shareButton, NULL);
+    pMenu->setPosition(Vec2::ZERO);
+    this->addChild(pMenu, 1);
     
 
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     //iOS代码
-//    [[CSInterstitial sharedInterstitial] loadInterstitial];
-//    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
+    [[CSInterstitial sharedInterstitial] loadInterstitial];
+    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
 #else
     //Android代码
 #endif

@@ -10,7 +10,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "PlayScene.h"
-//#include "ChanceAd.h"
+#include "ChanceAd.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 //iOS代码

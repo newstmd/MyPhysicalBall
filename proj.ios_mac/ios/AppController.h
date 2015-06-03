@@ -1,12 +1,9 @@
 #import <UIKit/UIKit.h>
-#import "BaiduMobAdView.h"
 
 @class RootViewController;
 
-@interface AppController : NSObject <UIApplicationDelegate,BaiduMobAdViewDelegate> {
+@interface AppController : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    BaiduMobAdView* sharedAdView;
-    
 }
 
 @property(nonatomic, readonly) RootViewController* viewController;

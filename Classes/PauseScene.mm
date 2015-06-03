@@ -11,7 +11,7 @@
 #include "ui/CocosGUI.h"
 #include "PlayScene.h"
 #include "MainItem.h"
-//#include "ChanceAd.h"
+#include "ChanceAd.h"
 USING_NS_CC_MATH;
 USING_NS_CC;
 
@@ -121,8 +121,8 @@ bool PauseScene::init()
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     //iOS代码
-//    [[CSInterstitial sharedInterstitial] loadInterstitial];
-//    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
+    [[CSInterstitial sharedInterstitial] loadInterstitial];
+    [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
 
 #else
     //Android代码
