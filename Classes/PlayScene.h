@@ -8,6 +8,7 @@
 //#include "ChanceAd.h"
 #include "MobClickCpp.h"
 #include "ui/CocosGUI.h"
+#include <BaiduMobAdView.h>
 
 USING_NS_CC;
 

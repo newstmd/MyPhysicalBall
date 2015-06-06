@@ -125,7 +125,9 @@ static AppDelegate s_sharedApplication;
     }
     CGPoint cg = CGPointMake(xx, yy);
     [sharedAdView setCenter:cg];
-    [window addSubview:sharedAdView];
+    [sharedAdView setTag:999];
+    UIViewController * vc = [[[UIApplication sharedApplication]keyWindow]rootViewController];
+    [[vc view] addSubview:sharedAdView];
     [sharedAdView start];
 //CSBannerView
     return YES;
@@ -142,6 +144,7 @@ static AppDelegate s_sharedApplication;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    [sharedAdView start];
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */

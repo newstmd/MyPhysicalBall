@@ -11,6 +11,8 @@
 #include "CCUMSocialSDK.h"
 #include "UMShareButton.h"
 #include "ChanceAd.h"
+
+#import <UIKit/UIKit.h>
 #define font_type "YuppySC-Regular"
 
 USING_NS_UM_SOCIAL;
@@ -27,6 +29,9 @@ bool ResultScene::init()
     if (!Layer::init()) {
         return false;
     }
+    BaiduMobAdView * vc = [[[UIApplication sharedApplication]keyWindow] viewWithTag:999];
+    [vc close];
+    
     int totalscore = UserDefault::getInstance()->getIntegerForKey(Key_TotalScore);
     int totalrate = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate);
     winSize = Director::getInstance()->getVisibleSize();
@@ -41,7 +46,6 @@ bool ResultScene::init()
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
-            
             Director::getInstance()->popToRootScene();
             
         }
@@ -158,7 +162,14 @@ bool ResultScene::init()
 #else
     //Android代码
 #endif
-
+    
+    //UIViewController * vc = [[[UIApplication sharedApplication]keyWindow]rootViewController];
+//    NSArray *na =  [vc childViewControllers];
+//    for (int i = 0; i<na.count; i++) {
+        //if ([na[i] tag] == 999 ) {
+//            log("tag:%ld",(long)[na[i] tag]);
+        //}
+//    }
     
     return true;
     

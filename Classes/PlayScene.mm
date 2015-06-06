@@ -28,6 +28,7 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
+
 Scene* PlayScene::createScene()
 {
     
@@ -509,12 +510,6 @@ void PlayScene::refreshScore()
     }
     
 }
-
-
-
-
-
-
 
 
 
