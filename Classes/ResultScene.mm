@@ -114,7 +114,7 @@ bool ResultScene::init()
     
     CCUMSocialSDK *sdk = shareButton->getSocialSDK();
     // sdk->setQQAppIdAndAppKey("设置QQ的app id", "appkey");
-    sdk->setTargetUrl("http://moodle.bashu.com.cn:12121/savestars.html");
+    sdk->setTargetUrl("https://itunes.apple.com/us/app/zheng-jiu-xing-xing-savestars/id998182238?l=zh&ls=1&mt=8");
     sdk->setWeiXinAppInfo("wx79ed32927e487511","706a20ae37a78ec5f604f8ab3656146c");
     sdk->setQQAppIdAndAppKey("1104667164", "ZK9OLfLqaGPsrRW9");
     
