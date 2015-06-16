@@ -11,6 +11,7 @@
 #include "CCUMSocialSDK.h"
 #include "UMShareButton.h"
 #include "ChanceAd.h"
+#include "NCSGameCenter.h"
 
 #import <UIKit/UIKit.h>
 #define font_type "YuppySC-Regular"
@@ -39,10 +40,10 @@ bool ResultScene::init()
     bg->setAnchorPoint(Vec2(0.5,0.5));
     bg->setPosition(winSize/2);
     addChild(bg);
-    
+    //回到主界面按钮
     auto backButton = cocos2d::ui::Button::create("backMain.png");
     backButton->setAnchorPoint(Vec2(0.5,0.5));
-    backButton->setPosition(Vec2(winSize.width/2 - 200,300));
+    backButton->setPosition(Vec2(winSize.width/2 - 240,300));
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -51,10 +52,10 @@ bool ResultScene::init()
         }
         
     });
-    
+    //开始新游戏按钮
     auto newGameButton = cocos2d::ui::Button::create("newGame.png");
     newGameButton->setAnchorPoint(Vec2(0.5,0.5));
-    newGameButton->setPosition(Vec2(winSize.width/2,300));
+    newGameButton->setPosition(Vec2(winSize.width/2-80,300));
     addChild(newGameButton);
     newGameButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -65,6 +66,21 @@ bool ResultScene::init()
         
     });
     
+    //GameCenter排行按钮
+    auto gameCenterButton = cocos2d::ui::Button::create("Gamecenter.png");
+    gameCenterButton->setAnchorPoint(Vec2(0.5,0.5));
+    gameCenterButton->setPosition(Vec2(winSize.width/2+240,300));
+    addChild(gameCenterButton);
+    gameCenterButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            //Director::getInstance()->replaceScene(PlayScene::createScene());
+            //Director::getInstance()->popToRootScene();
+            NCSGameCenter *gamecenter = [NCSGameCenter sharedGameCenter];
+            [gamecenter showLeaderboard];
+        }
+        
+    });
+    //旋转地光环
     auto guanghuan  = Sprite::create("guanghuan.png");
     guanghuan->setAnchorPoint(Vec2(0.5,0.5));
     guanghuan->setPosition(winSize/2);
@@ -100,6 +116,9 @@ bool ResultScene::init()
     addChild(rateLabel,999);
     
     umeng::MobClickCpp::failLevel(StringUtils::format("游戏结束在第%d关，%d分！",totalrate,totalscore).c_str());
+    NCSGameCenter* gamecenter = [NCSGameCenter sharedGameCenter];
+    [gamecenter reportScore:totalscore forCategory:@"high_marks"];
+    //[gamecenter showLeaderboard];
     //清除关卡数据
     UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
     UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
@@ -145,7 +164,7 @@ bool ResultScene::init()
     // 设置要分享的图片, 图片支持本地图片和url图片, 但是url图片必须以http://或者https://开头
     //shareButton->setShareImage(imageFilePath.c_str()) ;
     // 设置按钮的位置
-    shareButton->setPosition(Vec2(winSize.width/2 + 200,300));
+    shareButton->setPosition(Vec2(winSize.width/2 + 80,300));
     //shareButton->setPosition(ccp(winSize.width/2 + 200,300));
     // 然后开发者需要将该按钮添加到游戏场景中
     
@@ -153,7 +172,7 @@ bool ResultScene::init()
     pMenu->setPosition(Vec2::ZERO);
     this->addChild(pMenu, 1);
     
-
+    
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     //iOS代码

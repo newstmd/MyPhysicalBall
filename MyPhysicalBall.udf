@@ -27,14 +27,5 @@
         <LastRunType Value="Android" />
       </Value>
     </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="MainScene.csd" />
-          <FilePathData Path="Layer.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="Layer.csd" />
-      </Value>
-    </Item>
   </Properties>
 </UserData>

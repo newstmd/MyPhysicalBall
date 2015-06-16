@@ -21,6 +21,7 @@ class MainItemScene :public cocos2d::Layer
 {
 private:
     //void newGameCallBack(cocos2d::Ref* pSender);
+    cocos2d::Size  winSize;
     
 public:
     bool backGroundMusicIsOpen = true;

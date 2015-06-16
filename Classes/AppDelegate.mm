@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "MainItem.h"
-#include "ResultScene.h"
+//#include "ResultScene.h"
+#include "NCSGameCenter.h"
 //#include "NCSGameCenter.h"
 //#include "UMSocial.h"
 //#include "ChanceAd.h"
@@ -30,8 +31,12 @@ void AppDelegate::initGLContextAttrs()
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
-    
-    
+    //NCSGameCenter* gameCenter = [NCSGameCenter sharedGameCenter];
+    //[gameCenter registerForAuthenticationNotification];
+    //[gameCenter authenticateLocalUser];
+    NCSGameCenter *gameCenter = [NCSGameCenter sharedGameCenter];
+    [gameCenter authenticateLocalUser];
+
     MOBCLICKCPP_START_WITH_APPKEY("556279e967e58ebe7e004aee");
     //NCSGameCenter *sGameCenter = [NCSGameCenter sharedGameCenter];
     
@@ -65,7 +70,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //    [bannerView loadRequest:[CSADRequest request]];
 //    scene->addChild(bannerView);
     //glview->get
-
+    //[gameCenter showLeaderboard];
     return true;
 }
 

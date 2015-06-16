@@ -11,6 +11,7 @@
 #include "ui/CocosGUI.h"
 #include "PlayScene.h"
 #include "ChanceAd.h"
+#include "NCSGameCenter.h"
 
 
 #define EffectReadyGo "readygo.wav"
@@ -37,7 +38,7 @@ bool MainItemScene::init()
     if (!Layer::init()) {
         return false;
     }
-    
+    winSize = Director::getInstance()->getVisibleSize();
     //auto rootNode = CSLoader::createNode("MainScene.csb");
     //auto button_1 = rootNode->getChildByName<ui::Button>("Button_1");
     //button_1.addTouchEventListener(cocos2d::ui::SEL_TouchEvent(newGameCallBack) );
@@ -71,7 +72,7 @@ bool MainItemScene::init()
     //添加开始按钮
     auto beginButton = cocos2d::ui::Button::create("BeginGameButton.png");
     beginButton->setAnchorPoint(Vec2(0.5,0.5));
-    beginButton->setPosition(Vec2(Director::getInstance()->getWinSize().width/2,Director::getInstance()->getWinSize().height * 0.3));
+    beginButton->setPosition(Vec2(Director::getInstance()->getWinSize().width/2,Director::getInstance()->getWinSize().height * 0.3 +50));
     addChild(beginButton);
     beginButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
@@ -104,6 +105,21 @@ bool MainItemScene::init()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(EffectWao);
     //CocosDenshion::SimpleAudioEngine::getInstance()->rewindBackgroundMusic();
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("nekomimi.mp3",true);
+    
+    auto gameCenterButton = cocos2d::ui::Button::create("Gamecenter.png");
+    gameCenterButton->setAnchorPoint(Vec2(0.5,0.5));
+    gameCenterButton->setPosition(Vec2(winSize.width - 100,1050));
+    addChild(gameCenterButton);
+    gameCenterButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            //Director::getInstance()->replaceScene(PlayScene::createScene());
+            //Director::getInstance()->popToRootScene();
+            NCSGameCenter *gamecenter = [NCSGameCenter sharedGameCenter];
+            [gamecenter showLeaderboard];
+        }
+        
+    });
+
     
 //    CGRect frameBanner = CGRectMake(0.0f, 0.0f, 320.0f, 50.0f);
 //    CSBannerView *bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];

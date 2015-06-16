@@ -23,6 +23,7 @@ class PauseScene :public cocos2d::Layer{
 private:
     cocos2d::ui::Button* effectButton;
     cocos2d::ui::Button* musicButton;
+    
     cocos2d::Size winSize;
     void musciCallback(cocos2d::Ref* pSender,ui::TouchEventType type);
 public:

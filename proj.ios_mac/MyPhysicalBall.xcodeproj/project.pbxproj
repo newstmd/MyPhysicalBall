@@ -56,6 +56,9 @@
 		06ABADDF1B0EFD3F00C07169 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADDD1B0EFD3F00C07169 /* share.png */; };
 		06ABADE11B0F1ED000C07169 /* readygo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE01B0F1ED000C07169 /* readygo.wav */; };
 		06ABADE31B0F22BA00C07169 /* zhuan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06ABADE21B0F22BA00C07169 /* zhuan.wav */; };
+		06B23E701B2FE55B003C1D53 /* NCSGameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B23E6E1B2FE55B003C1D53 /* NCSGameCenter.m */; };
+		06B23E721B2FE5B4003C1D53 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B23E711B2FE5B4003C1D53 /* GameKit.framework */; };
+		06B23E741B302CC8003C1D53 /* Gamecenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B23E731B302CC8003C1D53 /* Gamecenter.png */; };
 		06B27BBE1B162AA700D6903F /* shareImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 06B27BBD1B162AA700D6903F /* shareImage.jpg */; };
 		06B29FDE1B0B781500F5BB21 /* guanghuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B29FDD1B0B781500F5BB21 /* guanghuan.png */; };
 		06C19B801B1223ED00A6F7E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06C19B7F1B1223ED00A6F7E8 /* Images.xcassets */; };
@@ -82,7 +85,6 @@
 		06E3AFDA1B12E04C00DD7DAE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3AFD91B12E04C00DD7DAE /* Social.framework */; };
 		06E3AFEB1B13052000DD7DAE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3AFDB1B12E05700DD7DAE /* Accounts.framework */; };
 		06E3AFF61B13159C00DD7DAE /* ChanceAdRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06E3AFEE1B13159C00DD7DAE /* ChanceAdRes.bundle */; };
-		06F27D641B0F89E000D5E35E /* gameCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F27D631B0F89E000D5E35E /* gameCenter.png */; };
 		06F83FAE1B15CCF400D66B29 /* libChanceAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E3AFF51B13159C00DD7DAE /* libChanceAd.a */; };
 		06F8406B1B15D14A00D66B29 /* CCUMSocialSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06F840211B15D14A00D66B29 /* CCUMSocialSDK.cpp */; };
 		06F8406C1B15D14A00D66B29 /* UmSocialControllerIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 06F840261B15D14A00D66B29 /* UmSocialControllerIOS.mm */; };
@@ -232,6 +234,10 @@
 		06ABADDD1B0EFD3F00C07169 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		06ABADE01B0F1ED000C07169 /* readygo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = readygo.wav; sourceTree = "<group>"; };
 		06ABADE21B0F22BA00C07169 /* zhuan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zhuan.wav; sourceTree = "<group>"; };
+		06B23E6E1B2FE55B003C1D53 /* NCSGameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCSGameCenter.m; path = ios/NCSGameCenter.m; sourceTree = SOURCE_ROOT; };
+		06B23E6F1B2FE55B003C1D53 /* NCSGameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCSGameCenter.h; path = ios/NCSGameCenter.h; sourceTree = SOURCE_ROOT; };
+		06B23E711B2FE5B4003C1D53 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		06B23E731B302CC8003C1D53 /* Gamecenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gamecenter.png; sourceTree = "<group>"; };
 		06B27BBD1B162AA700D6903F /* shareImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shareImage.jpg; sourceTree = "<group>"; };
 		06B29FDD1B0B781500F5BB21 /* guanghuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guanghuan.png; sourceTree = "<group>"; };
 		06C19B7F1B1223ED00A6F7E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MyPhysicalBall iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
@@ -269,7 +275,6 @@
 		06E3AFF31B13159C00DD7DAE /* CSNativeMoreGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSNativeMoreGame.h; sourceTree = "<group>"; };
 		06E3AFF41B13159C00DD7DAE /* CSRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSRequestError.h; sourceTree = "<group>"; };
 		06E3AFF51B13159C00DD7DAE /* libChanceAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChanceAd.a; sourceTree = "<group>"; };
-		06F27D631B0F89E000D5E35E /* gameCenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameCenter.png; sourceTree = "<group>"; };
 		06F840211B15D14A00D66B29 /* CCUMSocialSDK.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCUMSocialSDK.cpp; sourceTree = "<group>"; };
 		06F840221B15D14A00D66B29 /* CCUMSocialSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUMSocialSDK.h; sourceTree = "<group>"; };
 		06F840231B15D14A00D66B29 /* CCUMTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUMTypeDef.h; sourceTree = "<group>"; };
@@ -385,6 +390,7 @@
 				064420721B1F5F980092F74B /* Security.framework in Frameworks */,
 				064420701B1F5F8C0092F74B /* QuartzCore.framework in Frameworks */,
 				06F83FAE1B15CCF400D66B29 /* libChanceAd.a in Frameworks */,
+				06B23E721B2FE5B4003C1D53 /* GameKit.framework in Frameworks */,
 				06E3AFEB1B13052000DD7DAE /* Accounts.framework in Frameworks */,
 				06E3AFDA1B12E04C00DD7DAE /* Social.framework in Frameworks */,
 				06E3AFD81B12E03600DD7DAE /* libstdc++.dylib in Frameworks */,
@@ -573,8 +579,8 @@
 		06CC17671B0D608C009E7F82 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				06B23E731B302CC8003C1D53 /* Gamecenter.png */,
 				06B27BBD1B162AA700D6903F /* shareImage.jpg */,
-				06F27D631B0F89E000D5E35E /* gameCenter.png */,
 				06ABADDC1B0EFD3F00C07169 /* newGame.png */,
 				06ABADDD1B0EFD3F00C07169 /* share.png */,
 				06ABADDA1B0EFD1800C07169 /* backMain.png */,
@@ -861,6 +867,8 @@
 				503AE0FD17EB989F00D1A890 /* Prefix.pch */,
 				503AE0FE17EB989F00D1A890 /* RootViewController.h */,
 				503AE0FF17EB989F00D1A890 /* RootViewController.mm */,
+				06B23E6E1B2FE55B003C1D53 /* NCSGameCenter.m */,
+				06B23E6F1B2FE55B003C1D53 /* NCSGameCenter.h */,
 			);
 			name = ios;
 			path = Classes;
@@ -893,6 +901,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06B23E711B2FE5B4003C1D53 /* GameKit.framework */,
 				0644207B1B1F60410092F74B /* CoreLocation.framework */,
 				064420791B1F602A0092F74B /* MessageUI.framework */,
 				064420771B1F60130092F74B /* MediaPlayer.framework */,
@@ -1065,7 +1074,7 @@
 						DevelopmentTeam = CG7LCNA3DE;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -1142,6 +1151,7 @@
 				06DCE7311B0AD00900B17CA1 /* lizilv.png in Resources */,
 				061EF2F51B0EDE0B00689180 /* effectOpen.png in Resources */,
 				06C6BCC01B0CE28300D8B6D7 /* play.png in Resources */,
+				06B23E741B302CC8003C1D53 /* Gamecenter.png in Resources */,
 				06F8407A1B15D14A00D66B29 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				06F840731B15D14A00D66B29 /* UMSCommentInputController.xib in Resources */,
 				06ABADE31B0F22BA00C07169 /* zhuan.wav in Resources */,
@@ -1149,7 +1159,6 @@
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				061EF2F41B0EDE0B00689180 /* effectClose.png in Resources */,
 				061EF2EB1B0ECA2500689180 /* YuppySC-Regular.otf in Resources */,
-				06F27D641B0F89E000D5E35E /* gameCenter.png in Resources */,
 				06ABADDE1B0EFD3F00C07169 /* newGame.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				06F840751B15D14A00D66B29 /* UMShareEditViewController.xib in Resources */,
@@ -1188,6 +1197,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				0644206B1B1F5E080092F74B /* mztools.c in Sources */,
+				06B23E701B2FE55B003C1D53 /* NCSGameCenter.m in Sources */,
 				06CC176C1B0D6501009E7F82 /* ResultScene.mm in Sources */,
 				064420681B1F5E080092F74B /* CJSONScanner.m in Sources */,
 				06F8406E1B15D14A00D66B29 /* UMShareButton.cpp in Sources */,
