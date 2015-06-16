@@ -9,19 +9,10 @@
 
 //#define font_type "RTWSYueGoTrial-Regular"
 #define font_type "YuppySC-Regular"
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//iOS代码
-    #define EffectReadyGo "readygo.wav"
-    #define EffectWao "wao.wav"
-    #define EffectMoFa "mofa.wav"
-    #define EffectZhuan "zhuan.wav"
-#else
-//Android代码
-    #define EffectReadyGo ""
-    #define EffectWao ""
-    #define EffectMoFa ""
-    #define EffectZhuan ""
-#endif
+#define EffectReadyGo "readygo.wav"
+#define EffectWao "wao.wav"
+#define EffectMoFa "mofa.wav"
+#define EffectZhuan "zhuan.wav"
 
 USING_NS_CC_MATH;
 USING_NS_CC;
@@ -151,7 +142,8 @@ bool PlayScene::init()
     return true;
 }
 
-void PlayScene::update(float delta){
+void PlayScene::update(float delta)
+{
     for (int i = 0; i < 3; ++i)
         
     {
@@ -199,7 +191,7 @@ void PlayScene::initShuJu()
     guanka[1] = 1000;
     guanka[2] = 2500;
     guanka[3] = 4500;
-    for (int i = 4; i<100; i++) {
+    for (int i = 4; i<200; i++) {
         guanka[i] = guanka[i-1] + 2000 + 50*(i-3);
     }
     return;

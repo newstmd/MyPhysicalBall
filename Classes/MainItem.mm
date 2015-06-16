@@ -12,21 +12,13 @@
 #include "PlayScene.h"
 #include "ChanceAd.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//iOS代码
+
 #define EffectReadyGo "readygo.wav"
 #define EffectWao "wao.wav"
 #define EffectMoFa "mofa.wav"
 #define EffectZhuan "zhuan.wav"
-#else
-//Android代码
-#define EffectReadyGo ""
-#define EffectWao ""
-#define EffectMoFa ""
-#define EffectZhuan ""
-#endif
 
-//#include "PGStoreKitManager.h"
+
 USING_NS_CC_MATH;
 USING_NS_CC;
 

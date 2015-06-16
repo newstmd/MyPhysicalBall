@@ -15,7 +15,7 @@ USING_NS_CC;
 class PlayScene : public cocos2d::Layer
 {
 private:
-    int guanka[100];
+    int guanka[201];
     void initShuJu();
     int currentRate = 1;
     Label* messageLabel;
