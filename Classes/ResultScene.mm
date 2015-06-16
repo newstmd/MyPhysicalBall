@@ -14,7 +14,8 @@
 #include "NCSGameCenter.h"
 
 #import <UIKit/UIKit.h>
-#define font_type "YuppySC-Regular"
+//#define font_type "YuppySC-Regular"
+#define font_type "-"
 
 USING_NS_UM_SOCIAL;
 Scene* ResultScene::createScene()
@@ -190,10 +191,35 @@ bool ResultScene::init()
         //}
 //    }
     
+    //尝试延时截图
+    
+    //utils::captureScreen(CC_CALLBACK_2(ResultScene::afterCaptured, this),"CaptureScreenTest.png");
+    
     return true;
     
 }
 
+void ResultScene::captureIt(){
+    utils::captureScreen(CC_CALLBACK_2(ResultScene::afterCaptured, this),"CaptureScreenTest.png");
+}
+
+void ResultScene::afterCaptured(bool succeed, const std::string& outputFile)
+{
+    if (succeed)
+    {
+        // show screenshot
+        log(outputFile.c_str());
+        auto sp = Sprite::create(outputFile);
+        addChild(sp, 9999);
+        cocos2d::Size s = Director::getInstance()->getWinSize();
+        sp->setPosition(s.width / 2, s.height / 2);
+        sp->setScale(0.25);
+    }
+    else
+    {
+        log("Capture screen failed.");
+    }
+}
 //void shareCallback(int platform, int stCode,string& errorMsg)
 //{
 //    if ( stCode == 100 )

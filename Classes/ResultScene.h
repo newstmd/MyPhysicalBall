@@ -29,6 +29,8 @@ private:
 public:
     
     static cocos2d::Scene* createScene();
+    void afterCaptured(bool succeed, const std::string& outputFile);
+    void captureIt();
     virtual bool init();
     //virtual void onEnter();
     CREATE_FUNC(ResultScene);

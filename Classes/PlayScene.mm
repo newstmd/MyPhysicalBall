@@ -7,8 +7,8 @@
 #include "ResultScene.h"
 
 
-//#define font_type "RTWSYueGoTrial-Regular"
-#define font_type "YuppySC-Regular"
+#define font_type "-"
+//#define font_type "YuppySC-Regular"
 #define EffectReadyGo "readygo.wav"
 #define EffectWao "wao.wav"
 #define EffectMoFa "mofa.wav"

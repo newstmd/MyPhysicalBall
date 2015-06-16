@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		061A934D1B0E124E0046637B /* PlayGround.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 061A934C1B0E124E0046637B /* PlayGround.jpg */; };
-		061EF2EB1B0ECA2500689180 /* YuppySC-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 061EF2EA1B0EC95B00689180 /* YuppySC-Regular.otf */; };
 		061EF2ED1B0ED68D00689180 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 061EF2EC1B0ED68D00689180 /* logo.png */; };
 		061EF2EF1B0ED91100689180 /* pausebackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 061EF2EE1B0ED91100689180 /* pausebackground.png */; };
 		061EF2F41B0EDE0B00689180 /* effectClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 061EF2F01B0EDE0B00689180 /* effectClose.png */; };
@@ -40,6 +39,7 @@
 		064420781B1F60130092F74B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064420771B1F60130092F74B /* MediaPlayer.framework */; };
 		0644207A1B1F602A0092F74B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064420791B1F602A0092F74B /* MessageUI.framework */; };
 		0644207C1B1F60410092F74B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0644207B1B1F60410092F74B /* CoreLocation.framework */; };
+		064E12CA1B30769800E23F23 /* xxt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 064E12C91B30769800E23F23 /* xxt.ttf */; };
 		06630C2E1B0F29AF00CAD4F4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C2D1B0F29AF00CAD4F4 /* SystemConfiguration.framework */; };
 		06630C301B0F29C000CAD4F4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C2F1B0F29C000CAD4F4 /* StoreKit.framework */; };
 		06630C321B0F29CC00CAD4F4 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C311B0F29CC00CAD4F4 /* AdSupport.framework */; };
@@ -156,7 +156,6 @@
 
 /* Begin PBXFileReference section */
 		061A934C1B0E124E0046637B /* PlayGround.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PlayGround.jpg; sourceTree = "<group>"; };
-		061EF2EA1B0EC95B00689180 /* YuppySC-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YuppySC-Regular.otf"; sourceTree = "<group>"; };
 		061EF2EC1B0ED68D00689180 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		061EF2EE1B0ED91100689180 /* pausebackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebackground.png; sourceTree = "<group>"; };
 		061EF2F01B0EDE0B00689180 /* effectClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = effectClose.png; sourceTree = "<group>"; };
@@ -217,6 +216,7 @@
 		064420771B1F60130092F74B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		064420791B1F602A0092F74B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		0644207B1B1F60410092F74B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		064E12C91B30769800E23F23 /* xxt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xxt.ttf; sourceTree = "<group>"; };
 		06630C2D1B0F29AF00CAD4F4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		06630C2F1B0F29C000CAD4F4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		06630C311B0F29CC00CAD4F4 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
@@ -571,7 +571,7 @@
 		06C72BC01B0C30C7000D6BBB /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				061EF2EA1B0EC95B00689180 /* YuppySC-Regular.otf */,
+				064E12C91B30769800E23F23 /* xxt.ttf */,
 			);
 			name = fonts;
 			sourceTree = "<group>";
@@ -1150,6 +1150,7 @@
 				06DCA8251B09C9C600AA2175 /* BeginGameButton.png in Resources */,
 				06DCE7311B0AD00900B17CA1 /* lizilv.png in Resources */,
 				061EF2F51B0EDE0B00689180 /* effectOpen.png in Resources */,
+				064E12CA1B30769800E23F23 /* xxt.ttf in Resources */,
 				06C6BCC01B0CE28300D8B6D7 /* play.png in Resources */,
 				06B23E741B302CC8003C1D53 /* Gamecenter.png in Resources */,
 				06F8407A1B15D14A00D66B29 /* UMSocialSDKResourcesNew.bundle in Resources */,
@@ -1158,7 +1159,6 @@
 				06ABADE11B0F1ED000C07169 /* readygo.wav in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				061EF2F41B0EDE0B00689180 /* effectClose.png in Resources */,
-				061EF2EB1B0ECA2500689180 /* YuppySC-Regular.otf in Resources */,
 				06ABADDE1B0EFD3F00C07169 /* newGame.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				06F840751B15D14A00D66B29 /* UMShareEditViewController.xib in Resources */,
