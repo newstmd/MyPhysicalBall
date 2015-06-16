@@ -20,6 +20,7 @@
 #include "MobClickCpp.h"
 #include "ChanceAd.h"
 #import "BaiduMobAdView.h"
+#include "UMShareButton.h"
 USING_NS_CC;
 class ResultScene :public cocos2d::Layer{
     
@@ -27,7 +28,8 @@ private:
     cocos2d::Size winSize;
     //void shareCallback(int platform, int stCode,const string& errorMsg);
 public:
-    
+    umeng::social::UMShareButton *shareButton;
+    //string imageName;
     static cocos2d::Scene* createScene();
     void afterCaptured(bool succeed, const std::string& outputFile);
     void captureIt();

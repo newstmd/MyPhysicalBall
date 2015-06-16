@@ -130,7 +130,7 @@ bool ResultScene::init()
     
     //UMShareButton *shareButton = UMShareButton::create("shareNormal.png","shareSelected.png", "你的友盟appkey", share_selector(shareCallback)) ;
     
-    UMShareButton *shareButton = UMShareButton::create("share.png","share.png", "556279e967e58ebe7e004aee", NULL) ;
+    shareButton = UMShareButton::create("share.png","share.png", "556279e967e58ebe7e004aee", NULL) ;
     
     CCUMSocialSDK *sdk = shareButton->getSocialSDK();
     // sdk->setQQAppIdAndAppKey("设置QQ的app id", "appkey");
@@ -158,10 +158,11 @@ bool ResultScene::init()
     shareButton->setPlatforms(platforms);
     //屏幕截图
     //std::string imageFilePath = "shareImage.jpg";
+    //imageName = "shareImage.jpg";
     shareButton->setShareImage("shareImage.jpg") ;
     
     // 设置文本分享内容
-    shareButton->setShareContent(StringUtils::format("根本停不下来！我正在玩‘拯救星星’！成功攻克%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
+    shareButton->setShareContent(StringUtils::format("我正在玩拯救星星！成功拿下%d关，总分%d。求超越。。。求挑战。。。",totalrate,totalscore).c_str()) ;
     // 设置要分享的图片, 图片支持本地图片和url图片, 但是url图片必须以http://或者https://开头
     //shareButton->setShareImage(imageFilePath.c_str()) ;
     // 设置按钮的位置
@@ -194,6 +195,16 @@ bool ResultScene::init()
     //尝试延时截图
     
     //utils::captureScreen(CC_CALLBACK_2(ResultScene::afterCaptured, this),"CaptureScreenTest.png");
+//    auto jin = MoveTo::create(0.3, winSize/2);
+//    auto ting = DelayTime::create(1);
+//    auto chu = MoveTo::create(0.3, Vec2(-200,winSize.height/2));
+//    auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::AddBalls, this));
+//    auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
+    
+    auto ting = DelayTime::create(2);
+    auto callFunc = CallFunc::create(CC_CALLBACK_0(ResultScene::captureIt, this));
+    auto hecheng = Sequence::create(ting,callFunc, nil);
+    runAction(hecheng);
     
     return true;
     
@@ -201,6 +212,7 @@ bool ResultScene::init()
 
 void ResultScene::captureIt(){
     utils::captureScreen(CC_CALLBACK_2(ResultScene::afterCaptured, this),"CaptureScreenTest.png");
+    
 }
 
 void ResultScene::afterCaptured(bool succeed, const std::string& outputFile)
@@ -208,12 +220,14 @@ void ResultScene::afterCaptured(bool succeed, const std::string& outputFile)
     if (succeed)
     {
         // show screenshot
-        log(outputFile.c_str());
-        auto sp = Sprite::create(outputFile);
-        addChild(sp, 9999);
-        cocos2d::Size s = Director::getInstance()->getWinSize();
-        sp->setPosition(s.width / 2, s.height / 2);
-        sp->setScale(0.25);
+        //imageName = outputFile;
+        shareButton->setShareImage(outputFile.c_str());
+        //log(outputFile.c_str());
+//        auto sp = Sprite::create(outputFile);
+//        addChild(sp, 9999);
+//        cocos2d::Size s = Director::getInstance()->getWinSize();
+//        sp->setPosition(s.width / 2, s.height / 2);
+//        sp->setScale(0.5);
     }
     else
     {
