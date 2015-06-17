@@ -46,6 +46,7 @@
 		06630C341B0F29DA00CAD4F4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06630C331B0F29DA00CAD4F4 /* CoreTelephony.framework */; };
 		066BA00D1B01B5B900BF1D61 /* MainItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 066BA00B1B01B5B900BF1D61 /* MainItem.mm */; };
 		069AEE321B0C6A5C0067EBDD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 069AEE311B0C6A5C0067EBDD /* pause.png */; };
+		069E07611B31C62F00EB8B6A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069E07601B31C62F00EB8B6A /* ImageIO.framework */; };
 		069E33AA1B0969E100D5253A /* ball4.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A51B0969E100D5253A /* ball4.png */; };
 		069E33AB1B0969E100D5253A /* ball3.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A61B0969E100D5253A /* ball3.png */; };
 		069E33AC1B0969E100D5253A /* ball1.png in Resources */ = {isa = PBXBuildFile; fileRef = 069E33A71B0969E100D5253A /* ball1.png */; };
@@ -224,6 +225,7 @@
 		066BA00B1B01B5B900BF1D61 /* MainItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainItem.mm; sourceTree = "<group>"; };
 		066BA00C1B01B5B900BF1D61 /* MainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainItem.h; sourceTree = "<group>"; };
 		069AEE311B0C6A5C0067EBDD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		069E07601B31C62F00EB8B6A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		069E33A51B0969E100D5253A /* ball4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball4.png; sourceTree = "<group>"; };
 		069E33A61B0969E100D5253A /* ball3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball3.png; sourceTree = "<group>"; };
 		069E33A71B0969E100D5253A /* ball1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball1.png; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				069E07611B31C62F00EB8B6A /* ImageIO.framework in Frameworks */,
 				0644207C1B1F60410092F74B /* CoreLocation.framework in Frameworks */,
 				0644207A1B1F602A0092F74B /* MessageUI.framework in Frameworks */,
 				064420781B1F60130092F74B /* MediaPlayer.framework in Frameworks */,
@@ -901,6 +904,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				069E07601B31C62F00EB8B6A /* ImageIO.framework */,
 				06B23E711B2FE5B4003C1D53 /* GameKit.framework */,
 				0644207B1B1F60410092F74B /* CoreLocation.framework */,
 				064420791B1F602A0092F74B /* MessageUI.framework */,

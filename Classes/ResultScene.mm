@@ -137,6 +137,8 @@ bool ResultScene::init()
     sdk->setTargetUrl("https://itunes.apple.com/us/app/zheng-jiu-xing-xing-savestars/id998182238?l=zh&ls=1&mt=8");
     sdk->setWeiXinAppInfo("wx79ed32927e487511","706a20ae37a78ec5f604f8ab3656146c");
     sdk->setQQAppIdAndAppKey("1104667164", "ZK9OLfLqaGPsrRW9");
+    //sdk->setSsoAuthorization(SINA, "https://api.weibo.com/oauth2/default.html");
+    
     
     sdk->setLogEnable(false);
     // 显示在友盟分享面板上的平台
@@ -155,8 +157,9 @@ bool ResultScene::init()
     platforms->push_back(EMAIL) ;
     // 设置友盟分享面板上显示的平台
     sdk->setPlatforms(platforms);
+    
     shareButton->setPlatforms(platforms);
-    //屏幕截图
+        //屏幕截图
     //std::string imageFilePath = "shareImage.jpg";
     //imageName = "shareImage.jpg";
     shareButton->setShareImage("shareImage.jpg") ;
