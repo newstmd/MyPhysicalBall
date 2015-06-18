@@ -45,6 +45,9 @@ private:
     void refreshScore();
     void refreshRate();
     void jiankongBall(float dt);
+    void saveScene();
+    void continueGame();
+    void resumeBall(float positionX, float positionY , int tags);
     //void touchNewGame(Ref* target,ui::Widget::TouchEventType type);
 //    void dingshiqi(float dt);
 //    void dingshiqi2(float dt);

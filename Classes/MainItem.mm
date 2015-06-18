@@ -47,7 +47,8 @@ bool MainItemScene::init()
     
     //id auth = PGStoreKitManager::getInstance();
     //    [auth authenticateLocalPlayer];
-    
+    //UserDefault::getInstance()->getIntegerForKey(<#const char *key#>)("ball3X");
+    log("读出ball10X:%d",UserDefault::getInstance()->getIntegerForKey("ballCount"));
     
     auto backGround = Sprite::create("BackGround.jpg");
     backGround->setAnchorPoint(Vec2(0.5,0.5));

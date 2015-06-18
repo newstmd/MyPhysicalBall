@@ -135,8 +135,14 @@ bool PlayScene::init()
     addEdges();
 
     scheduleUpdate();
+    //UserDefault::getInstance()->setBoolForKey("isWillContinue", true);
+    bool isWillContinue = UserDefault::getInstance()->getBoolForKey("isWillContinue", false);
+    if (isWillContinue) {
+        continueGame();
+    }else{
+        beginNewGame();
+    }
     
-    beginNewGame();
 
     
     return true;
@@ -199,6 +205,8 @@ void PlayScene::initShuJu()
 
 
 void PlayScene::beginNewGame(){
+    UserDefault::getInstance()->setBoolForKey("isWillContinue", true);
+    UserDefault::getInstance()->flush();
     countLabel->setString("");
     if (UserDefault::getInstance()->getIntegerForKey(Key_TotalRate) == 0) {
         UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 1);
@@ -242,6 +250,7 @@ void PlayScene::beginNewGame(){
 
 
 bool PlayScene::touchIt(Touch* touch,Event* event){
+    saveScene();
     selectedBalls.clear();
     auto clickLocation = touch->getLocation();
     
@@ -377,7 +386,7 @@ void PlayScene::addBall(float positionX, float positionY){
     ballList.pushBack(newBall);
     colorCount[rand]++;
     addChild(newBall);
-        
+    //return newBall;
 }
 
 void PlayScene::deleteBall(cocos2d::Sprite *ball){
@@ -503,7 +512,60 @@ void PlayScene::refreshScore()
     
 }
 
+void PlayScene::saveScene()
+{
+    UserDefault::getInstance()->setBoolForKey("isWillContinue", true);
+    UserDefault::getInstance()->setIntegerForKey("ballCount",(int)ballList.size());
+    UserDefault::getInstance()->setIntegerForKey("tempdefen",defen);
+    
+    for (int i = 0; i < ballList.size(); i++) {
+        string keyX =  StringUtils::format("ball%dX",i);
+        string keyY = StringUtils::format("ball%dY",i);
+        string keyTag = StringUtils::format("ball%dTag",i);
+        Sprite * tempBall = ballList.at(i);
+        UserDefault::getInstance()->setFloatForKey(keyX.c_str(),tempBall->getPosition().x);
+        UserDefault::getInstance()->setFloatForKey(keyY.c_str(),tempBall->getPosition().y);
+        UserDefault::getInstance()->setIntegerForKey(keyTag.c_str(), tempBall->getTag());
+        UserDefault::getInstance()->flush();
+    }
+}
 
+void PlayScene::continueGame()
+{
+    defen = UserDefault::getInstance()->getIntegerForKey("tempdefen");
+    refreshScore();
+    int ballCount =UserDefault::getInstance()->getIntegerForKey("ballCount");
+    ballList.clear();
+    for (int i = 0; i<ballCount; i++) {
+        string keyX =  StringUtils::format("ball%dX",i);
+        string keyY = StringUtils::format("ball%dY",i);
+        string keyTag = StringUtils::format("ball%dTag",i);
+        //float xx =
+        resumeBall(UserDefault::getInstance()->getFloatForKey(keyX.c_str()), UserDefault::getInstance()->getFloatForKey(keyY.c_str()), UserDefault::getInstance()->getIntegerForKey(keyTag.c_str()));
+        //addBall(UserDefault::getInstance()->getFloatForKey(keyX.c_str()), UserDefault::getInstance()->getFloatForKey(keyY.c_str()))->setTag(1);
+    }
+}
+
+void PlayScene::resumeBall(float positionX, float positionY , int tags)
+{
+    int rand = tags ;
+    std::string imageName = imageNames.at(rand);
+    
+    auto newBall = Sprite::create(imageName);
+    newBall->setTag(rand);
+    newBall->setPosition(positionX,positionY);
+    
+    auto ballBody = PhysicsBody::createCircle(newBall->getContentSize().width/2 );
+    ballBody->setVelocity(Vec2(0.0f,-100.0f));
+    ballBody->getFirstShape()->setDensity(8.0f);
+    ballBody->getFirstShape()->setFriction(0.1f);
+    ballBody->getFirstShape()->setRestitution(0.0f);
+    
+    newBall->setPhysicsBody(ballBody);
+    ballList.pushBack(newBall);
+    colorCount[rand]++;
+    addChild(newBall);
+}
 
 
 

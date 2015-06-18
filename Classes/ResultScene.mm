@@ -121,6 +121,7 @@ bool ResultScene::init()
     [gamecenter reportScore:totalscore forCategory:@"high_marks"];
     //[gamecenter showLeaderboard];
     //清除关卡数据
+    UserDefault::getInstance()->setBoolForKey("isWillContinue", false);
     UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
     UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
     UserDefault::getInstance()->flush();

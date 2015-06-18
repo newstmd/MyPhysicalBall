@@ -60,6 +60,8 @@ bool PauseScene::init()
     addChild(backButton);
     backButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
+            UserDefault::getInstance()->setBoolForKey("isWillContinue", false);
+            UserDefault::getInstance()->flush();
             UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
             UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
             UserDefault::getInstance()->flush();
