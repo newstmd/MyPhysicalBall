@@ -9,15 +9,18 @@
 #ifndef __MyPhysicalBall__PauseScene__
 #define __MyPhysicalBall__PauseScene__
 
-#define Key_TotalRate "TotalRate"
-#define Key_TotalScore "TotalScore"
-
+#include "MainItem.h"
 #include <stdio.h>
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "SimpleAudioEngine.h"
+
+#include "PlayScene.h"
+#include "ChanceAd.h"
+USING_NS_CC_MATH;
 USING_NS_CC;
+
 class PauseScene :public cocos2d::Layer{
     
 private:

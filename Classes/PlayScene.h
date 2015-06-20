@@ -10,13 +10,20 @@
 #include "ui/CocosGUI.h"
 #include <BaiduMobAdView.h>
 
-USING_NS_CC;
+#include "cocostudio/CocoStudio.h"
+#include "MainItem.h"
+#include "SimpleAudioEngine.h"
+#include "PauseScene.h"
+#include "ResultScene.h"
+
+
 
 class PlayScene : public cocos2d::Layer
 {
 private:
-    int guanka[201];
+    int guanka[501];
     void initShuJu();
+    void initScene();
     int currentRate = 1;
     Label* messageLabel;
     Label* scoreLabel;

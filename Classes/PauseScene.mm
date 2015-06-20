@@ -7,13 +7,6 @@
 //
 
 #include "PauseScene.h"
-#include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
-#include "PlayScene.h"
-#include "MainItem.h"
-#include "ChanceAd.h"
-USING_NS_CC_MATH;
-USING_NS_CC;
 
 using namespace cocostudio::timeline;
 

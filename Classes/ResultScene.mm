@@ -7,17 +7,7 @@
 //
 
 #include "ResultScene.h"
-#include "PlayScene.h"
-#include "CCUMSocialSDK.h"
-#include "UMShareButton.h"
-#include "ChanceAd.h"
-#include "NCSGameCenter.h"
 
-#import <UIKit/UIKit.h>
-//#define font_type "YuppySC-Regular"
-#define font_type "-"
-
-USING_NS_UM_SOCIAL;
 Scene* ResultScene::createScene()
 {
     auto scene = Scene::create();
@@ -116,12 +106,12 @@ bool ResultScene::init()
     rateLabel->setPosition(winSize.width /2 -80,700);
     addChild(rateLabel,999);
     
-    umeng::MobClickCpp::failLevel(StringUtils::format("游戏结束在第%d关，%d分！",totalrate,totalscore).c_str());
+    umeng::MobClickCpp::failLevel(StringUtils::format("第%d关",totalrate).c_str());
     NCSGameCenter* gamecenter = [NCSGameCenter sharedGameCenter];
     [gamecenter reportScore:totalscore forCategory:@"high_marks"];
     //[gamecenter showLeaderboard];
     //清除关卡数据
-    UserDefault::getInstance()->setBoolForKey("isWillContinue", false);
+    UserDefault::getInstance()->setBoolForKey(Key_isWillContinue, false);
     UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 0);
     UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
     UserDefault::getInstance()->flush();
@@ -173,6 +163,11 @@ bool ResultScene::init()
     shareButton->setPosition(Vec2(winSize.width/2 + 80,300));
     //shareButton->setPosition(ccp(winSize.width/2 + 200,300));
     // 然后开发者需要将该按钮添加到游戏场景中
+    
+    auto fangda = ScaleTo::create(0.5, 1.2);
+    auto suoxiao = ScaleTo::create(1,1.0);
+    auto ac = Sequence::create(fangda,suoxiao,NULL);
+    shareButton->runAction(RepeatForever::create(ac));
     
     Menu* pMenu = Menu::create(shareButton, NULL);
     pMenu->setPosition(Vec2::ZERO);

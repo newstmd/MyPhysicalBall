@@ -7,17 +7,8 @@
 //
 
 #include "MainItem.h"
-#include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
-#include "PlayScene.h"
-#include "ChanceAd.h"
-#include "NCSGameCenter.h"
 
 
-#define EffectReadyGo "readygo.wav"
-#define EffectWao "wao.wav"
-#define EffectMoFa "mofa.wav"
-#define EffectZhuan "zhuan.wav"
 
 
 USING_NS_CC_MATH;
@@ -48,29 +39,31 @@ bool MainItemScene::init()
     //id auth = PGStoreKitManager::getInstance();
     //    [auth authenticateLocalPlayer];
     //UserDefault::getInstance()->getIntegerForKey(<#const char *key#>)("ball3X");
-    log("读出ball10X:%d",UserDefault::getInstance()->getIntegerForKey("ballCount"));
+    //log("读出ball10X:%d",UserDefault::getInstance()->getIntegerForKey("ballCount"));
     
+    
+    //设置背景
     auto backGround = Sprite::create("BackGround.jpg");
     backGround->setAnchorPoint(Vec2(0.5,0.5));
     backGround->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);
     addChild(backGround, -1);
-    
+    //背景旋转光环
     auto guanghuan  = Sprite::create("guanghuan.png");
     guanghuan->setAnchorPoint(Vec2(0.5,0.5));
     guanghuan->setPosition(Director::getInstance()->getWinSize().width/2,Director::getInstance()->getWinSize().height * 0.66);
     addChild(guanghuan);
-    
+    //旋转光环动画
     auto xuanzhuanaction = RotateBy::create(3, 10);
     auto rep = RepeatForever::create(xuanzhuanaction);
     guanghuan->runAction(rep);
     
-    
+    //logo
     auto logo  = Sprite::create("logo.png");
     logo->setAnchorPoint(Vec2(0.5,0.5));
     logo->setPosition(Director::getInstance()->getWinSize().width/2,Director::getInstance()->getWinSize().height * 0.66);
     addChild(logo);
     
-    //添加开始按钮
+    //添加开始游戏按钮
     auto beginButton = cocos2d::ui::Button::create("BeginGameButton.png");
     beginButton->setAnchorPoint(Vec2(0.5,0.5));
     beginButton->setPosition(Vec2(Director::getInstance()->getWinSize().width/2,Director::getInstance()->getWinSize().height * 0.3 +50));
@@ -78,9 +71,9 @@ bool MainItemScene::init()
     beginButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
         if (type == ui::Widget::TouchEventType::ENDED) {
             
-            int guanka = UserDefault::getInstance()->getIntegerForKey("TotalGuanKa", 0);
+            int guanka = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate, 0);
             if (guanka == 0) {
-                UserDefault::getInstance()->setIntegerForKey("Tatalscore", 0);
+                UserDefault::getInstance()->setIntegerForKey(Key_TotalScore, 0);
                 UserDefault::getInstance()->flush();
                 //log("这是新游戏");
             }else{
@@ -94,11 +87,13 @@ bool MainItemScene::init()
         }
 
     });
+    //按钮放大动画
     auto fangda = ScaleTo::create(0.5, 1.2);
     auto suoxiao = ScaleTo::create(1,1.0);
     auto ac = Sequence::create(fangda,suoxiao,NULL);
     beginButton->runAction(RepeatForever::create(ac));
     
+    //预加载音效文件
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("nekomimi.mp3");
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(EffectMoFa);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(EffectZhuan);
@@ -107,6 +102,7 @@ bool MainItemScene::init()
     //CocosDenshion::SimpleAudioEngine::getInstance()->rewindBackgroundMusic();
     CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("nekomimi.mp3",true);
     
+    //GameCenter按钮
     auto gameCenterButton = cocos2d::ui::Button::create("Gamecenter.png");
     gameCenterButton->setAnchorPoint(Vec2(0.5,0.5));
     gameCenterButton->setPosition(Vec2(winSize.width - 100,1050));
@@ -120,17 +116,12 @@ bool MainItemScene::init()
         }
         
     });
-
     
-//    CGRect frameBanner = CGRectMake(0.0f, 0.0f, 320.0f, 50.0f);
-//    CSBannerView *bannerView = [[CSBannerView alloc] initWithFrame:frameBanner];
-//    [bannerView loadRequest:[CSADRequest request]];
-//    [bannerView setHidden:true];
+    auto fangda2 = ScaleTo::create(0.5, 1.1);
+    auto suoxiao2 = ScaleTo::create(1,1.0);
+    auto ac2 = Sequence::create(fangda2,suoxiao2,NULL);
+    gameCenterButton->runAction(RepeatForever::create(ac2));
     
     return true;
 }
 
-void newGameCallBack(cocos2d::Ref* pSender)
-{
-    //log("ok");
-}

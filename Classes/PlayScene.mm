@@ -1,21 +1,4 @@
 #include "PlayScene.h"
-#include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
-#include "MainItem.h"
-#include "SimpleAudioEngine.h"
-#include "PauseScene.h"
-#include "ResultScene.h"
-
-
-#define font_type "-"
-//#define font_type "YuppySC-Regular"
-#define EffectReadyGo "readygo.wav"
-#define EffectWao "wao.wav"
-#define EffectMoFa "mofa.wav"
-#define EffectZhuan "zhuan.wav"
-
-USING_NS_CC_MATH;
-USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
@@ -51,91 +34,10 @@ bool PlayScene::init()
 
     initShuJu();
     
-    auto backGround1 = Sprite::create("PlayGround.jpg");
-    backGround1->setAnchorPoint(Vec2(0.5,0.5));
-    backGround1->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);
-    addChild(backGround1, -1);
-    
-
-    //暂停的button
-    auto pauseButton = cocos2d::ui::Button::create("pause.png");
-    //pauseButton->setScale(0.8);
-    pauseButton->setAnchorPoint(Vec2(0.5,0.5));
-    pauseButton->setPosition(Vec2(MiddleX + 230,1080));
-    addChild(pauseButton);
-    pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
-        if (type == ui::Widget::TouchEventType::ENDED) {
-            auto fade = TransitionMoveInT::create(0.5, PauseScene::createScene());
-            Director::getInstance()->pushScene(fade);
-        }
-        
-    });
-
-    auto listener1 = EventListenerTouchOneByOne::create();
-    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
-    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
-    
-    messageLabel = Label::create();
-    //messageLabel = Label::createWithTTF("", const std::string &fontFilePath, float fontSize)
-    messageLabel->setTextColor(Color4B::WHITE);
-    messageLabel->setSystemFontSize(60);
-    messageLabel->setString("浮动信息");
-    messageLabel->setSystemFontName(font_type);
-    messageLabel->setVisible(false);
-    messageLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
-    messageLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
-    addChild(messageLabel,99);
-    //messageLabel->autorelease();
-
-
-    
-    scoreLabel = Label::create();
-    //scoreLabel = Label::createWithTTF("", "STHeitiSC-Light", 40);
-    scoreLabel->setTextColor(Color4B::WHITE);
-    scoreLabel->setSystemFontSize(40);
-    //log("%s",scoreLabel->getSystemFontName().c_str());
-    //scoreLabel->setColor(Color3B::WHITE);
-    scoreLabel->setSystemFontName(font_type);
-    
-    scoreLabel->setString("得分：0");
-    scoreLabel->setPosition(winSize.width/2, 1020);
-    addChild(scoreLabel,999);
-    //scoreLabel->autorelease();
-
-    mubiaoLabel = Label::create();
-        mubiaoLabel->setTextColor(Color4B::WHITE);
-    mubiaoLabel->setSystemFontSize(40);
-    mubiaoLabel->setString("目标：");
-    mubiaoLabel->setSystemFontName(font_type);
-    mubiaoLabel->setPosition(winSize.width/2 , 1080);
-    addChild(mubiaoLabel,999);
-    //mubiaoLabel->autorelease();
-
-    rateLabel = Label::create();
-    
-    //log("%s",rateLabel->getFontName().c_str());
-    //rateLabel->setFontName(;)
-    rateLabel->setTextColor(Color4B::WHITE);
-    rateLabel->setSystemFontSize(40);
-    rateLabel->setString("关卡数");
-    rateLabel->setSystemFontName(font_type);
-    rateLabel->setPosition(winSize.width/2 - 220, 1080);
-    addChild(rateLabel,999);
-    //rateLabel->autorelease();
-    
-    countLabel = Label::create();
-    countLabel->setTextColor(Color4B::WHITE);
-    countLabel->setSystemFontSize(30);
-    countLabel->setSystemFontName(font_type);
-    countLabel->setString("");
-    countLabel->setPosition(winSize.width/2, 960);
-    addChild(countLabel,999);
-
-    //schedule(schedule_selector(PlayScene::jiankongBall), 1.0f/10, kRepeatForever, 0);
-    addEdges();
+    initScene();
 
     scheduleUpdate();
-    //UserDefault::getInstance()->setBoolForKey("isWillContinue", true);
+    
     bool isWillContinue = UserDefault::getInstance()->getBoolForKey("isWillContinue", false);
     if (isWillContinue) {
         continueGame();
@@ -146,6 +48,86 @@ bool PlayScene::init()
 
     
     return true;
+}
+
+void PlayScene::initScene()
+{
+    //设置背景图片
+    auto backGround1 = Sprite::create("PlayGround.jpg");
+    backGround1->setAnchorPoint(Vec2(0.5,0.5));
+    backGround1->setPosition(Director::getInstance()->getWinSize().width/2, Director::getInstance()->getWinSize().height /2);
+    addChild(backGround1, -2);
+    
+    
+    //暂停的button
+    auto pauseButton = cocos2d::ui::Button::create("pause.png");
+    pauseButton->setAnchorPoint(Vec2(0.5,0.5));
+    pauseButton->setPosition(Vec2(MiddleX + 230,1050));
+    addChild(pauseButton);
+    pauseButton->addTouchEventListener([](Ref* sender, ui::Widget::TouchEventType type){
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            auto fade = TransitionMoveInT::create(0.5, PauseScene::createScene());
+            Director::getInstance()->pushScene(fade);
+        }
+        
+    });
+    
+    //全屏点击事件
+    auto listener1 = EventListenerTouchOneByOne::create();
+    listener1->onTouchBegan = CC_CALLBACK_2(PlayScene::touchIt,this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+    
+    
+    //浮动信息LABEL
+    messageLabel = Label::create();
+    messageLabel->setTextColor(Color4B::WHITE);
+    messageLabel->setSystemFontSize(60);
+    messageLabel->setString("浮动信息");
+    messageLabel->setSystemFontName(font_type);
+    messageLabel->setVisible(false);
+    messageLabel->setVerticalAlignment(cocos2d::TextVAlignment::CENTER);
+    messageLabel->setHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
+    addChild(messageLabel,99);
+    
+    
+    
+    //顶部得分LABEL
+    scoreLabel = Label::create();
+    scoreLabel->setTextColor(Color4B::WHITE);
+    scoreLabel->setSystemFontSize(40);
+    scoreLabel->setSystemFontName(font_type);
+    scoreLabel->setString("得分：0");
+    scoreLabel->setPosition(winSize.width/2, 1020);
+    addChild(scoreLabel,999);
+    
+    //顶部目标分数LABEL
+    mubiaoLabel = Label::create();
+    mubiaoLabel->setTextColor(Color4B::WHITE);
+    mubiaoLabel->setSystemFontSize(40);
+    mubiaoLabel->setString("目标：");
+    mubiaoLabel->setSystemFontName(font_type);
+    mubiaoLabel->setPosition(winSize.width/2 , 1080);
+    addChild(mubiaoLabel,999);
+    
+    //当前关卡LABEL
+    rateLabel = Label::create();
+    rateLabel->setTextColor(Color4B::WHITE);
+    rateLabel->setSystemFontSize(40);
+    rateLabel->setString("关卡数");
+    rateLabel->setSystemFontName(font_type);
+    rateLabel->setPosition(winSize.width/2 - 220, 1080);
+    addChild(rateLabel,999);
+    
+    countLabel = Label::create();
+    countLabel->setTextColor(Color4B::WHITE);
+    countLabel->setSystemFontSize(30);
+    countLabel->setSystemFontName(font_type);
+    countLabel->setString("");
+    countLabel->setPosition(winSize.width/2, 960);
+    addChild(countLabel,999);
+    
+    addEdges();
+
 }
 
 void PlayScene::update(float delta)
@@ -197,7 +179,7 @@ void PlayScene::initShuJu()
     guanka[1] = 1000;
     guanka[2] = 2500;
     guanka[3] = 4500;
-    for (int i = 4; i<200; i++) {
+    for (int i = 4; i<500; i++) {
         guanka[i] = guanka[i-1] + 2000 + 50*(i-3);
     }
     return;
@@ -205,11 +187,12 @@ void PlayScene::initShuJu()
 
 
 void PlayScene::beginNewGame(){
-    UserDefault::getInstance()->setBoolForKey("isWillContinue", true);
-    UserDefault::getInstance()->flush();
+//    UserDefault::getInstance()->setBoolForKey(Key_isWillContinue, true);
+//    UserDefault::getInstance()->flush();
     countLabel->setString("");
     if (UserDefault::getInstance()->getIntegerForKey(Key_TotalRate) == 0) {
         UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, 1);
+        UserDefault::getInstance()->flush();
     }
     defen = 0;
     scoreLabel->setTextColor(Color4B::WHITE);
@@ -228,12 +211,14 @@ void PlayScene::beginNewGame(){
     }
     
     messageLabel->setPosition(Vec2(winSize.width+100,winSize.height/2));
-    char c_message[50];
-    int tempguan = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate);
-    sprintf(c_message, "第%d关\n目标：%d",tempguan,guanka[tempguan]);
+//    char c_message[50];
+//    int tempguan = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate);
+//    sprintf(c_message, "第%d关\n目标：%d",tempguan,guanka[tempguan]);
+    //std::string c_message = StringUtils::format("第%d关\n目标：%d",tempguan,guanka[tempguan]);
     
+    int tempguan = UserDefault::getInstance()->getIntegerForKey(Key_TotalRate);
     messageLabel->setPosition(winSize.width+200, MiddleY);
-    messageLabel->setString(c_message);
+    messageLabel->setString(StringUtils::format("第%d关\n目标：%d",tempguan,guanka[tempguan]));
     auto jin = MoveTo::create(0.3, winSize/2);
     auto ting = DelayTime::create(1);
     auto chu = MoveTo::create(0.3, Vec2(-200,winSize.height/2));
@@ -243,9 +228,9 @@ void PlayScene::beginNewGame(){
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectReadyGo);
     messageLabel->runAction(hecheng);
     
+    
     umeng::MobClickCpp::startLevel(StringUtils::format("第%d关",tempguan).c_str());
     
-    //AddBalls();
     }
 
 
@@ -324,6 +309,7 @@ void PlayScene::refreshRate()
         auto huadong = TransitionMoveInR::create(0.5, ResultScene::createScene());
         Director::getInstance()->pushScene(huadong);
     }else{
+        umeng::MobClickCpp::finishLevel(StringUtils::format("第%d关",guankashu).c_str());
         //成功，进入下一关
         UserDefault::getInstance()->setIntegerForKey(Key_TotalRate, guankashu +1);
         
@@ -332,29 +318,22 @@ void PlayScene::refreshRate()
         messageLabel->setPosition(winSize.width+200, MiddleY);
         
         messageLabel->setString(StringUtils::format("过关\n%d",UserDefault::getInstance()->getIntegerForKey(Key_TotalScore)));
-        auto jin = MoveTo::create(0.3, winSize/2);
-        auto ting = DelayTime::create(1.5);
-        auto chu = MoveTo::create(0.3, Vec2(-200,winSize.height/2));
+        
+        auto jin = MoveTo::create(0.5, winSize/2);
+        auto ting = DelayTime::create(2);
+        auto chu = MoveTo::create(0.5, Vec2(-200,winSize.height/2));
         auto callFunc = CallFunc::create(CC_CALLBACK_0(PlayScene::beginNewGame, this));
         auto hecheng =Sequence::create(jin,ting,chu,callFunc, NULL);
         messageLabel->setVisible(true);
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectZhuan);
         messageLabel->runAction(hecheng);
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        //iOS代码
+
+        //插屏广告
         if (guankashu % 3 == 0) {
             [[CSInterstitial sharedInterstitial] loadInterstitial];
             [[CSInterstitial sharedInterstitial] showInterstitialWithScale:0.9f];
         }
-
-#else
-        //Android代码
-#endif
-
-        //beginNewGame();
     }
-    
-    
 }
 
 void PlayScene::AddBalls(){
@@ -386,7 +365,7 @@ void PlayScene::addBall(float positionX, float positionY){
     ballList.pushBack(newBall);
     colorCount[rand]++;
     addChild(newBall);
-    //return newBall;
+    
 }
 
 void PlayScene::deleteBall(cocos2d::Sprite *ball){
@@ -497,14 +476,14 @@ void PlayScene::refreshScore()
     int currentScore = totaldefen + defen;
     
     scoreLabel->setString(StringUtils::format("分数：%d",currentScore));
-    //scoreLabel->setSystemFontName("SiCChaoCuHei-M10S");
+    
     if (scoreLabel->getTextColor() == Color4B::WHITE) {
         if (currentScore >= guanka[guankashu]) {
             scoreLabel->setTextColor(Color4B::GREEN);
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(EffectWao);
-            auto fangda = ScaleTo::create(0.3, 1.2);
-            auto huanyuan =ScaleTo::create(0.3, 1.0);
-            auto duilie = Sequence::create(fangda,huanyuan,fangda,huanyuan,fangda,huanyuan, NULL);
+            auto fangda = ScaleTo::create(0.6, 1.3);
+            auto huanyuan =ScaleTo::create(0.6, 1.0);
+            auto duilie = Sequence::create(fangda->clone(),huanyuan->clone(),fangda->clone(),huanyuan->clone(),fangda->clone(),huanyuan->clone(),fangda->clone(),huanyuan->clone(),fangda->clone(),huanyuan->clone(), NULL);
             
             scoreLabel->runAction(duilie);
         }

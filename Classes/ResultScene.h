@@ -9,9 +9,12 @@
 #ifndef __MyPhysicalBall__ResultScene__
 #define __MyPhysicalBall__ResultScene__
 
-#define Key_TotalRate "TotalRate"
-#define Key_TotalScore "TotalScore"
 
+#include "PlayScene.h"
+#include "CCUMSocialSDK.h"
+#include "NCSGameCenter.h"
+#import <UIKit/UIKit.h>
+#include "MainItem.h"
 #include <stdio.h>
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
@@ -22,6 +25,7 @@
 #import "BaiduMobAdView.h"
 #include "UMShareButton.h"
 USING_NS_CC;
+USING_NS_UM_SOCIAL;
 class ResultScene :public cocos2d::Layer{
     
 private:
@@ -30,6 +34,7 @@ private:
 public:
     umeng::social::UMShareButton *shareButton;
     //string imageName;
+    
     static cocos2d::Scene* createScene();
     void afterCaptured(bool succeed, const std::string& outputFile);
     void captureIt();
