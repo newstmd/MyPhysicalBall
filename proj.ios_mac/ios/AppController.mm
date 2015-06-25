@@ -31,6 +31,7 @@
 #import "ChanceAd.h"
 #import "CSBannerView.h"
 #import "UMSocial.h"
+#import <Appirater.h>
 #define kAdViewPortraitRect CGRectMake(0, 0, kBaiduAdViewSizeDefaultWidth, kBaiduAdViewSizeDefaultHeight)
 
 @interface AppController () <CSBannerViewDelegate> {
@@ -51,6 +52,18 @@ static AppDelegate s_sharedApplication;
     [ChanceAd startSession:@"822624461-25B660-5B19-F375-3BFF61373"];//100032-4CE817-ABA2-5B48-14D009296720
     //ChanceAd
     //822624461-25B660-5B19-F375-3BFF61373
+    
+    //appirater评分部分
+    [Appirater setAppId:@"998182238"];
+    [Appirater setDaysUntilPrompt:2];
+    [Appirater setUsesUntilPrompt:3];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+    [Appirater setDebug:NO];
+    [Appirater appLaunched:YES];
+    //
+    
+    
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
     cocos2d::GLViewImpl::convertAttrs();
